@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HIVE Trade Network FAQ — straight answers to the questions tradies actually ask. No runaround.">
+  <title>FAQ — Straight answers. No runaround. | HIVE Trade Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --deep-green:#0b4550;--deep-green-dark:#072e38;--deep-green-light:#0d5565;
+      --fluro-yellow:#e6ff2b;--off-white:#f9f7f2;--warm-grey:#898a80;
+      --royal-blue:#2961f6;--white:#ffffff;--text-dark:#0f1f24;--text-muted:#5a6b70;
+      --font-heading:'Raleway',sans-serif;--font-body:'Work Sans',sans-serif;
+      --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;
+      --space-6:32px;--space-7:48px;--space-8:64px;--space-9:96px;--space-10:128px;
+      --radius-sm:4px;--radius-md:8px;--radius-lg:16px;--radius-xl:24px;
+      --shadow-sm:0 2px 8px rgba(0,0,0,0.08);--shadow-md:0 4px 20px rgba(0,0,0,0.12);
+      --nav-height:72px;--max-width:1200px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+    body{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--text-dark);background:var(--off-white);overflow-x:hidden;}
+    a{color:var(--royal-blue);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    h1,h2,h3,h4{font-family:var(--font-heading);font-weight:800;text-transform:uppercase;letter-spacing:-0.01em;line-height:1.1;}
+    h1{font-size:clamp(2rem,5.5vw,3.5rem);}
+    h2{font-size:clamp(1.7rem,4vw,2.6rem);}
+    h3{font-size:clamp(1.1rem,2.5vw,1.5rem);}
+    p{font-size:1rem;line-height:1.7;}
+    .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 var(--space-5);}
+    @media(min-width:768px){.container{padding:0 var(--space-6);}}
+    @media(min-width:1024px){.container{padding:0 var(--space-7);}}
+    .section-pad{padding:var(--space-9) 0;}
+    @media(max-width:768px){.section-pad{padding:var(--space-8) 0;}}
+
+    .honeycomb-bg{position:relative;}
+    .honeycomb-bg::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpolygon points='28,2 54,16 54,44 28,58 2,44 2,16' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3Cpolygon points='28,46 54,60 54,88 28,102 2,88 2,60' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3C/svg%3E");background-size:56px 100px;pointer-events:none;z-index:0;}
+    .honeycomb-bg>*{position:relative;z-index:1;}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);min-height:52px;padding:14px 28px;font-family:var(--font-body);font-size:1rem;font-weight:600;border-radius:var(--radius-md);border:2px solid transparent;cursor:pointer;text-decoration:none;transition:all 200ms ease-out;white-space:nowrap;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+    .btn:hover{text-decoration:none;transform:translateY(-1px);}
+    .btn:active{transform:scale(0.97);}
+    .btn-primary{background:var(--fluro-yellow);color:var(--deep-green-dark);border-color:var(--fluro-yellow);}
+    .btn-primary:hover{background:#d4ec00;border-color:#d4ec00;box-shadow:0 4px 20px rgba(230,255,43,0.35);}
+    .btn-outline{background:transparent;color:var(--white);border-color:rgba(255,255,255,0.5);}
+    .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:var(--white);}
+    .btn-outline-dark{background:transparent;color:var(--deep-green);border-color:var(--deep-green);}
+    .btn-outline-dark:hover{background:var(--deep-green);color:var(--white);}
+    .btn-lg{min-height:60px;padding:18px 36px;font-size:1.1rem;}
+    .btn-group{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center;}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-height);background:var(--deep-green-dark);border-bottom:1px solid rgba(255,255,255,0.08);transition:background 250ms;}
+    .nav.scrolled{background:rgba(7,46,56,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
+    .nav__inner{max-width:var(--max-width);margin:0 auto;padding:0 var(--space-5);height:100%;display:flex;align-items:center;justify-content:space-between;}
+    @media(min-width:768px){.nav__inner{padding:0 var(--space-6);}}
+    .nav__logo{display:flex;align-items:center;gap:var(--space-2);text-decoration:none;}
+    .nav__logo-img{height:40px;width:auto;display:block;}
+    .nav__logo-text{font-family:var(--font-heading);font-weight:800;font-size:1.4rem;color:var(--fluro-yellow);text-transform:uppercase;letter-spacing:0.05em;}
+    .nav__links{display:none;list-style:none;gap:var(--space-5);align-items:center;}
+    @media(min-width:900px){.nav__links{display:flex;}}
+    .nav__links a{font-size:0.9rem;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;transition:color 150ms;padding:var(--space-2) 0;}
+    .nav__links a:hover,.nav__links a.active{color:var(--fluro-yellow);text-decoration:none;}
+    .nav__cta{display:none;}
+    @media(min-width:640px){.nav__cta{display:inline-flex;}}
+    .nav__hamburger{display:flex;flex-direction:column;gap:5px;padding:var(--space-2);background:none;border:none;cursor:pointer;min-width:44px;min-height:44px;align-items:center;justify-content:center;}
+    @media(min-width:900px){.nav__hamburger{display:none;}}
+    .nav__hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:all 200ms;}
+    .nav__hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .nav__hamburger.open span:nth-child(2){opacity:0;}
+    .nav__hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .nav__mobile{display:none;position:fixed;top:var(--nav-height);left:0;right:0;background:var(--deep-green-dark);border-bottom:1px solid rgba(255,255,255,0.1);padding:var(--space-5);z-index:999;}
+    .nav__mobile.open{display:block;}
+    .nav__mobile a{display:flex;align-items:center;color:rgba(255,255,255,0.85);font-size:1rem;font-weight:500;padding:var(--space-3) 0;border-bottom:1px solid rgba(255,255,255,0.08);text-decoration:none;min-height:44px;}
+    .nav__mobile a:last-child{border-bottom:none;}
+    .nav__mobile a:hover{color:var(--fluro-yellow);}
+
+    /* HERO */
+    .page-hero{background:var(--deep-green);padding-top:calc(var(--nav-height) + var(--space-9));padding-bottom:var(--space-9);clip-path:polygon(0 0,100% 0,100% 93%,0 100%);}
+    @media(max-width:768px){.page-hero{padding-top:calc(var(--nav-height) + var(--space-7));clip-path:polygon(0 0,100% 0,100% 96%,0 100%);}}
+    .page-hero__eyebrow{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(230,255,43,0.12);border:1px solid rgba(230,255,43,0.3);color:var(--fluro-yellow);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;padding:6px 14px;border-radius:100px;margin-bottom:var(--space-4);}
+    .page-hero__title{color:var(--white);margin-bottom:var(--space-4);}
+    .page-hero__sub{color:rgba(255,255,255,0.7);font-size:clamp(1rem,2.5vw,1.2rem);line-height:1.65;max-width:600px;}
+
+    .section-label{display:inline-block;color:var(--deep-green);font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;margin-bottom:var(--space-3);padding:4px 12px;background:rgba(11,69,80,0.08);border-radius:100px;}
+
+    /* FAQ LAYOUT */
+    .faq-section{background:var(--off-white);}
+    .faq-layout{display:grid;grid-template-columns:1fr;gap:var(--space-8);}
+    @media(min-width:1024px){.faq-layout{grid-template-columns:280px 1fr;gap:var(--space-10);}}
+
+    /* STICKY NAV */
+    .faq-nav{display:none;}
+    @media(min-width:1024px){
+      .faq-nav{display:block;position:sticky;top:calc(var(--nav-height) + var(--space-5));align-self:start;}
+    }
+    .faq-nav__title{font-family:var(--font-heading);font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:var(--warm-grey);margin-bottom:var(--space-4);}
+    .faq-nav__list{list-style:none;display:flex;flex-direction:column;gap:2px;}
+    .faq-nav__list a{display:block;padding:var(--space-3) var(--space-4);font-size:0.9rem;font-weight:500;color:var(--text-muted);text-decoration:none;border-radius:var(--radius-md);transition:background 150ms,color 150ms;min-height:44px;display:flex;align-items:center;}
+    .faq-nav__list a:hover,.faq-nav__list a.active{background:rgba(11,69,80,0.08);color:var(--deep-green);}
+
+    /* FAQ GROUPS */
+    .faq-group{margin-bottom:var(--space-8);}
+    .faq-group:last-child{margin-bottom:0;}
+    .faq-group__header{display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-5);padding-bottom:var(--space-4);border-bottom:2px solid rgba(11,69,80,0.1);}
+    .faq-group__icon{width:40px;height:40px;background:var(--deep-green);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .faq-group__icon svg{width:20px;height:20px;color:var(--fluro-yellow);}
+    .faq-group__title{font-family:var(--font-heading);font-size:1.1rem;font-weight:800;text-transform:uppercase;color:var(--deep-green);}
+
+    /* ACCORDION */
+    .accordion{display:flex;flex-direction:column;gap:var(--space-2);}
+    .accordion-item{background:var(--white);border:1.5px solid rgba(11,69,80,0.08);border-radius:var(--radius-lg);overflow:hidden;transition:border-color 200ms,box-shadow 200ms;}
+    .accordion-item:hover{border-color:rgba(11,69,80,0.2);}
+    .accordion-item.open{border-color:var(--deep-green);box-shadow:var(--shadow-sm);}
+    .accordion-btn{width:100%;padding:var(--space-4) var(--space-5);background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);text-align:left;min-height:60px;transition:background 150ms;}
+    .accordion-btn:hover{background:rgba(11,69,80,0.02);}
+    .accordion-question{font-family:var(--font-body);font-size:1rem;font-weight:600;color:var(--text-dark);line-height:1.4;}
+    .accordion-icon{width:28px;height:28px;flex-shrink:0;border:1.5px solid rgba(11,69,80,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform 200ms,background 200ms,border-color 200ms;}
+    .accordion-icon svg{width:12px;height:12px;color:var(--deep-green);transition:transform 200ms;}
+    .accordion-item.open .accordion-icon{background:var(--deep-green);border-color:var(--deep-green);}
+    .accordion-item.open .accordion-icon svg{transform:rotate(45deg);color:var(--fluro-yellow);}
+    .accordion-panel{display:none;padding:0 var(--space-5) var(--space-5);}
+    .accordion-panel p{color:var(--text-muted);font-size:0.95rem;line-height:1.75;}
+    .accordion-panel p+p{margin-top:var(--space-3);}
+    .accordion-item.open .accordion-panel{display:block;animation:slideDown 200ms ease-out;}
+    @keyframes slideDown{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+
+    /* CONTACT CTA */
+    .contact-cta{background:var(--deep-green);padding:var(--space-8) 0;}
+    .contact-cta__inner{display:grid;grid-template-columns:1fr;gap:var(--space-6);align-items:center;text-align:center;}
+    @media(min-width:768px){.contact-cta__inner{grid-template-columns:1fr 1fr;text-align:left;}}
+    .contact-cta__title{color:var(--white);margin-bottom:var(--space-3);}
+    .contact-cta__sub{color:rgba(255,255,255,0.65);font-size:1.05rem;}
+    .contact-cta__actions{display:flex;flex-direction:column;gap:var(--space-3);}
+    @media(min-width:640px){.contact-cta__actions{flex-direction:row;}}
+
+    /* FOOTER */
+    .footer{background:var(--deep-green-dark);padding:var(--space-8) 0 var(--space-6);}
+    .footer__inner{display:grid;grid-template-columns:1fr;gap:var(--space-7);}
+    @media(min-width:768px){.footer__inner{grid-template-columns:2fr 1fr 1fr;gap:var(--space-8);}}
+    .footer__brand-line{font-family:var(--font-heading);font-size:0.85rem;color:var(--fluro-yellow);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:var(--space-3);}
+    .footer__tagline{color:rgba(255,255,255,0.5);font-size:0.85rem;line-height:1.6;max-width:280px;}
+    .footer__heading{font-family:var(--font-heading);font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-bottom:var(--space-4);}
+    .footer__links{list-style:none;display:flex;flex-direction:column;gap:var(--space-2);}
+    .footer__links a{color:rgba(255,255,255,0.65);font-size:0.9rem;text-decoration:none;transition:color 150ms;min-height:36px;display:flex;align-items:center;}
+    .footer__links a:hover{color:var(--fluro-yellow);}
+    .footer__bottom{margin-top:var(--space-7);padding-top:var(--space-5);border-top:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;gap:var(--space-3);}
+    @media(min-width:640px){.footer__bottom{flex-direction:row;justify-content:space-between;align-items:center;}}
+    .footer__copy{color:rgba(255,255,255,0.35);font-size:0.8rem;}
+    .footer__abn{color:rgba(255,255,255,0.25);font-size:0.75rem;}
+
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 500ms ease,transform 500ms ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal-delay-1{transition-delay:100ms;}.reveal-delay-2{transition-delay:200ms;}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;}.reveal{opacity:1;transform:none;}}
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="HIVE Trade Network home">
+        <img src="Logo.png" alt="HIVE Trade Network" class="nav__logo-img">
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html" class="active" aria-current="page">FAQ</a></li>
+        <li><a href="suppliers.html">Suppliers</a></li>
+      </ul>
+      <a href="join.html" class="btn btn-primary nav__cta" style="min-height:40px;padding:10px 20px;font-size:0.9rem;">Join Free</a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="join.html">Join Free</a>
+    <a href="index.html#how-it-works">How It Works</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="suppliers.html">Suppliers</a>
+  </div>
+
+  <main id="main-content">
+
+    <section class="page-hero honeycomb-bg" aria-label="FAQ">
+      <div class="container">
+        <span class="page-hero__eyebrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><polygon points="6,0 12,3 12,9 6,12 0,9 0,3"/></svg>
+          Got questions?
+        </span>
+        <h1 class="page-hero__title">Straight answers.<br>No runaround.</h1>
+        <p class="page-hero__sub">Mate-to-mate, no corporate fluff. Here's everything you want to know about HIVE — before you decide if it's right for you.</p>
+      </div>
+    </section>
+
+    <section class="faq-section section-pad" aria-label="Frequently asked questions">
+      <div class="container">
+        <div class="faq-layout">
+
+          <!-- Side nav (desktop) -->
+          <nav class="faq-nav" aria-label="FAQ sections">
+            <div class="faq-nav__title">Jump to</div>
+            <ul class="faq-nav__list" role="list">
+              <li><a href="#about-hive">About HIVE</a></li>
+              <li><a href="#membership">Membership</a></li>
+              <li><a href="#suppliers-spend">Suppliers & Spend</a></li>
+            </ul>
+          </nav>
+
+          <!-- FAQ Content -->
+          <div>
+
+            <!-- SECTION 1: ABOUT HIVE -->
+            <div class="faq-group reveal" id="about-hive">
+              <div class="faq-group__header">
+                <div class="faq-group__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h2 class="faq-group__title">About HIVE</h2>
+              </div>
+              <div class="accordion" role="list">
+
+                <div class="accordion-item" role="listitem">
+                  <button class="accordion-btn" aria-expanded="false" aria-controls="a1" id="a1-btn">
+                    <span class="accordion-question">How is HIVE different from a typical buyers group?</span>
+                    <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+                  </button>
+                  <div class="accordion-panel" id="a1" role="region" aria-labelledby="a1-btn">
+                    <p>Most buyers groups are built by a few builders pooling their spend to get better pricing, then opening the deal to others.</p>
+                    <p>HIVE flips that approach. We work directly with suppliers to understand their business, reduce their risk, and help grow their market share — in return, we secure top-tier pricing and fairer terms for our members. We're not builders ourselves — we specialise in procurement and contracts. And we know from experience that a well-balanced, high-trust ecosystem outperforms a strong-arm deal every day of the week.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item" role="listitem">
+                  <button class="accordion-btn" aria-expanded="false" aria-controls="a2" id="a2-btn">
+                    <span class="accordion-question">How does HIVE make money?</span>
+                    <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+                  </button>
+                  <div class="accordion-panel" id="a2" role="region" aria-labelledby="a2-btn">
+                    <p>We're funded by our suppliers — not our members. Every supplier pays the same flat rate to be part of the Hive. That means we're not chasing commission, upsell, or promoting one supplier over another.</p>
+                    <p>We only win when both sides win: members save and stick around, suppliers grow — and everyone plays fair.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item" role="listitem">
+                  <button class="accordion-btn" aria-expanded="false" aria-controls="a3" id="a3-btn">
+                    <span class="accordion-question">Is this just another platform trying to sell me stuff?</span>
+                    <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+                  </button>
+                  <div class="accordion-panel" id="a3" role="region" aria-labelledby="a3-btn">
+                    <p>Nope. We're not a marketplace. We're not a wholesaler. And we're definitely not a tool shop in disguise.</p>
+                    <p>HIVE is a service — a system — built to help tradies buy better from the suppliers they already use (or new ones worth switching to).</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item" role="listitem">
+                  <button class="accordion-btn" aria-expanded="false" aria-controls="a4" id="a4-btn">
+                    <span class="accordion-question">Does HIVE get kickbacks or push suppliers who pay more?</span>
+                    <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+                  </button>
+                  <div class="accordion-panel" id="a4" role="region" aria-labelledby="a4-btn">
+                    <p>No. Every supplier pays the same flat rate to be part of the Hive. We don't earn more from one over another, and we never promote a supplier just because they're paying us more — because they don't.</p>
+                    <p>We choose suppliers based on value, alignment, and loyalty — not margins. If a supplier puts a great offer on the table, we'll make sure you know about it. But whether you take it or not is completely up to you.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- SECTION 2: MEMBERSHIP -->
+            <div class="faq-group reveal" id="membership" style="margin-top:var(--space-8);">
+              <div class="faq-group__header">
+                <div class="faq-group__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h2 class="faq-group__title">Membership</h2>
+              </div>
+              <div class="accordion" role="list">
+
+                <div class="accordion-item" role="listitem">
+                  <button class="accordion-btn" aria-expanded="false" aria-controls="b1" id="b1-btn">
+                    <span class="accordion-question">Is it really free to join?</span>
+                    <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+                  </button>
+                  <div class="accordion-panel" id="b1" role="region" aria-labelledby="b1-btn">
+                    <p>Yep. No sign-up fees. No monthly charges. No contracts. You can join for free, and you're free to leave any time. We keep things simple because we back what we offer — no traps, no tricks.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item" role="listitem">
+                  <button class="accordion-btn" aria-expanded="false" aria-controls="b2" id="b2-btn">
+                    <span class="accordion-question">What's expected of me as a member?</span>
+                    <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+                  </button>
+                  <div class="accordion-panel" id="b2" role="region" aria-labelledby="b2-btn">
+                    <p>Just three things: Buy fair. Pay fair. Give fair, accurate feedback — and tell your mates.</p>
+                    <p>All HIVE members agree to a Code of Conduct — it keeps the network running smoothly and protects your access to top-tier deals. You don't need to jump through hoops, but we do expect you to back the system that backs you.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item" role="listitem">
+                  <button class="accordion-btn" aria-expanded="false" aria-controls="b3" id="b3-btn">
+                    <span class="accordion-question">Do I have to leave my current suppliers?</span>
+                    <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+                  </button>
+                  <div class="accordion-panel" id="b3" role="region" aria-labelledby="b3-btn">
+                    <p>Not at all. You're not bound to exclusivity with HIVE suppliers. If you've already got a good thing going and that supplier joins the Hive, you can keep dealing with them — just on better terms.</p>
+                    <p>No member will ever be worse off than before joining. Suppliers must maintain or improve any higher conditions already in place. If your current supplier isn't in the Hive, we'll show you what else is on offer so you can compare for yourself. No pressure.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item" role="listitem">
+                  <button class="accordion-btn" aria-expanded="false" aria-controls="b4" id="b4-btn">
+                    <span class="accordion-question">What if I want to leave HIVE?</span>
+                    <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+                  </button>
+                  <div class="accordion-panel" id="b4" role="region" aria-labelledby="b4-btn">
+                    <p>No worries — you're not locked in. You can leave anytime. Most tradies stick around once they see how much time and money they're saving — without the constant hassle of shopping around.</p>
+                    <p>That said, HIVE isn't for everyone. If someone's not seeing the value, or not operating in line with our Code of Conduct, we're not afraid to part ways. Being part of the Hive is a privilege — and we expect both members and suppliers to act in the best interest of the collective.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- SECTION 3: SUPPLIERS & SPEND -->
+            <div class="faq-group reveal" id="suppliers-spend" style="margin-top:var(--space-8);">
+              <div class="faq-group__header">
+                <div class="faq-group__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h2 class="faq-group__title">Suppliers &amp; Spend</h2>
+              </div>
+              <div class="accordion" role="list">
+
+                <div class="accordion-item" role="listitem">
+                  <button class="accordion-btn" aria-expanded="false" aria-controls="c1" id="c1-btn">
+                    <span class="accordion-question">How does HIVE get better deals than I can on my own?</span>
+                    <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+                  </button>
+                  <div class="accordion-panel" id="c1" role="region" aria-labelledby="c1-btn">
+                    <p>We combine the spend of good operators under one commercial agreement — so you get the kind of pricing usually reserved for bigger players. But it's not just about volume.</p>
+                    <p>We work with suppliers to reduce admin, improve order consistency, and lower their risk — and in return, they offer better pricing and terms to the Hive. Everyone wins.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item" role="listitem">
+                  <button class="accordion-btn" aria-expanded="false" aria-controls="c2" id="c2-btn">
+                    <span class="accordion-question">Do I deal directly with suppliers?</span>
+                    <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+                  </button>
+                  <div class="accordion-panel" id="c2" role="region" aria-labelledby="c2-btn">
+                    <p>Yes — always. You still place your orders, manage your jobs, and run your business your way. HIVE isn't here to get in the middle. We don't touch your stock, your paperwork, or your process.</p>
+                    <p>We sit in the background, making sure the deals are locked in, the discounts are applied, and the wheels keep turning. Out of sight, out of your way — but always working for you.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item" role="listitem">
+                  <button class="accordion-btn" aria-expanded="false" aria-controls="c3" id="c3-btn">
+                    <span class="accordion-question">Do I need trade accounts with all the suppliers?</span>
+                    <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+                  </button>
+                  <div class="accordion-panel" id="c3" role="region" aria-labelledby="c3-btn">
+                    <p>Not always — but sometimes they make sense. A lot of our deals can be accessed without a trade account. We'll work with you during onboarding to figure out which suppliers are worth setting up accounts with. It can help smooth out cash flow, speed up pickups, and give your team more flexibility.</p>
+                    <p>Whether you already have accounts or want to set one up, we'll make the intro and get the admin sorted. Bottom line? You don't need to change the way you do business. We're just here to make it easier.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item" role="listitem">
+                  <button class="accordion-btn" aria-expanded="false" aria-controls="c4" id="c4-btn">
+                    <span class="accordion-question">Do I order through HIVE or directly with the supplier?</span>
+                    <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+                  </button>
+                  <div class="accordion-panel" id="c4" role="region" aria-labelledby="c4-btn">
+                    <p>Directly with the supplier. We're not a middleman — we don't touch your orders, your stock, or take any payments. Our job is to secure the deal and keep everyone aligned to the Code. You stay in control of how and where you order — always.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item" role="listitem">
+                  <button class="accordion-btn" aria-expanded="false" aria-controls="c5" id="c5-btn">
+                    <span class="accordion-question">What happens if I have an issue with a supplier?</span>
+                    <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+                  </button>
+                  <div class="accordion-panel" id="c5" role="region" aria-labelledby="c5-btn">
+                    <p>We step in. If something goes wrong and you can't resolve it directly, HIVE acts as a mediator to get it sorted quickly and fairly — without damaging your relationship. We work collaboratively with all parties, assess the situation impartially, and recommend a fair outcome.</p>
+                  </div>
+                </div>
+
+                <div class="accordion-item" role="listitem">
+                  <button class="accordion-btn" aria-expanded="false" aria-controls="c6" id="c6-btn">
+                    <span class="accordion-question">Can I still shop around if I want to?</span>
+                    <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+                  </button>
+                  <div class="accordion-panel" id="c6" role="region" aria-labelledby="c6-btn">
+                    <p>You can — but most members stop needing to. When the deal's already fair, the price is sharp, and the supplier's reliable, there's no point wasting time playing the field. That's the point of the Hive — better buying, less runaround.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="contact-cta honeycomb-bg" aria-label="Still have questions">
+      <div class="container">
+        <div class="contact-cta__inner">
+          <div>
+            <h2 class="contact-cta__title reveal">Still got questions?</h2>
+            <p class="contact-cta__sub reveal">We're here. Book a call, send a message, or just join and find out for yourself.</p>
+          </div>
+          <div class="contact-cta__actions reveal reveal-delay-1">
+            <a href="join.html" class="btn btn-primary btn-lg">Join HIVE Free</a>
+            <a href="mailto:admin@hivetradenetwork.com" class="btn btn-outline btn-lg">Book a Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand-line">Connect with a Hive of trade accounts.</div>
+          <p class="footer__tagline">Built for the trade. Backed by HIVE. Central Coast NSW.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Members</div>
+          <ul class="footer__links" role="list">
+            <li><a href="join.html">Join HIVE</a></li>
+            <li><a href="index.html#how-it-works">How It Works</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Company</div>
+          <ul class="footer__links" role="list">
+            <li><a href="about.html">About</a></li>
+            <li><a href="suppliers.html">Suppliers</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="mailto:admin@hivetradenetwork.com">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2026 HIVE Trade Network Pty Ltd. All rights reserved.</span>
+        <span class="footer__abn">ABN 21 683 196 018</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav=document.getElementById('nav');
+    window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});
+    const hamburger=document.getElementById('hamburger');
+    const mobileMenu=document.getElementById('mobile-menu');
+    hamburger.addEventListener('click',()=>{const isOpen=mobileMenu.classList.toggle('open');hamburger.classList.toggle('open',isOpen);hamburger.setAttribute('aria-expanded',isOpen);});
+    mobileMenu.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamburger.classList.remove('open');hamburger.setAttribute('aria-expanded','false');});});
+
+    // Accordion
+    document.querySelectorAll('.accordion-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const item=btn.closest('.accordion-item');
+        const isOpen=item.classList.contains('open');
+        document.querySelectorAll('.accordion-item').forEach(i=>{i.classList.remove('open');i.querySelector('.accordion-btn').setAttribute('aria-expanded','false');});
+        if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
+      });
+    });
+
+    // FAQ nav active state on scroll
+    const groups=document.querySelectorAll('.faq-group');
+    const navLinks=document.querySelectorAll('.faq-nav__list a');
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          navLinks.forEach(l=>l.classList.remove('active'));
+          const link=document.querySelector(`.faq-nav__list a[href="#${e.target.id}"]`);
+          if(link)link.classList.add('active');
+        }
+      });
+    },{rootMargin:'-20% 0px -60% 0px'});
+    groups.forEach(g=>observer.observe(g));
+
+    // Scroll reveal
+    const reveals=document.querySelectorAll('.reveal');
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+    reveals.forEach(el=>obs.observe(el));
+  </script>
+</body>
+</html>

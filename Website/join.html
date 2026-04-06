@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join HIVE Trade Network — free membership for independent NSW tradies. Better deals, less admin, no lock-ins.">
+  <title>Join HIVE — Stop cutting your margins. Start buying smarter.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --deep-green: #0b4550;
+      --deep-green-dark: #072e38;
+      --deep-green-light: #0d5565;
+      --fluro-yellow: #e6ff2b;
+      --off-white: #f9f7f2;
+      --warm-grey: #898a80;
+      --royal-blue: #2961f6;
+      --white: #ffffff;
+      --text-dark: #0f1f24;
+      --text-muted: #5a6b70;
+      --font-heading: 'Raleway', sans-serif;
+      --font-body: 'Work Sans', sans-serif;
+      --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px;
+      --space-6:32px; --space-7:48px; --space-8:64px; --space-9:96px; --space-10:128px;
+      --radius-sm:4px; --radius-md:8px; --radius-lg:16px; --radius-xl:24px;
+      --shadow-sm:0 2px 8px rgba(0,0,0,0.08); --shadow-md:0 4px 20px rgba(0,0,0,0.12);
+      --nav-height:72px; --max-width:1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: var(--font-body); font-size:16px; line-height:1.65; color:var(--text-dark); background:var(--off-white); overflow-x:hidden; }
+    img { max-width:100%; height:auto; display:block; }
+    a { color:var(--royal-blue); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    h1,h2,h3,h4 { font-family:var(--font-heading); font-weight:800; text-transform:uppercase; letter-spacing:-0.01em; line-height:1.1; }
+    h1 { font-size:clamp(2rem,5.5vw,3.5rem); }
+    h2 { font-size:clamp(1.7rem,4vw,2.6rem); }
+    h3 { font-size:clamp(1.2rem,3vw,1.7rem); }
+    h4 { font-size:clamp(1rem,2vw,1.2rem); }
+    p { font-size:1rem; line-height:1.7; }
+    .container { width:100%; max-width:var(--max-width); margin:0 auto; padding:0 var(--space-5); }
+    @media(min-width:768px){.container{padding:0 var(--space-6);}}
+    @media(min-width:1024px){.container{padding:0 var(--space-7);}}
+    .section-pad { padding:var(--space-9) 0; }
+    @media(max-width:768px){.section-pad{padding:var(--space-8) 0;}}
+
+    .honeycomb-bg { position:relative; }
+    .honeycomb-bg::before {
+      content:''; position:absolute; inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpolygon points='28,2 54,16 54,44 28,58 2,44 2,16' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3Cpolygon points='28,46 54,60 54,88 28,102 2,88 2,60' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+      background-size:56px 100px; pointer-events:none; z-index:0;
+    }
+    .honeycomb-bg > * { position:relative; z-index:1; }
+
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:var(--space-2); min-height:52px; padding:14px 28px; font-family:var(--font-body); font-size:1rem; font-weight:600; border-radius:var(--radius-md); border:2px solid transparent; cursor:pointer; text-decoration:none; transition:all 200ms ease-out; white-space:nowrap; touch-action:manipulation; -webkit-tap-highlight-color:transparent; }
+    .btn:hover { text-decoration:none; transform:translateY(-1px); }
+    .btn:active { transform:scale(0.97); }
+    .btn-primary { background:var(--fluro-yellow); color:var(--deep-green-dark); border-color:var(--fluro-yellow); }
+    .btn-primary:hover { background:#d4ec00; border-color:#d4ec00; box-shadow:0 4px 20px rgba(230,255,43,0.35); }
+    .btn-outline { background:transparent; color:var(--white); border-color:rgba(255,255,255,0.5); }
+    .btn-outline:hover { background:rgba(255,255,255,0.1); border-color:var(--white); }
+    .btn-outline-dark { background:transparent; color:var(--deep-green); border-color:var(--deep-green); }
+    .btn-outline-dark:hover { background:var(--deep-green); color:var(--white); }
+    .btn-lg { min-height:60px; padding:18px 36px; font-size:1.1rem; }
+    .btn-full { width:100%; }
+    .btn-group { display:flex; flex-wrap:wrap; gap:var(--space-3); align-items:center; }
+
+    /* NAV */
+    .nav { position:fixed; top:0; left:0; right:0; z-index:1000; height:var(--nav-height); background:var(--deep-green-dark); border-bottom:1px solid rgba(255,255,255,0.08); transition:background 250ms; }
+    .nav.scrolled { background:rgba(7,46,56,0.97); backdrop-filter:blur(12px); box-shadow:0 2px 20px rgba(0,0,0,0.3); }
+    .nav__inner { max-width:var(--max-width); margin:0 auto; padding:0 var(--space-5); height:100%; display:flex; align-items:center; justify-content:space-between; }
+    @media(min-width:768px){.nav__inner{padding:0 var(--space-6);}}
+    .nav__logo { display:flex; align-items:center; gap:var(--space-2); text-decoration:none; }
+    .nav__logo-img { height:40px; width:auto; display:block; }
+    .nav__links { display:none; list-style:none; gap:var(--space-5); align-items:center; }
+    @media(min-width:900px){.nav__links{display:flex;}}
+    .nav__links a { font-size:0.9rem; font-weight:500; color:rgba(255,255,255,0.75); text-decoration:none; transition:color 150ms; padding:var(--space-2) 0; }
+    .nav__links a:hover,.nav__links a.active { color:var(--fluro-yellow); text-decoration:none; }
+    .nav__cta { display:none; }
+    @media(min-width:640px){.nav__cta{display:inline-flex;}}
+    .nav__hamburger { display:flex; flex-direction:column; gap:5px; padding:var(--space-2); background:none; border:none; cursor:pointer; min-width:44px; min-height:44px; align-items:center; justify-content:center; }
+    @media(min-width:900px){.nav__hamburger{display:none;}}
+    .nav__hamburger span { display:block; width:24px; height:2px; background:var(--white); border-radius:2px; transition:all 200ms; }
+    .nav__hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .nav__hamburger.open span:nth-child(2){opacity:0;}
+    .nav__hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .nav__mobile { display:none; position:fixed; top:var(--nav-height); left:0; right:0; background:var(--deep-green-dark); border-bottom:1px solid rgba(255,255,255,0.1); padding:var(--space-5); z-index:999; }
+    .nav__mobile.open{display:block;}
+    .nav__mobile a { display:flex; align-items:center; color:rgba(255,255,255,0.85); font-size:1rem; font-weight:500; padding:var(--space-3) 0; border-bottom:1px solid rgba(255,255,255,0.08); text-decoration:none; min-height:44px; }
+    .nav__mobile a:last-child{border-bottom:none;}
+    .nav__mobile a:hover{color:var(--fluro-yellow);}
+
+    /* PAGE HERO */
+    .page-hero {
+      background:var(--deep-green);
+      padding-top:calc(var(--nav-height) + var(--space-9));
+      padding-bottom:var(--space-9);
+      clip-path:polygon(0 0, 100% 0, 100% 93%, 0 100%);
+    }
+    @media(max-width:768px){.page-hero{padding-top:calc(var(--nav-height) + var(--space-7)); clip-path:polygon(0 0, 100% 0, 100% 96%, 0 100%);}}
+    .page-hero__eyebrow { display:inline-flex; align-items:center; gap:var(--space-2); background:rgba(230,255,43,0.12); border:1px solid rgba(230,255,43,0.3); color:var(--fluro-yellow); font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; padding:6px 14px; border-radius:100px; margin-bottom:var(--space-4); }
+    .page-hero__title { color:var(--white); margin-bottom:var(--space-4); }
+    .page-hero__sub { color:rgba(255,255,255,0.7); font-size:clamp(1rem,2.5vw,1.2rem); line-height:1.65; margin-bottom:var(--space-6); max-width:600px; }
+    .page-hero__ctas { display:flex; flex-wrap:wrap; gap:var(--space-3); }
+
+    /* SECTION LABEL */
+    .section-label { display:inline-block; color:var(--deep-green); font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; margin-bottom:var(--space-3); padding:4px 12px; background:rgba(11,69,80,0.08); border-radius:100px; }
+    .section-label--light { background:rgba(230,255,43,0.12); color:var(--fluro-yellow); }
+
+    /* BENEFITS SECTION */
+    .benefits-section { background:var(--off-white); }
+    .benefits-section__headline { color:var(--deep-green); margin-bottom:var(--space-4); }
+    .benefit-grid { display:grid; grid-template-columns:1fr; gap:var(--space-4); margin-bottom:var(--space-5); }
+    @media(min-width:640px){.benefit-grid{grid-template-columns:1fr 1fr;}}
+    .benefit-card { display:flex; align-items:flex-start; gap:var(--space-4); padding:var(--space-5); background:var(--white); border-radius:var(--radius-lg); border:1px solid rgba(11,69,80,0.08); box-shadow:var(--shadow-sm); }
+    .benefit-card__icon { width:44px; height:44px; background:var(--deep-green); border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .benefit-card__icon svg { width:22px; height:22px; color:var(--fluro-yellow); }
+    .benefit-card__title { font-family:var(--font-heading); font-size:0.9rem; font-weight:800; text-transform:uppercase; color:var(--deep-green); margin-bottom:4px; }
+    .benefit-card__desc { font-size:0.9rem; color:var(--text-muted); line-height:1.5; }
+    .guarantee-bar { background:var(--deep-green); color:rgba(255,255,255,0.85); padding:var(--space-5) var(--space-6); border-radius:var(--radius-lg); font-size:1rem; text-align:center; font-style:italic; margin-top:var(--space-5); }
+
+    /* HOW IT WORKS */
+    .steps-section { background:var(--deep-green); }
+    .steps-section__headline { color:var(--white); margin-bottom:var(--space-3); }
+    .steps-section__sub { color:rgba(255,255,255,0.65); margin-bottom:var(--space-7); max-width:560px; font-size:1.05rem; }
+    .steps-list { display:flex; flex-direction:column; gap:var(--space-5); }
+    .step-row { display:grid; grid-template-columns:56px 1fr; gap:var(--space-5); align-items:flex-start; }
+    .step-row__num { width:56px; height:56px; background:rgba(230,255,43,0.12); border:1.5px solid rgba(230,255,43,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-heading); font-size:1.2rem; font-weight:800; color:var(--fluro-yellow); flex-shrink:0; }
+    .step-row__content {}
+    .step-row__title { font-family:var(--font-heading); font-size:1rem; font-weight:800; text-transform:uppercase; color:var(--fluro-yellow); margin-bottom:var(--space-2); }
+    .step-row__desc { color:rgba(255,255,255,0.75); font-size:0.95rem; line-height:1.65; }
+    .step-connector { width:2px; height:var(--space-5); background:rgba(230,255,43,0.2); margin-left:27px; }
+
+    /* ELIGIBILITY */
+    .eligibility-section { background:var(--off-white); }
+    .eligibility-section__grid { display:grid; grid-template-columns:1fr; gap:var(--space-8); }
+    @media(min-width:900px){.eligibility-section__grid{grid-template-columns:1fr 1fr;}}
+    .eligibility-section__headline { color:var(--deep-green); margin-bottom:var(--space-4); }
+    .eligibility-list { list-style:none; display:flex; flex-direction:column; gap:var(--space-3); margin-bottom:var(--space-5); }
+    .eligibility-list li { display:flex; align-items:flex-start; gap:var(--space-3); font-size:1rem; color:var(--text-dark); }
+    .check-icon { width:24px; height:24px; background:var(--deep-green); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+    .check-icon svg { width:14px; height:14px; color:var(--fluro-yellow); }
+    .eligibility-note { font-size:0.9rem; color:var(--text-muted); padding:var(--space-4); background:rgba(11,69,80,0.06); border-left:3px solid var(--deep-green); border-radius:0 var(--radius-md) var(--radius-md) 0; }
+    .yakka-line { font-family:var(--font-heading); font-size:1.1rem; color:var(--deep-green); margin:var(--space-5) 0 var(--space-4); }
+
+    /* OBJECTIONS / ACCORDIONS */
+    .objections-section { background:var(--deep-green); }
+    .objections-section__headline { color:var(--white); margin-bottom:var(--space-3); }
+    .objections-section__sub { color:rgba(255,255,255,0.65); margin-bottom:var(--space-6); font-size:1.05rem; }
+    .accordion { display:flex; flex-direction:column; gap:var(--space-2); }
+    .accordion-item { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius-md); overflow:hidden; }
+    .accordion-btn { width:100%; padding:var(--space-4) var(--space-5); background:none; border:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:var(--space-4); text-align:left; min-height:56px; transition:background 150ms; }
+    .accordion-btn:hover { background:rgba(255,255,255,0.06); }
+    .accordion-btn[aria-expanded="true"] { background:rgba(255,255,255,0.07); }
+    .accordion-question { font-family:var(--font-body); font-size:1rem; font-weight:600; color:var(--white); line-height:1.4; }
+    .accordion-icon { width:24px; height:24px; flex-shrink:0; border:1.5px solid rgba(230,255,43,0.4); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:transform 200ms, background 200ms; }
+    .accordion-icon svg { width:12px; height:12px; color:var(--fluro-yellow); transition:transform 200ms; }
+    .accordion-btn[aria-expanded="true"] .accordion-icon { background:rgba(230,255,43,0.15); }
+    .accordion-btn[aria-expanded="true"] .accordion-icon svg { transform:rotate(45deg); }
+    .accordion-panel { display:none; padding:0 var(--space-5) var(--space-5); }
+    .accordion-panel p { color:rgba(255,255,255,0.75); font-size:0.95rem; line-height:1.7; }
+    .accordion-item.open .accordion-panel { display:block; }
+
+    /* REGISTER CTA */
+    .register-cta { background:var(--off-white); }
+    .register-cta__inner { display:grid; grid-template-columns:1fr; gap:var(--space-8); align-items:start; }
+    @media(min-width:900px){.register-cta__inner{grid-template-columns:1fr 1fr;}}
+    .register-cta__left {}
+    .register-cta__title { color:var(--deep-green); margin-bottom:var(--space-4); }
+    .register-cta__sub { color:var(--text-muted); margin-bottom:var(--space-5); font-size:1.05rem; }
+    .register-form { background:var(--white); border-radius:var(--radius-xl); padding:var(--space-7); box-shadow:var(--shadow-md); border:1px solid rgba(11,69,80,0.08); }
+    .register-form__title { font-family:var(--font-heading); font-size:1.2rem; font-weight:800; text-transform:uppercase; color:var(--deep-green); margin-bottom:var(--space-5); }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-4); margin-bottom:var(--space-4); }
+    @media(max-width:480px){.form-row{grid-template-columns:1fr;}}
+    .form-field { display:flex; flex-direction:column; gap:6px; }
+    .form-field.span-2{grid-column:1/-1;}
+    .form-field label { font-size:0.85rem; font-weight:600; color:var(--text-dark); }
+    .form-field .req { color:var(--deep-green); margin-left:2px; }
+    .form-field input,.form-field select { min-height:48px; padding:12px 14px; border:1.5px solid rgba(11,69,80,0.2); border-radius:var(--radius-md); font-family:var(--font-body); font-size:1rem; color:var(--text-dark); background:var(--white); transition:border-color 150ms, box-shadow 150ms; width:100%; }
+    .form-field input:focus,.form-field select:focus { outline:none; border-color:var(--deep-green); box-shadow:0 0 0 3px rgba(11,69,80,0.12); }
+    .form-submit-row { margin-top:var(--space-5); }
+    .form-note { font-size:0.8rem; color:var(--text-muted); text-align:center; margin-top:var(--space-3); }
+    .form-success { display:none; text-align:center; padding:var(--space-6); }
+    .form-success__icon { width:64px; height:64px; background:var(--deep-green); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto var(--space-4); }
+    .form-success__icon svg { width:32px; height:32px; color:var(--fluro-yellow); }
+    .form-success__title { font-family:var(--font-heading); font-size:1.3rem; color:var(--deep-green); margin-bottom:var(--space-3); }
+    .form-success__msg { color:var(--text-muted); }
+
+    /* FINAL CTA */
+    .final-cta { background:var(--deep-green-dark); padding:var(--space-8) 0; text-align:center; }
+    .final-cta__title { color:var(--white); margin-bottom:var(--space-4); }
+    .final-cta__sub { color:rgba(255,255,255,0.6); margin-bottom:var(--space-6); font-size:1.05rem; }
+
+    /* FOOTER */
+    .footer { background:var(--deep-green-dark); padding:var(--space-8) 0 var(--space-6); }
+    .footer__inner { display:grid; grid-template-columns:1fr; gap:var(--space-7); }
+    @media(min-width:768px){.footer__inner{grid-template-columns:2fr 1fr 1fr; gap:var(--space-8);}}
+    .footer__brand-line { font-family:var(--font-heading); font-size:0.85rem; color:var(--fluro-yellow); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:var(--space-3); }
+    .footer__tagline { color:rgba(255,255,255,0.5); font-size:0.85rem; line-height:1.6; max-width:280px; }
+    .footer__heading { font-family:var(--font-heading); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.4); margin-bottom:var(--space-4); }
+    .footer__links { list-style:none; display:flex; flex-direction:column; gap:var(--space-2); }
+    .footer__links a { color:rgba(255,255,255,0.65); font-size:0.9rem; text-decoration:none; transition:color 150ms; min-height:36px; display:flex; align-items:center; }
+    .footer__links a:hover{color:var(--fluro-yellow);}
+    .footer__bottom { margin-top:var(--space-7); padding-top:var(--space-5); border-top:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; gap:var(--space-3); }
+    @media(min-width:640px){.footer__bottom{flex-direction:row; justify-content:space-between; align-items:center;}}
+    .footer__copy { color:rgba(255,255,255,0.35); font-size:0.8rem; }
+    .footer__abn { color:rgba(255,255,255,0.25); font-size:0.75rem; }
+
+    /* REVEAL */
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity 500ms ease, transform 500ms ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-delay-1{transition-delay:100ms;} .reveal-delay-2{transition-delay:200ms;} .reveal-delay-3{transition-delay:300ms;}
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;} .reveal{opacity:1;transform:none;}}
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="HIVE Trade Network home">
+        <img src="Logo.png" alt="HIVE Trade Network" class="nav__logo-img">
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="join.html" class="active" aria-current="page">Join</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="suppliers.html">Suppliers</a></li>
+      </ul>
+      <a href="join.html#register" class="btn btn-primary nav__cta" style="min-height:40px;padding:10px 20px;font-size:0.9rem;">Register Now</a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="join.html">Join Free</a>
+    <a href="index.html#how-it-works">How It Works</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="suppliers.html">Suppliers</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="page-hero honeycomb-bg" aria-label="Join HIVE">
+      <div class="container">
+        <span class="page-hero__eyebrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><polygon points="6,0 12,3 12,9 6,12 0,9 0,3"/></svg>
+          Free to join — always
+        </span>
+        <h1 class="page-hero__title">Stop cutting your margins.<br>Start buying smarter.</h1>
+        <p class="page-hero__sub">HIVE gives independent tradies access to exclusive deals, smarter supplier terms, and time-saving procurement — with no cost, no lock-ins, and no gimmicks.</p>
+        <div class="page-hero__ctas">
+          <a href="#register" class="btn btn-primary btn-lg">Join Now — It's Free</a>
+          <a href="mailto:admin@hivetradenetwork.com" class="btn btn-outline btn-lg">Book a Call</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits-section section-pad" aria-label="Member benefits">
+      <div class="container">
+        <span class="section-label reveal">What you get</span>
+        <h2 class="benefits-section__headline reveal">As a HIVE Member</h2>
+        <div class="benefit-grid">
+          <div class="benefit-card reveal reveal-delay-1">
+            <div class="benefit-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <div class="benefit-card__title">Exclusive trade discounts</div>
+              <div class="benefit-card__desc">Top-tier pricing with vetted suppliers — the kind usually reserved for the big end of town.</div>
+            </div>
+          </div>
+          <div class="benefit-card reveal reveal-delay-2">
+            <div class="benefit-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div>
+              <div class="benefit-card__title">We did the due diligence</div>
+              <div class="benefit-card__desc">Every supplier is vetted before they join. We hold the line on quality, terms, and fairness so you don't have to.</div>
+            </div>
+          </div>
+          <div class="benefit-card reveal reveal-delay-1">
+            <div class="benefit-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <div class="benefit-card__title">Better margins, same prices</div>
+              <div class="benefit-card__desc">Your buy price drops — your client price stays the same. That gap is pure margin.</div>
+            </div>
+          </div>
+          <div class="benefit-card reveal reveal-delay-2">
+            <div class="benefit-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="benefit-card__title">Less time quoting</div>
+              <div class="benefit-card__desc">Stop spending smoko chasing quotes. Deals are locked in — you just place the order.</div>
+            </div>
+          </div>
+          <div class="benefit-card reveal reveal-delay-1">
+            <div class="benefit-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <div class="benefit-card__title">Keep your own suppliers</div>
+              <div class="benefit-card__desc">We won't force you to change a thing. But when you see the deals on offer, you'll want to.</div>
+            </div>
+          </div>
+          <div class="benefit-card reveal reveal-delay-2">
+            <div class="benefit-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <div class="benefit-card__title">Full spend visibility</div>
+              <div class="benefit-card__desc">See exactly what you're spending, what you're saving, and where the biggest wins are.</div>
+            </div>
+          </div>
+        </div>
+        <div class="guarantee-bar reveal">
+          "Join for free. Leave any time. We're not here to lock you in — just to back you up."
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="steps-section honeycomb-bg section-pad" aria-label="How joining works">
+      <div class="container">
+        <span class="section-label section-label--light reveal">The process</span>
+        <h2 class="steps-section__headline reveal">How it works in 3 steps</h2>
+        <p class="steps-section__sub reveal">No paperwork nightmares. No switching suppliers if you don't want to.</p>
+        <div class="steps-list">
+          <div class="step-row reveal">
+            <div class="step-row__num" aria-hidden="true">1</div>
+            <div class="step-row__content">
+              <div class="step-row__title">Join the Hive</div>
+              <p class="step-row__desc">We'll get to know your business and your material needs. Establish your baseline — so you can look back and see exactly how much you've saved. Fast, free, obligation-free.</p>
+            </div>
+          </div>
+          <div class="step-connector" aria-hidden="true"></div>
+          <div class="step-row reveal reveal-delay-1">
+            <div class="step-row__num" aria-hidden="true">2</div>
+            <div class="step-row__content">
+              <div class="step-row__title">Access better deals</div>
+              <p class="step-row__desc">Based on your trade, material needs, and spend, we match you with the right suppliers and introduce you directly to your supply partner reps. No middleman. No runaround.</p>
+            </div>
+          </div>
+          <div class="step-connector" aria-hidden="true"></div>
+          <div class="step-row reveal reveal-delay-2">
+            <div class="step-row__num" aria-hidden="true">3</div>
+            <div class="step-row__content">
+              <div class="step-row__title">Get back on the tools</div>
+              <p class="step-row__desc">Save money, win more work, spend less time shopping around. No paperwork nightmares. No switching suppliers if you don't want to.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ELIGIBILITY + REGISTER -->
+    <section class="eligibility-section section-pad" id="register" aria-label="Eligibility and registration">
+      <div class="container">
+        <div class="eligibility-section__grid">
+          <div>
+            <span class="section-label reveal">Who can join</span>
+            <h2 class="eligibility-section__headline reveal">You're in if...</h2>
+            <ul class="eligibility-list reveal" role="list">
+              <li>
+                <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 2 5 10 2 7"/></svg></span>
+                <span>Independently owned trade business</span>
+              </li>
+              <li>
+                <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 2 5 10 2 7"/></svg></span>
+                <span>Fewer than 20 staff (larger? Contact us to check eligibility)</span>
+              </li>
+              <li>
+                <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 2 5 10 2 7"/></svg></span>
+                <span>Construction, electrical, plumbing, carpentry, plastering, tiling, concreting, landscaping or similar</span>
+              </li>
+              <li>
+                <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 2 5 10 2 7"/></svg></span>
+                <span>Sourcing materials as part of your service</span>
+              </li>
+              <li>
+                <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 2 5 10 2 7"/></svg></span>
+                <span>Located in NSW — not in our area yet? We'll put you on the waitlist and you'll be first to know when it opens.</span>
+              </li>
+            </ul>
+            <p class="eligibility-note reveal">If that sounds like you — you're eligible. <strong>Easy as.</strong></p>
+            <p class="yakka-line reveal">You've already done the hard yakka.<br>Let us do the rest.</p>
+          </div>
+          <div class="reveal reveal-delay-1">
+            <div class="register-form">
+              <div class="register-form__title">Register Now</div>
+              <form id="register-form" novalidate>
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="r-first">First name <span class="req" aria-hidden="true">*</span></label>
+                    <input type="text" id="r-first" name="firstName" required autocomplete="given-name" placeholder="Jake">
+                  </div>
+                  <div class="form-field">
+                    <label for="r-last">Last name <span class="req" aria-hidden="true">*</span></label>
+                    <input type="text" id="r-last" name="lastName" required autocomplete="family-name" placeholder="Murphy">
+                  </div>
+                  <div class="form-field span-2">
+                    <label for="r-business">Business name <span class="req" aria-hidden="true">*</span></label>
+                    <input type="text" id="r-business" name="businessName" required autocomplete="organization" placeholder="Murphy Electrical Pty Ltd">
+                  </div>
+                  <div class="form-field">
+                    <label for="r-mobile">Mobile <span class="req" aria-hidden="true">*</span></label>
+                    <input type="tel" id="r-mobile" name="mobile" required autocomplete="tel" placeholder="0412 345 678">
+                  </div>
+                  <div class="form-field">
+                    <label for="r-email">Email <span class="req" aria-hidden="true">*</span></label>
+                    <input type="email" id="r-email" name="email" required autocomplete="email" placeholder="jake@murphyelectrical.com.au">
+                  </div>
+                  <div class="form-field span-2">
+                    <label for="r-trade">Trade type <span class="req" aria-hidden="true">*</span></label>
+                    <select id="r-trade" name="trade" required>
+                      <option value="" disabled selected>Select your trade...</option>
+                      <option>Builder / Construction</option>
+                      <option>Electrician</option>
+                      <option>Plumber</option>
+                      <option>Carpenter / Joiner</option>
+                      <option>Plasterer</option>
+                      <option>Tiler</option>
+                      <option>Concreter</option>
+                      <option>Landscaper</option>
+                      <option>Painter</option>
+                      <option>Other trade</option>
+                    </select>
+                  </div>
+                  <div class="form-field span-2">
+                    <label for="r-region">Region / Location <span class="req" aria-hidden="true">*</span></label>
+                    <input type="text" id="r-region" name="region" required placeholder="e.g. Gosford, Central Coast NSW">
+                  </div>
+                </div>
+                <div class="form-submit-row">
+                  <button type="submit" class="btn btn-primary btn-lg btn-full">Register Now — It's Free</button>
+                </div>
+                <p class="form-note">No obligation. No credit card. Just smarter buying.</p>
+              </form>
+              <div class="form-success" id="form-success" role="alert">
+                <div class="form-success__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h3 class="form-success__title">You're in. Welcome to the Hive.</h3>
+                <p class="form-success__msg">We'll be in touch within one business day to get the ball rolling. Talk soon.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBJECTIONS -->
+    <section class="objections-section honeycomb-bg section-pad" aria-label="Common questions">
+      <div class="container">
+        <span class="section-label section-label--light reveal">Got questions?</span>
+        <h2 class="objections-section__headline reveal">Straight answers.</h2>
+        <p class="objections-section__sub reveal">No runaround. Here's what most tradies want to know before they join.</p>
+        <div class="accordion" id="faq-accordion" role="list">
+
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-btn" aria-expanded="false" aria-controls="q1-panel" id="q1-btn">
+              <span class="accordion-question">Is this going to be more admin for me?</span>
+              <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+            </button>
+            <div class="accordion-panel" id="q1-panel" role="region" aria-labelledby="q1-btn">
+              <p>Nope. We're here to save you time, not add to your workload. You still deal directly with suppliers, place your own orders, and run your business the way you always have. HIVE just makes sure the deals are locked in and the savings kick in automatically.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-btn" aria-expanded="false" aria-controls="q2-panel" id="q2-btn">
+              <span class="accordion-question">Do I have to switch suppliers?</span>
+              <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+            </button>
+            <div class="accordion-panel" id="q2-panel" role="region" aria-labelledby="q2-btn">
+              <p>Not unless you want to. You're not bound to exclusivity with HIVE suppliers. If you've already got a good thing going and that supplier joins the Hive, you can keep dealing with them — just on better terms. No member will ever be worse off than before joining.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-btn" aria-expanded="false" aria-controls="q3-panel" id="q3-btn">
+              <span class="accordion-question">What's the catch?</span>
+              <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+            </button>
+            <div class="accordion-panel" id="q3-panel" role="region" aria-labelledby="q3-btn">
+              <p>There isn't one. No cost. No lock-in contracts. You can leave anytime. Suppliers pay a flat fee to be part of the network — that's how HIVE funds itself. You pay nothing, ever.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-btn" aria-expanded="false" aria-controls="q4-panel" id="q4-btn">
+              <span class="accordion-question">How can HIVE get better deals than I can on my own?</span>
+              <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+            </button>
+            <div class="accordion-panel" id="q4-panel" role="region" aria-labelledby="q4-btn">
+              <p>Because it's not just you. When a bunch of good operators stick together under one agreement, suppliers listen. We work with them to reduce their admin, improve order consistency, and lower their risk — and in return, they offer better pricing and terms to the Hive. Our members commit to a Code of Conduct that keeps things fair, so there's less risk for suppliers and better pricing for you. Everyone wins.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item" role="listitem">
+            <button class="accordion-btn" aria-expanded="false" aria-controls="q5-panel" id="q5-btn">
+              <span class="accordion-question">Wait — how does HIVE make money?</span>
+              <span class="accordion-icon" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/></svg></span>
+            </button>
+            <div class="accordion-panel" id="q5-panel" role="region" aria-labelledby="q5-btn">
+              <p>Simple — our suppliers pay us, not you. Every supplier pays the same flat rate to be part of the Hive. No dodgy deals behind the scenes. We only do well when our members save and our suppliers grow — that keeps us all pointed in the same direction.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta" aria-label="Still unsure">
+      <div class="container">
+        <h2 class="final-cta__title reveal">Still unsure? No worries.</h2>
+        <p class="final-cta__sub reveal">Book a call and we'll answer anything you want to know. No pressure.</p>
+        <div class="btn-group" style="justify-content:center;" role="group">
+          <a href="mailto:admin@hivetradenetwork.com" class="btn btn-outline btn-lg reveal reveal-delay-1">Book a Call</a>
+          <a href="#register" class="btn btn-primary btn-lg reveal reveal-delay-2">Join HIVE Free</a>
+        </div>
+        <p style="color:rgba(255,255,255,0.4);font-size:0.85rem;margin-top:var(--space-4);" class="reveal">Takes 60 seconds. No obligation. Just information.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand-line">Connect with a Hive of trade accounts.</div>
+          <p class="footer__tagline">Built for the trade. Backed by HIVE. Central Coast NSW.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Members</div>
+          <ul class="footer__links" role="list">
+            <li><a href="join.html">Join HIVE</a></li>
+            <li><a href="index.html#how-it-works">How It Works</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Company</div>
+          <ul class="footer__links" role="list">
+            <li><a href="about.html">About</a></li>
+            <li><a href="suppliers.html">Suppliers</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="mailto:admin@hivetradenetwork.com">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2026 HIVE Trade Network Pty Ltd. All rights reserved.</span>
+        <span class="footer__abn">ABN 21 683 196 018</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => { mobileMenu.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); });
+    });
+
+    // Accordion
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.accordion-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.accordion-item').forEach(i => { i.classList.remove('open'); i.querySelector('.accordion-btn').setAttribute('aria-expanded','false'); });
+        if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+      });
+    });
+
+    // Register form
+    document.getElementById('register-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

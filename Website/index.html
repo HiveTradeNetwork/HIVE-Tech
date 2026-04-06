@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HIVE Trade Network — collective buying power for independent Australian tradies. No cost, no catch. Just better deals.">
+  <title>HIVE Trade Network — Stick with the Hive. Save like the big guys.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+      --deep-green: #0b4550;
+      --deep-green-dark: #072e38;
+      --deep-green-light: #0d5565;
+      --fluro-yellow: #e6ff2b;
+      --off-white: #f9f7f2;
+      --warm-grey: #898a80;
+      --royal-blue: #2961f6;
+      --white: #ffffff;
+      --text-dark: #0f1f24;
+      --text-muted: #5a6b70;
+
+      --font-heading: 'Raleway', sans-serif;
+      --font-body: 'Work Sans', sans-serif;
+
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 24px;
+      --space-6: 32px;
+      --space-7: 48px;
+      --space-8: 64px;
+      --space-9: 96px;
+      --space-10: 128px;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.18);
+
+      --nav-height: 72px;
+      --max-width: 1200px;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text-dark);
+      background: var(--off-white);
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--royal-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+
+    h1 { font-size: clamp(2.2rem, 6vw, 4rem); }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+    h3 { font-size: clamp(1.3rem, 3vw, 1.8rem); }
+    h4 { font-size: clamp(1.1rem, 2vw, 1.3rem); }
+
+    p { font-size: 1rem; line-height: 1.7; }
+
+    .lead {
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    /* ============================================================
+       LAYOUT UTILITIES
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-5);
+    }
+
+    @media (min-width: 768px) {
+      .container { padding: 0 var(--space-6); }
+    }
+
+    @media (min-width: 1024px) {
+      .container { padding: 0 var(--space-7); }
+    }
+
+    .section-pad {
+      padding: var(--space-9) 0;
+    }
+
+    @media (max-width: 768px) {
+      .section-pad { padding: var(--space-8) 0; }
+    }
+
+    /* ============================================================
+       HONEYCOMB SVG PATTERN
+    ============================================================ */
+    .honeycomb-bg {
+      position: relative;
+    }
+    .honeycomb-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpolygon points='28,2 54,16 54,44 28,58 2,44 2,16' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3Cpolygon points='28,46 54,60 54,88 28,102 2,88 2,60' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+      background-size: 56px 100px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .honeycomb-bg > * { position: relative; z-index: 1; }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      min-height: 52px;
+      padding: 14px 28px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      border: 2px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 200ms ease-out;
+      white-space: nowrap;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-primary {
+      background: var(--fluro-yellow);
+      color: var(--deep-green-dark);
+      border-color: var(--fluro-yellow);
+    }
+    .btn-primary:hover {
+      background: #d4ec00;
+      border-color: #d4ec00;
+      box-shadow: 0 4px 20px rgba(230, 255, 43, 0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.5);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--white);
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--deep-green);
+      border-color: var(--deep-green);
+    }
+    .btn-outline-dark:hover {
+      background: var(--deep-green);
+      color: var(--white);
+    }
+
+    .btn-lg {
+      min-height: 60px;
+      padding: 18px 36px;
+      font-size: 1.1rem;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      align-items: center;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: var(--nav-height);
+      background: var(--deep-green-dark);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: background 250ms ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(7, 46, 56, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .nav__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-5);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 768px) {
+      .nav__inner { padding: 0 var(--space-6); }
+    }
+
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      text-decoration: none;
+    }
+
+    .nav__logo-img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .nav__links {
+      display: none;
+      list-style: none;
+      gap: var(--space-5);
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .nav__links { display: flex; }
+    }
+
+    .nav__links a {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 150ms;
+      padding: var(--space-2) 0;
+    }
+
+    .nav__links a:hover,
+    .nav__links a.active {
+      color: var(--fluro-yellow);
+      text-decoration: none;
+    }
+
+    .nav__cta {
+      display: none;
+    }
+
+    @media (min-width: 640px) {
+      .nav__cta { display: inline-flex; }
+    }
+
+    .nav__hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: var(--space-2);
+      background: none;
+      border: none;
+      cursor: pointer;
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 900px) {
+      .nav__hamburger { display: none; }
+    }
+
+    .nav__hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 200ms;
+    }
+
+    .nav__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .nav__mobile {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background: var(--deep-green-dark);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: var(--space-5);
+      z-index: 999;
+    }
+
+    .nav__mobile.open { display: block; }
+
+    .nav__mobile a {
+      display: block;
+      color: rgba(255,255,255,0.85);
+      font-size: 1rem;
+      font-weight: 500;
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      text-decoration: none;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav__mobile a:last-child { border-bottom: none; }
+    .nav__mobile a:hover { color: var(--fluro-yellow); }
+
+    /* ============================================================
+       HERO SECTION
+    ============================================================ */
+    .hero {
+      background: var(--deep-green);
+      padding-top: calc(var(--nav-height) + var(--space-9));
+      padding-bottom: var(--space-10);
+      clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding-top: calc(var(--nav-height) + var(--space-7));
+        padding-bottom: var(--space-9);
+        clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+      }
+    }
+
+    .hero__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-7);
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero__inner {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-8);
+      }
+    }
+
+    .hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: rgba(230, 255, 43, 0.12);
+      border: 1px solid rgba(230, 255, 43, 0.3);
+      color: var(--fluro-yellow);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: var(--space-4);
+    }
+
+    .hero__title {
+      color: var(--white);
+      margin-bottom: var(--space-5);
+    }
+
+    .hero__title span {
+      color: var(--fluro-yellow);
+    }
+
+    .hero__subtitle {
+      color: rgba(255,255,255,0.75);
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      line-height: 1.65;
+      margin-bottom: var(--space-6);
+      max-width: 520px;
+    }
+
+    .hero__fork {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    @media (min-width: 480px) {
+      .hero__fork { flex-direction: row; flex-wrap: wrap; }
+    }
+
+    .hero__fork-label {
+      display: block;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-3);
+    }
+
+    /* Hero visual */
+    .hero__visual {
+      display: none;
+    }
+
+    @media (min-width: 900px) {
+      .hero__visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .hero__hex-cluster {
+      position: relative;
+      width: 380px;
+      height: 380px;
+    }
+
+    /* Stats bar */
+    .hero__stats {
+      margin-top: var(--space-7);
+      padding-top: var(--space-6);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+
+    @media (max-width: 480px) {
+      .hero__stats { grid-template-columns: 1fr 1fr; }
+      .hero__stats .stat:last-child { grid-column: 1 / -1; }
+    }
+
+    .stat__number {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      color: var(--fluro-yellow);
+      display: block;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat__label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.3;
+    }
+
+    /* ============================================================
+       SECTION: WHY HIVE
+    ============================================================ */
+    .why-hive {
+      background: var(--off-white);
+      padding-top: var(--space-10);
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--deep-green);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: var(--space-3);
+      padding: 4px 12px;
+      background: rgba(11, 69, 80, 0.08);
+      border-radius: 100px;
+    }
+
+    .why-hive__headline {
+      color: var(--deep-green);
+      margin-bottom: var(--space-5);
+    }
+
+    .why-hive__body {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 680px;
+      margin-bottom: var(--space-7);
+    }
+
+    .fast-facts {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    @media (min-width: 640px) {
+      .fast-facts { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .fast-fact {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      padding: var(--space-5);
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(11, 69, 80, 0.08);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 200ms, transform 200ms;
+    }
+
+    .fast-fact:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .fast-fact__icon {
+      width: 48px;
+      height: 48px;
+      background: var(--deep-green);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .fast-fact__icon svg { width: 24px; height: 24px; color: var(--fluro-yellow); }
+
+    .fast-fact__title {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--deep-green);
+      margin-bottom: 4px;
+    }
+
+    .fast-fact__desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       SECTION: HOW IT WORKS
+    ============================================================ */
+    .how-it-works {
+      background: var(--deep-green);
+      position: relative;
+    }
+
+    .how-it-works .section-label {
+      background: rgba(230, 255, 43, 0.12);
+      color: var(--fluro-yellow);
+    }
+
+    .how-it-works__headline {
+      color: var(--white);
+      margin-bottom: var(--space-3);
+    }
+
+    .how-it-works__sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.05rem;
+      margin-bottom: var(--space-7);
+      max-width: 560px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    @media (min-width: 768px) {
+      .steps { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .step {
+      position: relative;
+      padding: var(--space-6);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      transition: background 200ms, border-color 200ms;
+    }
+
+    .step:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(230, 255, 43, 0.3);
+    }
+
+    .step__number {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: rgba(230, 255, 43, 0.2);
+      line-height: 1;
+      margin-bottom: var(--space-3);
+    }
+
+    .step__title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--fluro-yellow);
+      margin-bottom: var(--space-3);
+    }
+
+    .step__desc {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    /* Arrow connectors desktop */
+    @media (min-width: 768px) {
+      .step:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: -14px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 12px solid rgba(230, 255, 43, 0.3);
+        z-index: 2;
+      }
+    }
+
+    /* ============================================================
+       SECTION: MEMBER BENEFITS
+    ============================================================ */
+    .benefits {
+      background: var(--off-white);
+    }
+
+    .benefits__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .benefits__grid { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+    }
+
+    .benefits__headline {
+      color: var(--deep-green);
+      margin-bottom: var(--space-4);
+    }
+
+    .benefits__sub {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: var(--space-6);
+    }
+
+    .benefit-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .benefit-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: 1rem;
+      color: var(--text-dark);
+    }
+
+    .benefit-list li .check-icon {
+      width: 24px;
+      height: 24px;
+      background: var(--deep-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .benefit-list li .check-icon svg {
+      width: 14px;
+      height: 14px;
+      color: var(--fluro-yellow);
+    }
+
+    .benefits__guarantee {
+      margin-top: var(--space-5);
+      padding: var(--space-4) var(--space-5);
+      background: rgba(11, 69, 80, 0.06);
+      border-left: 3px solid var(--deep-green);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Hex visual panel */
+    .benefits__visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hex-panel {
+      background: var(--deep-green);
+      border-radius: var(--radius-xl);
+      padding: var(--space-7);
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hex-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpolygon points='28,2 54,16 54,44 28,58 2,44 2,16' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3Cpolygon points='28,46 54,60 54,88 28,102 2,88 2,60' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+      background-size: 56px 100px;
+      opacity: 0.8;
+    }
+
+    .hex-panel > * { position: relative; }
+
+    .hex-panel__title {
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--fluro-yellow);
+      margin-bottom: var(--space-5);
+    }
+
+    .hex-panel__stat {
+      margin-bottom: var(--space-5);
+    }
+
+    .hex-panel__stat-num {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .hex-panel__stat-label {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    .hex-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: var(--space-5) 0;
+    }
+
+    .hex-panel__items {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .hex-panel__item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.9rem;
+    }
+
+    .hex-panel__item-label { color: rgba(255,255,255,0.65); }
+    .hex-panel__item-value {
+      color: var(--fluro-yellow);
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       SECTION: MAIN CTA
+    ============================================================ */
+    .main-cta {
+      background: var(--deep-green-dark);
+      padding: var(--space-9) 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-cta__title {
+      color: var(--white);
+      margin-bottom: var(--space-4);
+    }
+
+    .main-cta__sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.05rem;
+      margin-bottom: var(--space-6);
+    }
+
+    .main-cta__note {
+      margin-top: var(--space-4);
+      color: rgba(255,255,255,0.45);
+      font-size: 0.85rem;
+    }
+
+    /* ============================================================
+       SECTION: SUPPLIER STRIP
+    ============================================================ */
+    .supplier-strip {
+      background: var(--off-white);
+      padding: var(--space-8) 0;
+      border-top: 1px solid rgba(11, 69, 80, 0.1);
+    }
+
+    .supplier-strip__inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .supplier-strip__inner {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+
+    .supplier-strip__text h3 {
+      color: var(--deep-green);
+      margin-bottom: var(--space-2);
+      font-size: 1.4rem;
+    }
+
+    .supplier-strip__text p {
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--deep-green-dark);
+      padding: var(--space-8) 0 var(--space-6);
+    }
+
+    .footer__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-7);
+    }
+
+    @media (min-width: 768px) {
+      .footer__inner { grid-template-columns: 2fr 1fr 1fr; gap: var(--space-8); }
+    }
+
+    .footer__brand-line {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      color: var(--fluro-yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-3);
+    }
+
+    .footer__tagline {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      max-width: 280px;
+    }
+
+    .footer__heading {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: var(--space-4);
+    }
+
+    .footer__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .footer__links a {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: color 150ms;
+      padding: var(--space-1) 0;
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer__links a:hover { color: var(--fluro-yellow); }
+
+    .footer__bottom {
+      margin-top: var(--space-7);
+      padding-top: var(--space-5);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      align-items: flex-start;
+    }
+
+    @media (min-width: 640px) {
+      .footer__bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .footer__copy {
+      color: rgba(255,255,255,0.35);
+      font-size: 0.8rem;
+    }
+
+    .footer__abn {
+      color: rgba(255,255,255,0.25);
+      font-size: 0.75rem;
+    }
+
+    /* ============================================================
+       MODAL
+    ============================================================ */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-5);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: var(--space-7);
+      width: 100%;
+      max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      animation: modalIn 200ms ease-out;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.95) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .modal__close {
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      width: 44px;
+      height: 44px;
+      border: none;
+      background: rgba(0,0,0,0.06);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--text-dark);
+      transition: background 150ms;
+    }
+
+    .modal__close:hover { background: rgba(0,0,0,0.12); }
+
+    .modal__title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--deep-green);
+      margin-bottom: var(--space-2);
+      padding-right: var(--space-7);
+    }
+
+    .modal__sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: var(--space-6);
+    }
+
+    /* ============================================================
+       FORMS
+    ============================================================ */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+
+    @media (max-width: 480px) {
+      .form-grid { grid-template-columns: 1fr; }
+    }
+
+    .form-grid.full { grid-template-columns: 1fr; }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-field.span-2 { grid-column: 1 / -1; }
+
+    .form-field label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .form-field label .req {
+      color: var(--deep-green);
+      margin-left: 2px;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      min-height: 48px;
+      padding: 12px 14px;
+      border: 1.5px solid rgba(11, 69, 80, 0.2);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--text-dark);
+      background: var(--white);
+      transition: border-color 150ms, box-shadow 150ms;
+      width: 100%;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--deep-green);
+      box-shadow: 0 0 0 3px rgba(11, 69, 80, 0.12);
+    }
+
+    .form-field textarea { min-height: 80px; resize: vertical; }
+
+    .form-radio-group {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .form-radio-group label {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 0.95rem;
+      font-weight: 400;
+      cursor: pointer;
+      min-height: 44px;
+    }
+
+    .form-radio-group input[type="radio"] {
+      min-height: unset;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--deep-green);
+    }
+
+    .form-submit-row {
+      margin-top: var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .form-submit-row .btn { width: 100%; }
+    .form-note { font-size: 0.8rem; color: var(--text-muted); text-align: center; }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 500ms ease, transform 500ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 100ms; }
+    .reveal-delay-2 { transition-delay: 200ms; }
+    .reveal-delay-3 { transition-delay: 300ms; }
+
+    /* ============================================================
+       MISC / UTILITY
+    ============================================================ */
+    .text-center { text-align: center; }
+    .text-yellow { color: var(--fluro-yellow); }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="HIVE Trade Network home">
+        <img src="Logo.png" alt="HIVE Trade Network" class="nav__logo-img">
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="suppliers.html">Suppliers</a></li>
+      </ul>
+
+      <a href="join.html" class="btn btn-primary nav__cta" style="min-height:40px; padding:10px 20px; font-size:0.9rem;">
+        Join Free
+      </a>
+
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="join.html">Join Free</a>
+    <a href="index.html#how-it-works">How It Works</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="suppliers.html">Suppliers</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="hero honeycomb-bg" aria-label="Hero">
+      <div class="container">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <span class="hero__eyebrow" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><polygon points="6,0 12,3 12,9 6,12 0,9 0,3"/></svg>
+              Central Coast NSW — Now Open
+            </span>
+            <h1 class="hero__title">
+              Stick with the Hive.<br>
+              <span>Save like the big guys.</span>
+            </h1>
+            <p class="hero__subtitle">
+              We bring the buying power of the big end of town to small trade businesses. No cost, no catch, no fluff.
+            </p>
+            <p class="hero__fork-label">Who are you?</p>
+            <div class="hero__fork">
+              <a href="join.html" class="btn btn-primary btn-lg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                I'm a Tradie
+              </a>
+              <button class="btn btn-outline btn-lg" id="supplier-btn" aria-haspopup="dialog">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                I'm a Supplier
+              </button>
+            </div>
+          </div>
+
+          <div class="hero__visual" aria-hidden="true">
+            <svg viewBox="0 0 380 380" width="380" height="380" xmlns="http://www.w3.org/2000/svg">
+              <!-- Large central hex -->
+              <polygon points="190,40 310,105 310,235 190,300 70,235 70,105" fill="rgba(230,255,43,0.12)" stroke="#e6ff2b" stroke-width="1.5"/>
+              <!-- Inner hex -->
+              <polygon points="190,90 260,128 260,205 190,243 120,205 120,128" fill="rgba(230,255,43,0.08)" stroke="rgba(230,255,43,0.3)" stroke-width="1"/>
+              <!-- Surrounding small hexes -->
+              <polygon points="60,95 80,83 100,95 100,119 80,131 60,119" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              <polygon points="280,95 300,83 320,95 320,119 300,131 280,119" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              <polygon points="60,230 80,218 100,230 100,254 80,266 60,254" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              <polygon points="280,230 300,218 320,230 320,254 300,266 280,254" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              <polygon points="170,300 190,288 210,300 210,324 190,336 170,324" fill="rgba(230,255,43,0.15)" stroke="#e6ff2b" stroke-width="1"/>
+              <!-- Central text -->
+              <text x="190" y="178" text-anchor="middle" font-family="Raleway, sans-serif" font-weight="800" font-size="28" fill="#e6ff2b" text-transform="uppercase">HIVE</text>
+              <text x="190" y="210" text-anchor="middle" font-family="Work Sans, sans-serif" font-size="11" fill="rgba(255,255,255,0.5)">TRADE NETWORK</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="hero__stats">
+          <div class="stat">
+            <span class="stat__number">$0</span>
+            <span class="stat__label">Cost to join — ever</span>
+          </div>
+          <div class="stat">
+            <span class="stat__number">2%</span>
+            <span class="stat__label">Flat fee — paid by suppliers, not you</span>
+          </div>
+          <div class="stat">
+            <span class="stat__number">NSW</span>
+            <span class="stat__label">Now live on the Central Coast</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WHY HIVE
+    ============================================================ -->
+    <section class="why-hive section-pad" id="why-hive" aria-label="Why HIVE">
+      <div class="container">
+        <span class="section-label reveal">Why HIVE</span>
+        <h2 class="why-hive__headline reveal">You're flat out.<br>Materials are up.<br>Margins are down.</h2>
+        <p class="why-hive__body reveal">
+          HIVE was built to fix that. We combine the spend of good operators like you to unlock exclusive trade discounts, fairer supplier terms, and real savings — without you having to do a thing.
+        </p>
+        <div class="fast-facts">
+          <div class="fast-fact reveal reveal-delay-1">
+            <div class="fast-fact__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="fast-fact__title">No cost to join</div>
+              <div class="fast-fact__desc">Free to join, free to stay, free to leave. Suppliers fund the Hive — not you.</div>
+            </div>
+          </div>
+          <div class="fast-fact reveal reveal-delay-2">
+            <div class="fast-fact__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <div class="fast-fact__title">Better deals</div>
+              <div class="fast-fact__desc">Real pricing from real suppliers — not retail rates dressed up as trade prices.</div>
+            </div>
+          </div>
+          <div class="fast-fact reveal reveal-delay-3">
+            <div class="fast-fact__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="fast-fact__title">More time on tools</div>
+              <div class="fast-fact__desc">Less time chasing quotes and more time doing the work that actually pays.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HOW IT WORKS
+    ============================================================ -->
+    <section class="how-it-works honeycomb-bg section-pad" id="how-it-works" aria-label="How it works">
+      <div class="container">
+        <span class="section-label reveal">The process</span>
+        <h2 class="how-it-works__headline reveal">Simple as this.</h2>
+        <p class="how-it-works__sub reveal">Three steps. No paperwork nightmares. No switching suppliers if you don't want to.</p>
+        <div class="steps">
+          <div class="step reveal reveal-delay-1">
+            <div class="step__number" aria-hidden="true">01</div>
+            <div class="step__title">Join the Hive</div>
+            <p class="step__desc">Free, fast, obligation-free. We'll get to know your business and your material needs. Set your baseline — so you can look back and see exactly how much you've saved.</p>
+          </div>
+          <div class="step reveal reveal-delay-2">
+            <div class="step__number" aria-hidden="true">02</div>
+            <div class="step__title">Access better deals</div>
+            <p class="step__desc">Based on your trade, spend, and location, we match you with the right supply partners and introduce you directly to your supplier reps. No middleman, no markup.</p>
+          </div>
+          <div class="step reveal reveal-delay-3">
+            <div class="step__number" aria-hidden="true">03</div>
+            <div class="step__title">Get back on the tools</div>
+            <p class="step__desc">Save money, win more work, spend less time shopping around. That's the whole deal.</p>
+          </div>
+        </div>
+        <div style="margin-top: var(--space-7); text-align:center;">
+          <a href="join.html" class="btn btn-primary btn-lg">
+            Join HIVE Free
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MEMBER BENEFITS
+    ============================================================ -->
+    <section class="benefits section-pad" aria-label="Member benefits" id="benefits">
+      <div class="container">
+        <div class="benefits__grid">
+          <div>
+            <span class="section-label reveal">Why members rate it</span>
+            <h2 class="benefits__headline reveal">What you get when you join</h2>
+            <p class="benefits__sub reveal">No fine print. Just the real stuff that makes a difference on your bottom line.</p>
+            <ul class="benefit-list reveal" role="list">
+              <li>
+                <span class="check-icon" aria-hidden="true">
+                  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 2 5 10 2 7"/></svg>
+                </span>
+                <span>Exclusive trade discounts with top-tier, vetted suppliers</span>
+              </li>
+              <li>
+                <span class="check-icon" aria-hidden="true">
+                  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 2 5 10 2 7"/></svg>
+                </span>
+                <span>Hassle-free contracts — we did the due diligence so you don't have to</span>
+              </li>
+              <li>
+                <span class="check-icon" aria-hidden="true">
+                  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 2 5 10 2 7"/></svg>
+                </span>
+                <span>Better margins without changing your pricing to clients</span>
+              </li>
+              <li>
+                <span class="check-icon" aria-hidden="true">
+                  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 2 5 10 2 7"/></svg>
+                </span>
+                <span>Less time sourcing quotes — more time earning</span>
+              </li>
+              <li>
+                <span class="check-icon" aria-hidden="true">
+                  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 2 5 10 2 7"/></svg>
+                </span>
+                <span>Keep your own suppliers — we won't force you to change a thing</span>
+              </li>
+              <li>
+                <span class="check-icon" aria-hidden="true">
+                  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 2 5 10 2 7"/></svg>
+                </span>
+                <span>Full visibility over your spend and savings — no more guessing</span>
+              </li>
+              <li>
+                <span class="check-icon" aria-hidden="true">
+                  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 2 5 10 2 7"/></svg>
+                </span>
+                <span>No hidden fees. No lock-ins. No gimmicks. Leave any time.</span>
+              </li>
+            </ul>
+            <blockquote class="benefits__guarantee">
+              "Join for free. Leave any time. We're not here to lock you in — just to back you up."
+            </blockquote>
+          </div>
+          <div class="benefits__visual reveal">
+            <div class="hex-panel">
+              <div class="hex-panel__title">Member snapshot</div>
+              <div class="hex-panel__stat">
+                <div class="hex-panel__stat-num">$0</div>
+                <div class="hex-panel__stat-label">Membership cost — forever</div>
+              </div>
+              <div class="hex-divider"></div>
+              <div class="hex-panel__items">
+                <div class="hex-panel__item">
+                  <span class="hex-panel__item-label">Sign-up time</span>
+                  <span class="hex-panel__item-value">&lt; 5 mins</span>
+                </div>
+                <div class="hex-panel__item">
+                  <span class="hex-panel__item-label">Lock-in period</span>
+                  <span class="hex-panel__item-value">None</span>
+                </div>
+                <div class="hex-panel__item">
+                  <span class="hex-panel__item-label">Supplier fee (paid by you)</span>
+                  <span class="hex-panel__item-value">$0</span>
+                </div>
+                <div class="hex-panel__item">
+                  <span class="hex-panel__item-label">Must switch suppliers</span>
+                  <span class="hex-panel__item-value">Never</span>
+                </div>
+                <div class="hex-panel__item">
+                  <span class="hex-panel__item-label">Available to</span>
+                  <span class="hex-panel__item-value">NSW trades</span>
+                </div>
+              </div>
+              <div class="hex-divider"></div>
+              <a href="join.html" class="btn btn-primary" style="width:100%; margin-top: var(--space-3);">
+                Join Now — It's Free
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MAIN CTA
+    ============================================================ -->
+    <section class="main-cta honeycomb-bg" aria-label="Join HIVE">
+      <div class="container">
+        <h2 class="main-cta__title reveal">You've earned better buying power.<br>Let's make it happen.</h2>
+        <p class="main-cta__sub reveal">Join for free. Start saving. No obligation.</p>
+        <div class="btn-group" style="justify-content:center;" role="group">
+          <a href="join.html" class="btn btn-primary btn-lg reveal reveal-delay-1">Join HIVE Now</a>
+          <a href="about.html" class="btn btn-outline btn-lg reveal reveal-delay-2">Learn More</a>
+        </div>
+        <p class="main-cta__note reveal">Takes less than 5 minutes. No obligation. Just smarter buying.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SUPPLIER STRIP
+    ============================================================ -->
+    <section class="supplier-strip" id="supplier-section" aria-label="Supplier interest">
+      <div class="container">
+        <div class="supplier-strip__inner">
+          <div class="supplier-strip__text">
+            <h3>Want to partner with HIVE?</h3>
+            <p>If you're a supplier looking to connect with quality trade buyers, we'd love to hear from you. Less admin. More loyalty. Real growth.</p>
+          </div>
+          <button class="btn btn-outline-dark btn-lg" id="supplier-btn-2" aria-haspopup="dialog" style="flex-shrink:0;">
+            Get the Pitch Pack
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand-line">Connect with a Hive of trade accounts.</div>
+          <p class="footer__tagline">Built for the trade. Backed by HIVE. Central Coast NSW.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Members</div>
+          <ul class="footer__links" role="list">
+            <li><a href="join.html">Join HIVE</a></li>
+            <li><a href="index.html#how-it-works">How It Works</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Company</div>
+          <ul class="footer__links" role="list">
+            <li><a href="about.html">About</a></li>
+            <li><a href="suppliers.html">Suppliers</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="mailto:admin@hivetradenetwork.com">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2026 HIVE Trade Network Pty Ltd. All rights reserved.</span>
+        <span class="footer__abn">ABN 21 683 196 018</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SUPPLIER MODAL
+  ============================================================ -->
+  <div class="modal-overlay" id="supplier-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <button class="modal__close" id="modal-close" aria-label="Close modal">&times;</button>
+      <h2 class="modal__title" id="modal-title">Want to partner with HIVE?</h2>
+      <p class="modal__sub">Fill in your details and we'll send through our pitch pack plus a personalised note. No spam. Just the real stuff.</p>
+      <form id="supplier-form" novalidate>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="s-first">First name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="s-first" name="firstName" required autocomplete="given-name" placeholder="Dave">
+          </div>
+          <div class="form-field">
+            <label for="s-last">Last name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="s-last" name="lastName" required autocomplete="family-name" placeholder="Thompson">
+          </div>
+          <div class="form-field">
+            <label for="s-business">Business name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="s-business" name="businessName" required autocomplete="organization" placeholder="Thompson Timber Co.">
+          </div>
+          <div class="form-field">
+            <label for="s-abn">ABN <span style="color:var(--warm-grey); font-weight:400;">(optional)</span></label>
+            <input type="text" id="s-abn" name="abn" autocomplete="off" placeholder="12 345 678 901">
+          </div>
+          <div class="form-field">
+            <label for="s-phone">Phone <span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="s-phone" name="phone" required autocomplete="tel" placeholder="0412 345 678">
+          </div>
+          <div class="form-field">
+            <label for="s-email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="s-email" name="email" required autocomplete="email" placeholder="dave@thompsontimber.com.au">
+          </div>
+          <div class="form-field span-2">
+            <label for="s-region">Geographic areas you serve <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="s-region" name="region" required placeholder="e.g. Central Coast, Hunter Valley, Newcastle">
+          </div>
+          <div class="form-field span-2">
+            <label for="s-services">Core goods or services</label>
+            <input type="text" id="s-services" name="services" placeholder="e.g. Structural timber, roofing supplies, hardware">
+          </div>
+          <div class="form-field span-2">
+            <label for="s-howheard">How did you hear about HIVE?</label>
+            <input type="text" id="s-howheard" name="howHeard" placeholder="Referral, social media, trade show...">
+          </div>
+          <div class="form-field span-2">
+            <label>Preferred contact method</label>
+            <div class="form-radio-group" role="radiogroup">
+              <label><input type="radio" name="contactMethod" value="email"> Email</label>
+              <label><input type="radio" name="contactMethod" value="call"> Phone call</label>
+            </div>
+          </div>
+          <div class="form-field span-2">
+            <label for="s-time">Preferred contact time</label>
+            <input type="text" id="s-time" name="preferredTime" placeholder="e.g. Mornings before 9am">
+          </div>
+        </div>
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-primary btn-lg">Send Me the Pitch Pack</button>
+          <p class="form-note">We'll be in touch within one business day.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SCRIPTS
+  ============================================================ -->
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Supplier modal
+    const modal = document.getElementById('supplier-modal');
+    const openModalBtns = [
+      document.getElementById('supplier-btn'),
+      document.getElementById('supplier-btn-2')
+    ];
+    const closeModalBtn = document.getElementById('modal-close');
+
+    function openModal() {
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      closeModalBtn.focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    openModalBtns.forEach(btn => {
+      if (btn) btn.addEventListener('click', openModal);
+    });
+
+    closeModalBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    // Form submit
+    document.getElementById('supplier-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('[type="submit"]');
+      btn.textContent = 'Sent! We\'ll be in touch.';
+      btn.disabled = true;
+      btn.style.background = '#0b4550';
+      btn.style.color = '#e6ff2b';
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>

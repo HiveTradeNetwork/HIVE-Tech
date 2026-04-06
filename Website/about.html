@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About HIVE Trade Network — built for the trade, backed by experience. Here to flip the script on buying power for small trade businesses.">
+  <title>About HIVE — Big business experience. Small business purpose.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --deep-green:#0b4550; --deep-green-dark:#072e38; --deep-green-light:#0d5565;
+      --fluro-yellow:#e6ff2b; --off-white:#f9f7f2; --warm-grey:#898a80;
+      --royal-blue:#2961f6; --white:#ffffff; --text-dark:#0f1f24; --text-muted:#5a6b70;
+      --font-heading:'Raleway',sans-serif; --font-body:'Work Sans',sans-serif;
+      --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;
+      --space-6:32px;--space-7:48px;--space-8:64px;--space-9:96px;--space-10:128px;
+      --radius-sm:4px;--radius-md:8px;--radius-lg:16px;--radius-xl:24px;
+      --shadow-sm:0 2px 8px rgba(0,0,0,0.08);--shadow-md:0 4px 20px rgba(0,0,0,0.12);
+      --nav-height:72px;--max-width:1200px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+    body{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--text-dark);background:var(--off-white);overflow-x:hidden;}
+    img{max-width:100%;height:auto;display:block;}
+    a{color:var(--royal-blue);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    h1,h2,h3,h4{font-family:var(--font-heading);font-weight:800;text-transform:uppercase;letter-spacing:-0.01em;line-height:1.1;}
+    h1{font-size:clamp(2rem,5.5vw,3.5rem);}
+    h2{font-size:clamp(1.7rem,4vw,2.6rem);}
+    h3{font-size:clamp(1.2rem,3vw,1.7rem);}
+    p{font-size:1rem;line-height:1.7;}
+    .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 var(--space-5);}
+    @media(min-width:768px){.container{padding:0 var(--space-6);}}
+    @media(min-width:1024px){.container{padding:0 var(--space-7);}}
+    .section-pad{padding:var(--space-9) 0;}
+    @media(max-width:768px){.section-pad{padding:var(--space-8) 0;}}
+
+    .honeycomb-bg{position:relative;}
+    .honeycomb-bg::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpolygon points='28,2 54,16 54,44 28,58 2,44 2,16' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3Cpolygon points='28,46 54,60 54,88 28,102 2,88 2,60' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3C/svg%3E");background-size:56px 100px;pointer-events:none;z-index:0;}
+    .honeycomb-bg>*{position:relative;z-index:1;}
+    .honeycomb-light::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpolygon points='28,2 54,16 54,44 28,58 2,44 2,16' fill='none' stroke='rgba(11,69,80,0.05)' stroke-width='1'/%3E%3Cpolygon points='28,46 54,60 54,88 28,102 2,88 2,60' fill='none' stroke='rgba(11,69,80,0.05)' stroke-width='1'/%3E%3C/svg%3E");}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);min-height:52px;padding:14px 28px;font-family:var(--font-body);font-size:1rem;font-weight:600;border-radius:var(--radius-md);border:2px solid transparent;cursor:pointer;text-decoration:none;transition:all 200ms ease-out;white-space:nowrap;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+    .btn:hover{text-decoration:none;transform:translateY(-1px);}
+    .btn:active{transform:scale(0.97);}
+    .btn-primary{background:var(--fluro-yellow);color:var(--deep-green-dark);border-color:var(--fluro-yellow);}
+    .btn-primary:hover{background:#d4ec00;border-color:#d4ec00;box-shadow:0 4px 20px rgba(230,255,43,0.35);}
+    .btn-outline{background:transparent;color:var(--white);border-color:rgba(255,255,255,0.5);}
+    .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:var(--white);}
+    .btn-lg{min-height:60px;padding:18px 36px;font-size:1.1rem;}
+    .btn-group{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center;}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-height);background:var(--deep-green-dark);border-bottom:1px solid rgba(255,255,255,0.08);transition:background 250ms;}
+    .nav.scrolled{background:rgba(7,46,56,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
+    .nav__inner{max-width:var(--max-width);margin:0 auto;padding:0 var(--space-5);height:100%;display:flex;align-items:center;justify-content:space-between;}
+    @media(min-width:768px){.nav__inner{padding:0 var(--space-6);}}
+    .nav__logo{display:flex;align-items:center;gap:var(--space-2);text-decoration:none;}
+    .nav__logo-img{height:40px;width:auto;display:block;}
+    .nav__logo-text{font-family:var(--font-heading);font-weight:800;font-size:1.4rem;color:var(--fluro-yellow);text-transform:uppercase;letter-spacing:0.05em;}
+    .nav__links{display:none;list-style:none;gap:var(--space-5);align-items:center;}
+    @media(min-width:900px){.nav__links{display:flex;}}
+    .nav__links a{font-size:0.9rem;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;transition:color 150ms;padding:var(--space-2) 0;}
+    .nav__links a:hover,.nav__links a.active{color:var(--fluro-yellow);text-decoration:none;}
+    .nav__cta{display:none;}
+    @media(min-width:640px){.nav__cta{display:inline-flex;}}
+    .nav__hamburger{display:flex;flex-direction:column;gap:5px;padding:var(--space-2);background:none;border:none;cursor:pointer;min-width:44px;min-height:44px;align-items:center;justify-content:center;}
+    @media(min-width:900px){.nav__hamburger{display:none;}}
+    .nav__hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:all 200ms;}
+    .nav__hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .nav__hamburger.open span:nth-child(2){opacity:0;}
+    .nav__hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .nav__mobile{display:none;position:fixed;top:var(--nav-height);left:0;right:0;background:var(--deep-green-dark);border-bottom:1px solid rgba(255,255,255,0.1);padding:var(--space-5);z-index:999;}
+    .nav__mobile.open{display:block;}
+    .nav__mobile a{display:flex;align-items:center;color:rgba(255,255,255,0.85);font-size:1rem;font-weight:500;padding:var(--space-3) 0;border-bottom:1px solid rgba(255,255,255,0.08);text-decoration:none;min-height:44px;}
+    .nav__mobile a:last-child{border-bottom:none;}
+    .nav__mobile a:hover{color:var(--fluro-yellow);}
+
+    /* PAGE HERO */
+    .page-hero{background:var(--deep-green);padding-top:calc(var(--nav-height) + var(--space-9));padding-bottom:var(--space-9);clip-path:polygon(0 0,100% 0,100% 93%,0 100%);}
+    @media(max-width:768px){.page-hero{padding-top:calc(var(--nav-height) + var(--space-7));clip-path:polygon(0 0,100% 0,100% 96%,0 100%);}}
+    .page-hero__eyebrow{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(230,255,43,0.12);border:1px solid rgba(230,255,43,0.3);color:var(--fluro-yellow);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;padding:6px 14px;border-radius:100px;margin-bottom:var(--space-4);}
+    .page-hero__title{color:var(--white);margin-bottom:var(--space-4);}
+    .page-hero__sub{color:rgba(255,255,255,0.7);font-size:clamp(1rem,2.5vw,1.2rem);line-height:1.65;max-width:640px;}
+
+    .section-label{display:inline-block;color:var(--deep-green);font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;margin-bottom:var(--space-3);padding:4px 12px;background:rgba(11,69,80,0.08);border-radius:100px;}
+    .section-label--light{background:rgba(230,255,43,0.12);color:var(--fluro-yellow);}
+
+    /* SECTION: WHY HIVE */
+    .why-section{background:var(--off-white);}
+    .why-section__grid{display:grid;grid-template-columns:1fr;gap:var(--space-8);align-items:center;}
+    @media(min-width:900px){.why-section__grid{grid-template-columns:1fr 1fr;}}
+    .why-section__headline{color:var(--deep-green);margin-bottom:var(--space-5);}
+    .why-section__body{color:var(--text-muted);font-size:1.05rem;line-height:1.75;margin-bottom:var(--space-5);}
+    .mission-block{padding:var(--space-6);background:var(--deep-green);border-radius:var(--radius-lg);margin-bottom:var(--space-4);}
+    .mission-block__label{font-family:var(--font-heading);font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:var(--fluro-yellow);margin-bottom:var(--space-3);}
+    .mission-block__text{color:rgba(255,255,255,0.8);font-size:0.95rem;line-height:1.7;}
+
+    /* SECTION: WHO WE ARE */
+    .who-section{background:var(--deep-green);}
+    .who-section__headline{color:var(--white);margin-bottom:var(--space-5);}
+    .who-section__body{color:rgba(255,255,255,0.75);font-size:1.05rem;line-height:1.75;max-width:720px;margin-bottom:var(--space-6);}
+    .credentials{display:grid;grid-template-columns:1fr;gap:var(--space-4);}
+    @media(min-width:640px){.credentials{grid-template-columns:repeat(3,1fr);}}
+    .credential-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:var(--space-5);text-align:center;}
+    .credential-card__icon{width:48px;height:48px;background:rgba(230,255,43,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-3);}
+    .credential-card__icon svg{width:24px;height:24px;color:var(--fluro-yellow);}
+    .credential-card__title{font-family:var(--font-heading);font-size:0.85rem;font-weight:800;text-transform:uppercase;color:var(--fluro-yellow);margin-bottom:var(--space-2);}
+    .credential-card__desc{font-size:0.9rem;color:rgba(255,255,255,0.65);line-height:1.5;}
+
+    /* SECTION: HOW WE WORK */
+    .how-section{background:var(--off-white);}
+    .how-section__grid{display:grid;grid-template-columns:1fr;gap:var(--space-8);}
+    @media(min-width:900px){.how-section__grid{grid-template-columns:1fr 1fr;}}
+    .how-section__headline{color:var(--deep-green);margin-bottom:var(--space-5);}
+    .how-section__body{color:var(--text-muted);font-size:1.05rem;line-height:1.75;}
+    .how-quote{border-left:3px solid var(--fluro-yellow);background:rgba(11,69,80,0.06);padding:var(--space-5) var(--space-6);border-radius:0 var(--radius-lg) var(--radius-lg) 0;margin-top:var(--space-5);}
+    .how-quote p{color:var(--deep-green);font-size:1.05rem;line-height:1.7;font-style:italic;}
+
+    /* SECTION: WHAT WE STAND FOR */
+    .values-section{background:var(--deep-green-dark);}
+    .values-section__headline{color:var(--white);margin-bottom:var(--space-4);}
+    .values-section__sub{color:rgba(255,255,255,0.65);margin-bottom:var(--space-7);font-size:1.05rem;max-width:560px;}
+    .values-grid{display:grid;grid-template-columns:1fr;gap:var(--space-4);}
+    @media(min-width:640px){.values-grid{grid-template-columns:1fr 1fr;}}
+    @media(min-width:1024px){.values-grid{grid-template-columns:repeat(3,1fr);}}
+    .value-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);padding:var(--space-5);transition:border-color 200ms,background 200ms;}
+    .value-card:hover{border-color:rgba(230,255,43,0.3);background:rgba(255,255,255,0.08);}
+    .value-card__hex{width:40px;height:40px;margin-bottom:var(--space-3);}
+    .value-card__title{font-family:var(--font-heading);font-size:0.9rem;font-weight:800;text-transform:uppercase;color:var(--fluro-yellow);margin-bottom:var(--space-2);}
+    .value-card__desc{font-size:0.9rem;color:rgba(255,255,255,0.65);line-height:1.6;}
+
+    /* CTA BAR */
+    .cta-bar{background:var(--off-white);padding:var(--space-8) 0;text-align:center;}
+    .cta-bar__title{color:var(--deep-green);margin-bottom:var(--space-3);}
+    .cta-bar__sub{color:var(--text-muted);margin-bottom:var(--space-5);font-size:1.05rem;}
+
+    /* FOOTER */
+    .footer{background:var(--deep-green-dark);padding:var(--space-8) 0 var(--space-6);}
+    .footer__inner{display:grid;grid-template-columns:1fr;gap:var(--space-7);}
+    @media(min-width:768px){.footer__inner{grid-template-columns:2fr 1fr 1fr;gap:var(--space-8);}}
+    .footer__brand-line{font-family:var(--font-heading);font-size:0.85rem;color:var(--fluro-yellow);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:var(--space-3);}
+    .footer__tagline{color:rgba(255,255,255,0.5);font-size:0.85rem;line-height:1.6;max-width:280px;}
+    .footer__heading{font-family:var(--font-heading);font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-bottom:var(--space-4);}
+    .footer__links{list-style:none;display:flex;flex-direction:column;gap:var(--space-2);}
+    .footer__links a{color:rgba(255,255,255,0.65);font-size:0.9rem;text-decoration:none;transition:color 150ms;min-height:36px;display:flex;align-items:center;}
+    .footer__links a:hover{color:var(--fluro-yellow);}
+    .footer__bottom{margin-top:var(--space-7);padding-top:var(--space-5);border-top:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;gap:var(--space-3);}
+    @media(min-width:640px){.footer__bottom{flex-direction:row;justify-content:space-between;align-items:center;}}
+    .footer__copy{color:rgba(255,255,255,0.35);font-size:0.8rem;}
+    .footer__abn{color:rgba(255,255,255,0.25);font-size:0.75rem;}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 500ms ease,transform 500ms ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal-delay-1{transition-delay:100ms;}.reveal-delay-2{transition-delay:200ms;}.reveal-delay-3{transition-delay:300ms;}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;}.reveal{opacity:1;transform:none;}}
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="HIVE Trade Network home">
+        <img src="Logo.png" alt="HIVE Trade Network" class="nav__logo-img">
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
+        <li><a href="about.html" class="active" aria-current="page">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="suppliers.html">Suppliers</a></li>
+      </ul>
+      <a href="join.html" class="btn btn-primary nav__cta" style="min-height:40px;padding:10px 20px;font-size:0.9rem;">Join Free</a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="join.html">Join Free</a>
+    <a href="index.html#how-it-works">How It Works</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="suppliers.html">Suppliers</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="page-hero honeycomb-bg" aria-label="About HIVE">
+      <div class="container">
+        <span class="page-hero__eyebrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><polygon points="6,0 12,3 12,9 6,12 0,9 0,3"/></svg>
+          Who we are
+        </span>
+        <h1 class="page-hero__title">Big business experience.<br>Small business purpose.</h1>
+        <p class="page-hero__sub">We're here to back the trade — not compete with it. No product pushing, no corporate nonsense. Just real leverage for the operators who keep the country running.</p>
+      </div>
+    </section>
+
+    <!-- WHY HIVE EXISTS -->
+    <section class="why-section section-pad" aria-label="Why HIVE exists">
+      <div class="container">
+        <div class="why-section__grid">
+          <div>
+            <span class="section-label reveal">Why we exist</span>
+            <h2 class="why-section__headline reveal">We're here to back the trade — not compete with it.</h2>
+            <p class="why-section__body reveal">
+              Independent trade businesses keep the country running. But when it comes to buying power, they've always been stuck playing second fiddle to the big end of town. HIVE flips that script.
+            </p>
+            <p class="why-section__body reveal" style="margin-top:0;">
+              We're a trade-first buying group that gives small and medium businesses real leverage — better deals, less admin, and more respect. The goal is simple: help good operators run lean, reduce waste, and use quality materials that keep rework low and margins high — so there's more left over at the end of the week for what really matters.
+            </p>
+          </div>
+          <div>
+            <div class="mission-block reveal">
+              <div class="mission-block__label">Our Mission</div>
+              <p class="mission-block__text">To empower small to medium trade businesses by leveraging collective buying power to secure unbeatable terms and pricing, streamline procurement processes, and enhance operational efficiency. HIVE is dedicated to fostering equitable opportunities for suppliers and members by promoting loyalty, integrity, collaboration, and mutual growth — ensuring a fair and sustainable industry ecosystem.</p>
+            </div>
+            <div class="mission-block reveal reveal-delay-1">
+              <div class="mission-block__label">Our Vision</div>
+              <p class="mission-block__text">To become the leading national platform that bridges the gap between suppliers and small to medium trade businesses — driving loyalty, long-term value, and sustainable growth for every player in the network.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE ARE -->
+    <section class="who-section honeycomb-bg section-pad" aria-label="Who we are">
+      <div class="container">
+        <span class="section-label section-label--light reveal">The team</span>
+        <h2 class="who-section__headline reveal">Big business experience.<br>Small business purpose.</h2>
+        <p class="who-section__body reveal">
+          The team behind HIVE has led major procurement deals, managed complex supply chains, and negotiated with some of the biggest players in construction, mining, and energy. But our focus now is on the small guys — the tradies building houses, running teams, chasing quotes, and who rarely get a fair go.
+        </p>
+        <p class="who-section__body reveal" style="margin-top:0;">
+          We're using big-business thinking to solve everyday frustrations for hardworking operators. Quietly. Effectively. And always in your corner. HIVE isn't about us — it's about the Hive of trades we serve.
+        </p>
+        <div class="credentials">
+          <div class="credential-card reveal reveal-delay-1">
+            <div class="credential-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <div class="credential-card__title">Procurement</div>
+            <div class="credential-card__desc">Major commercial procurement across construction, mining and energy sectors.</div>
+          </div>
+          <div class="credential-card reveal reveal-delay-2">
+            <div class="credential-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="credential-card__title">Finance</div>
+            <div class="credential-card__desc">Commercial finance background — we understand what margins mean in the real world.</div>
+          </div>
+          <div class="credential-card reveal reveal-delay-3">
+            <div class="credential-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="credential-card__title">Operations</div>
+            <div class="credential-card__desc">Hands-on operations experience — building systems that work in the real world, not just on paper.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE WORK -->
+    <section class="how-section section-pad" aria-label="How HIVE works">
+      <div class="container">
+        <div class="how-section__grid">
+          <div>
+            <span class="section-label reveal">How we work</span>
+            <h2 class="how-section__headline reveal">No product pushing.<br>Just bottom-line growth.</h2>
+            <p class="how-section__body reveal">
+              Unlike suppliers who profit by moving more product, HIVE has one goal — to help you spend less and earn more. We're not here to sell you things you don't need. We exist to make sure when you do buy, you're getting the best value, with the least friction, and zero runaround.
+            </p>
+            <div class="how-quote reveal reveal-delay-1">
+              <p>We do the background work — negotiating supplier deals, simplifying logistics, and holding the line on quality — so you can stay focused on the job, confident you're buying smart every time.</p>
+            </div>
+          </div>
+          <div>
+            <span class="section-label reveal">What makes HIVE different</span>
+            <h3 style="color:var(--deep-green);margin-bottom:var(--space-4);margin-top:var(--space-3);" class="reveal">Not a marketplace.<br>Not a wholesaler.<br>Your corner.</h3>
+            <p class="how-section__body reveal">
+              Most buyers groups are built to serve whoever funds them. We only make money when our members save and our suppliers grow — so we're permanently pointed in the same direction as you.
+            </p>
+            <p class="how-section__body reveal reveal-delay-1" style="margin-top:var(--space-4);">
+              We select suppliers based on value, alignment, and loyalty. We don't promote one over another based on who pays more — because they all pay the same flat rate. That's the whole model.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE STAND FOR -->
+    <section class="values-section honeycomb-bg section-pad" aria-label="Our values">
+      <div class="container">
+        <span class="section-label section-label--light reveal">What we stand for</span>
+        <h2 class="values-section__headline reveal">Straight talk. Real value.<br>Respect for the trade.</h2>
+        <p class="values-section__sub reveal">These aren't just words on a wall. They're how we make decisions every day.</p>
+        <div class="values-grid">
+          <div class="value-card reveal reveal-delay-1">
+            <svg class="value-card__hex" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="rgba(230,255,43,0.1)" stroke="#e6ff2b" stroke-width="1.5"/>
+            </svg>
+            <div class="value-card__title">Trust is earned</div>
+            <div class="value-card__desc">We don't ask you to trust us on day one. We earn it — through fair dealing, straight talk, and showing up when it counts.</div>
+          </div>
+          <div class="value-card reveal reveal-delay-2">
+            <svg class="value-card__hex" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="rgba(230,255,43,0.1)" stroke="#e6ff2b" stroke-width="1.5"/>
+            </svg>
+            <div class="value-card__title">Simple beats complicated</div>
+            <div class="value-card__desc">No fine print. No hidden fees. No jargon. If we can't explain it clearly, we probably shouldn't be doing it.</div>
+          </div>
+          <div class="value-card reveal reveal-delay-3">
+            <svg class="value-card__hex" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="rgba(230,255,43,0.1)" stroke="#e6ff2b" stroke-width="1.5"/>
+            </svg>
+            <div class="value-card__title">Suppliers are partners</div>
+            <div class="value-card__desc">Not adversaries. The best outcomes come from everyone being treated fairly. We hold that line on both sides.</div>
+          </div>
+          <div class="value-card reveal reveal-delay-1">
+            <svg class="value-card__hex" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="rgba(230,255,43,0.1)" stroke="#e6ff2b" stroke-width="1.5"/>
+            </svg>
+            <div class="value-card__title">Personal service</div>
+            <div class="value-card__desc">Every member deserves to be known by name, not an account number. We back you individually, not just as a collective.</div>
+          </div>
+          <div class="value-card reveal reveal-delay-2">
+            <svg class="value-card__hex" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="rgba(230,255,43,0.1)" stroke="#e6ff2b" stroke-width="1.5"/>
+            </svg>
+            <div class="value-card__title">Loyalty flows both ways</div>
+            <div class="value-card__desc">We're loyal to members who operate with integrity, and we expect the same from our supply partners. That's how this works.</div>
+          </div>
+          <div class="value-card reveal reveal-delay-3">
+            <svg class="value-card__hex" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="rgba(230,255,43,0.1)" stroke="#e6ff2b" stroke-width="1.5"/>
+            </svg>
+            <div class="value-card__title">Good operators only</div>
+            <div class="value-card__desc">We're here to back good operators — and only them. The Hive is only as strong as its weakest link, so we protect its integrity.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BAR -->
+    <section class="cta-bar honeycomb-light honeycomb-bg" aria-label="Join HIVE">
+      <div class="container">
+        <h2 class="cta-bar__title reveal">Ready to join the Hive?</h2>
+        <p class="cta-bar__sub reveal">Free to join. No lock-ins. Built for tradies like you.</p>
+        <div class="btn-group" style="justify-content:center;" role="group">
+          <a href="join.html" class="btn btn-primary btn-lg reveal reveal-delay-1">Join HIVE Free</a>
+          <a href="faq.html" class="btn btn-outline-dark btn-lg reveal reveal-delay-2" style="--btn-outline-dark-color:var(--deep-green);">Got Questions?</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand-line">Connect with a Hive of trade accounts.</div>
+          <p class="footer__tagline">Built for the trade. Backed by HIVE. Central Coast NSW.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Members</div>
+          <ul class="footer__links" role="list">
+            <li><a href="join.html">Join HIVE</a></li>
+            <li><a href="index.html#how-it-works">How It Works</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Company</div>
+          <ul class="footer__links" role="list">
+            <li><a href="about.html">About</a></li>
+            <li><a href="suppliers.html">Suppliers</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="mailto:admin@hivetradenetwork.com">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2026 HIVE Trade Network Pty Ltd. All rights reserved.</span>
+        <span class="footer__abn">ABN 21 683 196 018</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});
+    const hamburger=document.getElementById('hamburger');
+    const mobileMenu=document.getElementById('mobile-menu');
+    hamburger.addEventListener('click',()=>{const isOpen=mobileMenu.classList.toggle('open');hamburger.classList.toggle('open',isOpen);hamburger.setAttribute('aria-expanded',isOpen);});
+    mobileMenu.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamburger.classList.remove('open');hamburger.setAttribute('aria-expanded','false');});});
+    const reveals=document.querySelectorAll('.reveal');
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+    reveals.forEach(el=>obs.observe(el));
+  </script>
+</body>
+</html>
