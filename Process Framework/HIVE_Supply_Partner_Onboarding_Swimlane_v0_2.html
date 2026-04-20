@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIVE Trade Network — Supply Partner Acquisition & Onboarding Process</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Work+Sans:wght@400;500;600&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Work Sans', sans-serif;
+    background: #F9F7F2;
+    color: #333;
+    padding: 28px 24px 36px;
+  }
+
+  /* -- HEADER -- */
+  .doc-title {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .doc-title h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #0B4550;
+    letter-spacing: 0.5px;
+  }
+  .doc-title p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 11px;
+    color: #898A80;
+    margin-top: 4px;
+  }
+
+  /* -- PHASE HEADER ROW -- */
+  .phase-header-row {
+    display: grid;
+    grid-template-columns: 150px repeat(7, 1fr);
+    margin-bottom: 0;
+  }
+  .phase-spacer { background: transparent; }
+  .phase-block {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 8px 4px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  .phase-block:last-child { border-right: none; }
+  .phase-block.p1 { background: #0B4550; grid-column: span 1; }
+  .phase-block.p2 { background: #0d5f6e; grid-column: span 3; border-left: 2px solid rgba(255,255,255,0.3); border-right: 2px solid rgba(255,255,255,0.3); }
+  .phase-block.p3 { background: #0B4550; grid-column: span 2; }
+  .phase-block.p4 { background: #0d5f6e; grid-column: span 1; border-left: 2px solid rgba(255,255,255,0.3); }
+
+  /* -- STEP LABEL ROW -- */
+  .step-label-row {
+    display: grid;
+    grid-template-columns: 150px repeat(7, 1fr);
+    border-bottom: 2px solid #0B4550;
+    margin-bottom: 0;
+  }
+  .step-spacer { background: transparent; }
+  .step-label {
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #0B4550;
+    background: #e4f0f2;
+    padding: 6px 3px 5px;
+    border-right: 1px solid #c8dde1;
+    border-top: 1px solid #c8dde1;
+    line-height: 1.25;
+  }
+  .step-label:last-child { border-right: none; }
+  .step-label .step-id {
+    display: inline-block;
+    background: #0B4550;
+    color: #E6FF2B;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-bottom: 3px;
+    letter-spacing: 0.5px;
+  }
+  .step-label .step-title {
+    display: block;
+    font-size: 10px;
+    color: #555;
+    font-style: italic;
+    margin-top: 1px;
+  }
+
+  /* -- SWIM LANE GRID -- */
+  .swimlane-grid {
+    display: grid;
+    grid-template-columns: 150px repeat(7, 1fr);
+    border-left: 3px solid #0B4550;
+    border-right: 3px solid #0B4550;
+    border-bottom: 3px solid #0B4550;
+  }
+
+  /* Lane header cells */
+  .lane-label {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 10px 12px 10px 8px;
+    border-right: 3px solid #0B4550;
+    border-bottom: 1px dashed #c8dde1;
+  }
+  .lane-label:last-of-type { border-bottom: none; }
+  .lane-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    text-align: right;
+  }
+  .lane-sub {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: #898A80;
+    text-align: right;
+    margin-top: 2px;
+  }
+
+  .ln-hive .lane-name     { color: #0B4550; }
+  .ln-supplier .lane-name { color: #8c5a1a; }
+  .ln-linda .lane-name    { color: #4a6e1a; }
+  .ln-member .lane-name   { color: #1a7a8c; }
+
+  /* Lane content cells */
+  .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 5px;
+    border-right: 1px solid #dedad4;
+    border-bottom: 1px dashed #c8dde1;
+    min-height: 115px;
+    position: relative;
+  }
+  .cell:last-child { border-right: none; }
+
+  /* Lane row backgrounds */
+  .cell.lane-hive-row, .lane-label.lane-hive-row         { background: #e4f3f6 !important; }
+  .cell.lane-supplier-row, .lane-label.lane-supplier-row  { background: #fdf1d8 !important; }
+  .cell.lane-linda-row, .lane-label.lane-linda-row        { background: #e8f5d4 !important; }
+  .cell.lane-member-row, .lane-label.lane-member-row      { background: #eef8fb !important; }
+
+  /* Last row - no bottom border */
+  .lane-member-row .cell,
+  .lane-member-row .lane-label {
+    border-bottom: none;
+  }
+
+  /* -- BOXES -- */
+  .stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    width: 100%;
+  }
+
+  .box {
+    border-radius: 5px;
+    padding: 6px 8px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.35;
+    width: 100%;
+    max-width: 125px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+    position: relative;
+  }
+  .box sub {
+    display: block;
+    font-size: 7.5px;
+    font-weight: 400;
+    margin-top: 2px;
+    opacity: 0.82;
+    line-height: 1.25;
+  }
+  .box .note {
+    display: block;
+    font-size: 7px;
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 3px;
+    opacity: 0.78;
+    line-height: 1.2;
+  }
+
+  .box-hive      { background: #0B4550; color: #fff; }
+  .box-hive-lime { background: #E6FF2B; color: #0B4550; border: 2px solid #0B4550; font-weight: 700; }
+  .box-supplier  { background: #fde8c8; color: #5a3200; border: 1px solid #e8b87a; }
+  .box-linda     { background: #d9edc0; color: #2d4a10; border: 1px solid #a8ce7a; }
+  .box-member    { background: #ceeaf0; color: #0B4550; border: 1px solid #9acfda; }
+
+  .box-gate {
+    background: #fff;
+    color: #0B4550;
+    border: 2.5px dashed #0B4550;
+    border-radius: 50%;
+    width: 58px;
+    height: 58px;
+    max-width: 58px;
+    font-size: 8.5px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    line-height: 1.2;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(11,69,80,0.12);
+  }
+
+  .arrow-dn {
+    font-size: 11px;
+    line-height: 1;
+    color: #0B4550;
+    opacity: 0.5;
+  }
+  .arrow-dn-amber { color: #8c5a1a; }
+  .arrow-dn-green { color: #4a6e1a; }
+
+  /* -- EMPTY CELL placeholder -- */
+  .empty { opacity: 0; }
+
+  /* -- LEGEND -- */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 9.5px;
+    color: #555;
+  }
+  .legend-swatch {
+    width: 22px;
+    height: 14px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .footer-note {
+    width: 100%;
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 8.5px;
+    color: #898A80;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #dedad4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="doc-title">
+  <h1>HIVE Trade Network — Supply Partner Acquisition &amp; Onboarding</h1>
+  <p>Process Overview &middot; All Parties &middot; v0.2 Draft &middot; Confidential</p>
+</div>
+
+<!-- PHASE HEADERS -->
+<div class="phase-header-row">
+  <div class="phase-spacer"></div>
+  <div class="phase-block p1">Phase 1<br/>Acquisition</div>
+  <div class="phase-block p2">Phases 2-4 — Evaluation, Negotiation &amp; Agreement</div>
+  <div class="phase-block p3">Phases 5-6 — Setup &amp; Staging</div>
+  <div class="phase-block p4">Phase 7<br/>Go-Live</div>
+</div>
+
+<!-- STEP LABELS -->
+<div class="step-label-row">
+  <div class="step-spacer"></div>
+
+  <div class="step-label">
+    <span class="step-id">1A-1B</span>
+    <span class="step-title">Lead &amp; Qualification</span>
+  </div>
+  <div class="step-label">
+    <span class="step-id">2A</span>
+    <span class="step-title">Pitch &amp; Decision</span>
+  </div>
+  <div class="step-label">
+    <span class="step-id">3A</span>
+    <span class="step-title">Agreement Negotiation</span>
+  </div>
+  <div class="step-label">
+    <span class="step-id">4A</span>
+    <span class="step-title">MSPA Execution</span>
+  </div>
+  <div class="step-label">
+    <span class="step-id">5A</span>
+    <span class="step-title">Operational Setup</span>
+  </div>
+  <div class="step-label">
+    <span class="step-id">6A</span>
+    <span class="step-title">Technical Staging</span>
+  </div>
+  <div class="step-label">
+    <span class="step-id">7A</span>
+    <span class="step-title">Go-Live</span>
+  </div>
+</div>
+
+<!-- SWIM LANE GRID -->
+<div class="swimlane-grid">
+
+  <!-- === HIVE LANE === -->
+  <div class="lane-label ln-hive lane-hive-row">
+    <span class="lane-name">HIVE</span>
+    <span class="lane-sub">Trade Network</span>
+  </div>
+
+  <!-- 1A-1B: Lead & Qualification -->
+  <div class="cell lane-hive-row">
+    <div class="stack">
+      <div class="box box-hive">HIVE direct outreach<sub>Gap identified from member data</sub></div>
+      <div class="arrow-dn">&#8595;</div>
+      <div class="box box-hive">Qualification check<sub>Product fit &times; geographic fit &times; member need</sub></div>
+    </div>
+  </div>
+
+  <!-- 2A: Pitch & Decision -->
+  <div class="cell lane-hive-row">
+    <div class="stack">
+      <div class="box box-hive">Schedule pitch meeting<sub>One-on-one with owner/s</sub></div>
+      <div class="arrow-dn">&#8595;</div>
+      <div class="box box-hive">
+        Pitch meeting
+        <sub>HIVE concept &middot; member value &middot; 2% fee &middot; obligations</sub>
+        <span class="note">Pain points &middot; growth capacity &middot; concerns addressed</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3A: Agreement Negotiation -->
+  <div class="cell lane-hive-row">
+    <div class="stack">
+      <div class="box box-hive">
+        Negotiation sessions (5&ndash;20)
+        <sub>MSPA template review &middot; pricing structure</sub>
+        <span class="note">Offer Summary (Appendix A) &middot; data access &middot; integration mapping &middot; co-design of model</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4A: MSPA Execution -->
+  <div class="cell lane-hive-row">
+    <div class="stack">
+      <div class="box-gate">GATE<br/>Review</div>
+      <div class="arrow-dn">&#8595;</div>
+      <div class="box box-hive-lime">MSPA signed by both parties &#10003;<sub>Formal legal commitment</sub></div>
+      <div class="arrow-dn">&#8595;</div>
+      <div class="box box-hive">Prelaunch checklist activated</div>
+    </div>
+  </div>
+
+  <!-- 5A: Operational Setup -->
+  <div class="cell lane-hive-row">
+    <div class="stack">
+      <div class="box box-hive">Marketing flyer co-designed<sub>Products &middot; pricing &middot; delivery &middot; warranty &middot; integrations</sub></div>
+      <div class="arrow-dn">&#8595;</div>
+      <div class="box box-hive">Payment reminders set up<sub>Configured in system</sub></div>
+      <div class="arrow-dn">&#8595;</div>
+      <div class="box box-hive">Pricing files formatted<sub>Construction mgmt software compatible formats</sub></div>
+      <div class="arrow-dn">&#8595;</div>
+      <div class="box box-hive">Prelaunch checklist<sub>All items signed off</sub></div>
+    </div>
+  </div>
+
+  <!-- 6A: Technical Staging -->
+  <div class="cell lane-hive-row">
+    <div class="stack">
+      <div class="box box-hive">Logo uploaded<sub>Live on HIVE website</sub></div>
+      <div class="arrow-dn">&#8595;</div>
+      <div class="box box-hive">Flyer published<sub>Accessible to members</sub></div>
+      <div class="arrow-dn">&#8595;</div>
+      <div class="box box-hive">Pricing files loaded or distributed<sub>Imported via Linda or sent directly to members</sub></div>
+      <div class="arrow-dn">&#8595;</div>
+      <div class="box box-hive-lime">HIVE validates &#10003;<sub>All assets live and correct</sub></div>
+    </div>
+  </div>
+
+  <!-- 7A: Go-Live -->
+  <div class="cell lane-hive-row">
+    <div class="stack">
+      <div class="box box-hive-lime">Regional announcement &#10003;<sub>Email &middot; SMS &middot; website &middot; social</sub></div>
+    </div>
+  </div>
+
+
+  <!-- === PROSPECTIVE SUPPLY PARTNER LANE === -->
+  <div class="lane-label ln-supplier lane-supplier-row">
+    <span class="lane-name">Prospective<br/>Supply Partner</span>
+    <span class="lane-sub">Regional supplier</span>
+  </div>
+
+  <!-- 1A-1B -->
+  <div class="cell lane-supplier-row">
+    <div class="stack">
+      <div class="box box-supplier">Website EOI<sub>Pitch pack auto-sent</sub></div>
+      <div class="arrow-dn arrow-dn-amber">&#8595;</div>
+      <div class="box box-supplier">Peer referral<sub>Existing partner introduces</sub></div>
+    </div>
+  </div>
+
+  <!-- 2A -->
+  <div class="cell lane-supplier-row">
+    <div class="stack">
+      <div class="box box-supplier">Attend pitch meeting<sub>Evaluate HIVE concept &amp; obligations</sub></div>
+      <div class="arrow-dn arrow-dn-amber">&#8595;</div>
+      <div class="box box-supplier">Supplier decision<sub>Proceed / decline</sub></div>
+    </div>
+  </div>
+
+  <!-- 3A -->
+  <div class="cell lane-supplier-row">
+    <div class="stack">
+      <div class="box box-supplier">Participate in negotiation sessions<sub>Review MSPA &middot; pricing &middot; Offer Summary</sub></div>
+    </div>
+  </div>
+
+  <!-- 4A -->
+  <div class="cell lane-supplier-row">
+    <div class="stack">
+      <div class="box box-supplier">Sign MSPA</div>
+    </div>
+  </div>
+
+  <!-- 5A -->
+  <div class="cell lane-supplier-row">
+    <div class="stack">
+      <div class="box box-supplier">Co-design marketing flyer with HIVE<sub>Products &middot; pricing &middot; delivery &middot; warranty</sub></div>
+    </div>
+  </div>
+
+  <!-- 6A -->
+  <div class="cell lane-supplier-row"></div>
+
+  <!-- 7A -->
+  <div class="cell lane-supplier-row"></div>
+
+
+  <!-- === LINDA LANE === -->
+  <div class="lane-label ln-linda lane-linda-row">
+    <span class="lane-name">Linda</span>
+    <span class="lane-sub">Beyond Bookkeeping</span>
+  </div>
+
+  <!-- 1A-1B -->
+  <div class="cell lane-linda-row"></div>
+
+  <!-- 2A -->
+  <div class="cell lane-linda-row"></div>
+
+  <!-- 3A -->
+  <div class="cell lane-linda-row">
+    <div class="stack">
+      <div class="box box-linda">Integration capability noted<sub>Xero &middot; construction mgmt software</sub></div>
+    </div>
+  </div>
+
+  <!-- 4A -->
+  <div class="cell lane-linda-row"></div>
+
+  <!-- 5A -->
+  <div class="cell lane-linda-row">
+    <div class="stack">
+      <div class="box box-linda">Integration prep<sub>Import pricing files into member software</sub></div>
+    </div>
+  </div>
+
+  <!-- 6A -->
+  <div class="cell lane-linda-row">
+    <div class="stack">
+      <div class="box box-linda">Load pricing files into member construction mgmt software<sub>Via Linda or sent directly</sub></div>
+    </div>
+  </div>
+
+  <!-- 7A -->
+  <div class="cell lane-linda-row"></div>
+
+
+  <!-- === MEMBERS LANE === -->
+  <div class="lane-label ln-member lane-member-row">
+    <span class="lane-name">Members</span>
+    <span class="lane-sub">Geographic region</span>
+  </div>
+
+  <!-- 1A-1B -->
+  <div class="cell lane-member-row"></div>
+
+  <!-- 2A -->
+  <div class="cell lane-member-row"></div>
+
+  <!-- 3A -->
+  <div class="cell lane-member-row"></div>
+
+  <!-- 4A -->
+  <div class="cell lane-member-row"></div>
+
+  <!-- 5A -->
+  <div class="cell lane-member-row"></div>
+
+  <!-- 6A -->
+  <div class="cell lane-member-row"></div>
+
+  <!-- 7A -->
+  <div class="cell lane-member-row">
+    <div class="stack">
+      <div class="box box-member">Elect supplier &amp; set up accounts<sub>Via HIVE regional announcement</sub></div>
+    </div>
+  </div>
+
+</div><!-- end swimlane-grid -->
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#0B4550;"></div>
+    <span>HIVE Trade Network</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#fde8c8;border:1px solid #e8b87a;"></div>
+    <span>Prospective Supply Partner</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#d9edc0;border:1px solid #a8ce7a;"></div>
+    <span>Linda - Beyond Bookkeeping</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#ceeaf0;border:1px solid #9acfda;"></div>
+    <span>Members (Geographic Region)</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#fff;border:2.5px dashed #0B4550;border-radius:50%;"></div>
+    <span>Decision Gate (HIVE)</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#E6FF2B;border:2px solid #0B4550;"></div>
+    <span>Key Milestone / Approval</span>
+  </div>
+
+  <div class="footer-note">
+    HIVE Trade Network Pty Ltd &nbsp;|&nbsp; ABN 21 683 196 018 &nbsp;|&nbsp; Confidential &nbsp;|&nbsp; v0.2 Draft &nbsp;|&nbsp; For internal use only
+  </div>
+</div>
+
+</body>
+</html>

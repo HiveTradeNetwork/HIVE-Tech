@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIVE Trade Network — Member Financial Health Check Process</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Work+Sans:wght@400;500;600&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Work Sans', sans-serif;
+    background: #F9F7F2;
+    color: #333;
+    padding: 28px 24px 36px;
+  }
+
+  /* ── HEADER ── */
+  .doc-title {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .doc-title h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #0B4550;
+    letter-spacing: 0.5px;
+  }
+  .doc-title p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 11px;
+    color: #898A80;
+    margin-top: 4px;
+  }
+
+  /* ── PHASE HEADER ROW ── */
+  /* 1 label col + 7 content cols (3B removed) */
+  .phase-header-row {
+    display: grid;
+    grid-template-columns: 150px repeat(7, 1fr);
+    margin-bottom: 0;
+  }
+  .phase-spacer { background: transparent; }
+  .phase-block {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 8px 4px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  .phase-block:last-child { border-right: none; }
+  .phase-block.p1 { background: #0B4550; grid-column: span 1; }
+  .phase-block.p2 { background: #0d5f6e; grid-column: span 3; border-left: 2px solid rgba(255,255,255,0.3); border-right: 2px solid rgba(255,255,255,0.3); }
+  .phase-block.p3 { background: #0B4550; grid-column: span 1; }
+  .phase-block.p4 { background: #0d5f6e; grid-column: span 1; border-left: 2px solid rgba(255,255,255,0.3); border-right: 2px solid rgba(255,255,255,0.3); }
+  .phase-block.p5 { background: #0B4550; grid-column: span 1; }
+
+  /* ── STEP LABEL ROW ── */
+  .step-label-row {
+    display: grid;
+    grid-template-columns: 150px repeat(7, 1fr);
+    border-bottom: 2px solid #0B4550;
+    margin-bottom: 0;
+  }
+  .step-spacer { background: transparent; }
+  .step-label {
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #0B4550;
+    background: #e4f0f2;
+    padding: 6px 3px 5px;
+    border-right: 1px solid #c8dde1;
+    border-top: 1px solid #c8dde1;
+    line-height: 1.25;
+  }
+  .step-label:last-child { border-right: none; }
+  .step-label .step-id {
+    display: inline-block;
+    background: #0B4550;
+    color: #E6FF2B;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-bottom: 3px;
+    letter-spacing: 0.5px;
+  }
+  .step-label .step-title {
+    display: block;
+    font-size: 10px;
+    color: #555;
+    font-style: italic;
+    margin-top: 1px;
+  }
+
+  /* ── SWIM LANE GRID ── */
+  .swimlane-grid {
+    display: grid;
+    grid-template-columns: 150px repeat(7, 1fr);
+    border-left: 3px solid #0B4550;
+    border-right: 3px solid #0B4550;
+    border-bottom: 3px solid #0B4550;
+  }
+
+  /* Lane header cells */
+  .lane-label {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 10px 12px 10px 8px;
+    border-right: 3px solid #0B4550;
+    border-bottom: 1px dashed #c8dde1;
+  }
+  .lane-label:last-of-type { border-bottom: none; }
+  .lane-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    text-align: right;
+  }
+  .lane-sub {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: #898A80;
+    text-align: right;
+    margin-top: 2px;
+  }
+
+  .ln-hive .lane-name   { color: #0B4550; }
+  .ln-linda .lane-name  { color: #2a6b3c; }
+  .ln-member .lane-name { color: #1a7a8c; }
+
+  /* Lane content cells */
+  .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 5px;
+    border-right: 1px solid #dedad4;
+    border-bottom: 1px dashed #c8dde1;
+    min-height: 150px;
+    position: relative;
+  }
+  .cell:last-child { border-right: none; }
+
+  /* Empty cell */
+  .cell-empty {
+    background: repeating-linear-gradient(
+      135deg,
+      transparent,
+      transparent 8px,
+      rgba(0,0,0,0.025) 8px,
+      rgba(0,0,0,0.025) 9px
+    );
+  }
+
+  /* Lane row backgrounds */
+  .cell.lane-hive-row,   .lane-label.lane-hive-row   { background: #e4f3f6 !important; }
+  .cell.lane-linda-row,  .lane-label.lane-linda-row  { background: #edf7f0 !important; }
+  .cell.lane-member-row, .lane-label.lane-member-row { background: #eef8fb !important; }
+
+  /* Override bg for empty cells */
+  .cell.lane-hive-row.cell-empty   { background: #daedf1 !important; }
+  .cell.lane-linda-row.cell-empty  { background: #e4f2e9 !important; }
+  .cell.lane-member-row.cell-empty { background: #e5f4f8 !important; }
+
+  /* Last row — no bottom border */
+  .lane-member-row .cell,
+  .lane-member-row .lane-label { border-bottom: none; }
+
+  /* ── BOXES ── */
+  .stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    width: 100%;
+  }
+
+  .box {
+    border-radius: 5px;
+    padding: 6px 8px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.35;
+    width: 100%;
+    max-width: 125px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+    position: relative;
+  }
+  .box sub {
+    display: block;
+    font-size: 7.5px;
+    font-weight: 400;
+    margin-top: 2px;
+    opacity: 0.82;
+    line-height: 1.25;
+  }
+  .box .note {
+    display: block;
+    font-size: 7px;
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 3px;
+    opacity: 0.78;
+    line-height: 1.2;
+  }
+
+  .box-hive      { background: #0B4550; color: #fff; }
+  .box-hive-lime { background: #E6FF2B; color: #0B4550; border: 2px solid #0B4550; font-weight: 700; }
+  .box-linda     { background: #d6f0de; color: #1a4a28; border: 1px solid #8ec9a0; }
+  .box-linda-key { background: #2a6b3c; color: #fff; }
+  .box-member    { background: #ceeaf0; color: #0B4550; border: 1px solid #9acfda; }
+
+  .box-gate {
+    background: #fff;
+    color: #0B4550;
+    border: 2.5px dashed #0B4550;
+    border-radius: 50%;
+    width: 58px;
+    height: 58px;
+    max-width: 58px;
+    font-size: 8.5px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    line-height: 1.2;
+    flex-shrink: 0;
+  }
+
+  /* ── ARROWS ── */
+  .arrow-dn {
+    font-size: 13px;
+    color: #0B4550;
+    line-height: 1;
+    margin: 1px 0;
+  }
+  .arrow-dn-green { color: #2a6b3c; }
+  .arrow-dn-teal  { color: #1a7a8c; }
+
+  /* ── SECTION DIVIDERS ── */
+  .section-div {
+    border-right: 2px solid #b0cdd3;
+  }
+
+  /* ── LEGEND ── */
+  .legend {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    align-items: center;
+    padding: 10px 14px;
+    background: #e4f0f2;
+    border-left: 4px solid #0B4550;
+    border-radius: 3px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 9px;
+    font-family: 'Work Sans', sans-serif;
+    color: #333;
+  }
+  .legend-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .footer-note {
+    width: 100%;
+    font-size: 8.5px;
+    color: #898A80;
+    margin-top: 6px;
+    font-family: 'Work Sans', sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="doc-title">
+  <h1>HIVE Trade Network — Member Financial Health Check Process</h1>
+  <p>Partnership delivery with Beyond Bookkeeping &nbsp;|&nbsp; Financial Performance &amp; Systems Diagnostic &nbsp;|&nbsp; v0.2 Draft</p>
+</div>
+
+<!-- PHASE HEADER ROW -->
+<div class="phase-header-row">
+  <div class="phase-spacer"></div>
+  <div class="phase-block p1">Phase 1<br>Enrolment</div>
+  <div class="phase-block p2">Phase 2 — Diagnostic</div>
+  <div class="phase-block p3">Phase 3<br>Reporting</div>
+  <div class="phase-block p4">Phase 4<br>Debrief</div>
+  <div class="phase-block p5">Phase 5<br>Follow-Through</div>
+</div>
+
+<!-- STEP LABEL ROW -->
+<div class="step-label-row">
+  <div class="step-spacer"></div>
+
+  <div class="step-label">
+    <span class="step-id">1A</span>
+    <span>Invitation &amp;<br>Consent</span>
+    <span class="step-title">Member opt-in</span>
+  </div>
+
+  <div class="step-label">
+    <span class="step-id">2A</span>
+    <span>Diagnostic<br>Setup</span>
+    <span class="step-title">Access · data · handover</span>
+  </div>
+
+  <div class="step-label">
+    <span class="step-id">2B</span>
+    <span>Financial<br>Performance</span>
+    <span class="step-title">Ratios · trends · goals</span>
+  </div>
+
+  <div class="step-label">
+    <span class="step-id">2C</span>
+    <span>Systems<br>Health</span>
+    <span class="step-title">Tech stack · AR/AP · payroll</span>
+  </div>
+
+  <div class="step-label">
+    <span class="step-id">3A</span>
+    <span>Report<br>Preparation</span>
+    <span class="step-title">Final outputs · remediation offer</span>
+  </div>
+
+  <div class="step-label">
+    <span class="step-id">4A</span>
+    <span>Member<br>Debrief</span>
+    <span class="step-title">Findings &amp; recommendations</span>
+  </div>
+
+  <div class="step-label">
+    <span class="step-id">5A</span>
+    <span>Action &amp;<br>Follow-Up</span>
+    <span class="step-title">CRM log · next engagement</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ SWIM LANE GRID ═══════════════════════════════ -->
+<div class="swimlane-grid">
+
+  <!-- ══════════════ HIVE LANE ══════════════ -->
+  <div class="lane-label ln-hive lane-hive-row">
+    <span class="lane-name">HIVE</span>
+    <span class="lane-sub">Trade Network</span>
+  </div>
+
+  <!-- 1A: Invitation & Consent -->
+  <div class="cell lane-hive-row section-div">
+    <div class="stack">
+      <div class="box box-hive">Identify eligible members for health check invitation<sub>Active members · Fin software users · minimum 6 months trading data</sub></div>
+      <div class="arrow-dn">↓</div>
+      <div class="box box-hive">Issue invitation to member<sub>Email · value proposition · what to expect · no cost</sub></div>
+      <div class="arrow-dn">↓</div>
+      <div class="box box-hive">Obtain signed consent &amp; data access authority<sub>Member authorises Beyond Bookkeeping as Fin software advisor</sub></div>
+      <div class="arrow-dn">↓</div>
+      <div class="box-gate">GATE<br>Proceed?</div>
+    </div>
+  </div>
+
+  <!-- 2A: Diagnostic Setup -->
+  <div class="cell lane-hive-row">
+    <div class="stack">
+      <div class="box box-hive">Confirm member's Fin software<sub>Xero · MYOB · or QuickBooks</sub></div>
+      <div class="arrow-dn">↓</div>
+      <div class="box box-hive">Transfer relevant onboarding questionnaire data to Linda<sub>Member goals · business context · known pain points</sub></div>
+      <div class="arrow-dn">↓</div>
+      <div class="box box-hive">Coordinate Linda's access to Fin software file<sub>Confirm access confirmed · expected timeline · member contact</sub></div>
+    </div>
+  </div>
+
+  <!-- 2B: Financial Performance — HIVE provides IBISWorld -->
+  <div class="cell lane-hive-row">
+    <div class="stack">
+      <div class="box box-hive">Provide IBISWorld database access to Linda<sub>HIVE obligation — maintain currency of access on an ongoing basis</sub></div>
+    </div>
+  </div>
+
+  <!-- 2C: Systems Health — no HIVE role -->
+  <div class="cell lane-hive-row cell-empty">
+  </div>
+
+  <!-- 3A: Report Preparation — HIVE receives final reports only -->
+  <div class="cell lane-hive-row">
+    <div class="stack">
+      <div class="box box-hive">Receive final reports from Linda<sub>Financial Performance Report · Systems Health Score</sub></div>
+      <div class="arrow-dn">↓</div>
+      <div class="box box-hive-lime">Reports received — no review step ✓</div>
+    </div>
+  </div>
+
+  <!-- 4A: Member Debrief — conditional attendance -->
+  <div class="cell lane-hive-row section-div">
+    <div class="stack">
+      <div class="box box-hive">Attend debrief only if membership is at-risk<sub>Otherwise Linda presents solo — HIVE not present</sub></div>
+    </div>
+  </div>
+
+  <!-- 5A: Action & Follow-Up -->
+  <div class="cell lane-hive-row">
+    <div class="stack">
+      <div class="box box-hive">Log both reports &amp; remediation offer copy to member CRM file<sub>Financial Performance Report · Systems Health Score · Linda's remediation pricing</sub></div>
+      <div class="arrow-dn">↓</div>
+      <div class="box box-hive">Note referral opportunities flagged<sub>Supply partner gaps · HIVE service context · Linda engagement outcome</sub></div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════ BEYOND BOOKKEEPING (LINDA) LANE ══════════════ -->
+  <div class="lane-label ln-linda lane-linda-row">
+    <span class="lane-name">Beyond<br>Bookkeeping</span>
+    <span class="lane-sub">Linda · Delivery partner</span>
+  </div>
+
+  <!-- 1A -->
+  <div class="cell lane-linda-row section-div">
+    <div class="stack">
+      <div class="box box-linda">Receive member referral from HIVE<sub>Name · contact · Fin software access confirmation</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Confirm capacity &amp; engagement scope<sub>Turnaround timeline agreed with HIVE</sub>
+        <span class="note">Open item: Linda's capacity validation required</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2A: Diagnostic Setup -->
+  <div class="cell lane-linda-row">
+    <div class="stack">
+      <div class="box box-linda">Accept Fin software advisor invitation<sub>Read-only or advisor access as required</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Receive member tax return financials<sub>Last accountant-prepared financials provided by member</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Review questionnaire data transferred by HIVE<sub>Member goals · business context · onboarding inputs</sub></div>
+    </div>
+  </div>
+
+  <!-- 2B: Financial Performance Diagnostic -->
+  <div class="cell lane-linda-row">
+    <div class="stack">
+      <div class="box box-linda-key">Financial Performance Diagnostic</div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Extract up to 5 years of balance sheet &amp; cash flow data<sub>Where available in Fin software and tax return financials</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Calculate key financial ratios<sub>Gross margin · net margin · current ratio · debtor days · cash conversion cycle · WIP</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Flag year-on-year abnormal movements<sub>Unexpected declines · unexplained shifts · anomalies</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Goal alignment check<sub>Member's questionnaire inputs vs actual financial performance</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Benchmark against IBISWorld industry data<sub>Trade sector ratios · comparable cohort — access provided by HIVE</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Check statutory compliance indicators<sub>Super obligations current · BAS lodgement status · ATO debts</sub></div>
+    </div>
+  </div>
+
+  <!-- 2C: Systems Health Assessment -->
+  <div class="cell lane-linda-row">
+    <div class="stack">
+      <div class="box box-linda-key">Systems Health Assessment</div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Fin software &amp; automation check<sub>Bank rules · smart coding · repeating transactions · HubDoc / receipt capture</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Cash flow management systems<sub>AR &amp; AP processes · Float / Spotlight / Xero native cash flow tools in use</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Payroll processing review<sub>Accuracy · compliance · system in use</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Reporting relevance assessment<sub>Member visibility into financials · real-time access · usefulness of current reports</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Creditor performance review<sub>Paying on time · receiving on time · debtor &amp; creditor discipline</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Construction software integration<sub>Buildxact · Xero Connect or equivalent · job costing flowing</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Score each systems dimension<sub>0–5 scale per category · weighted composite score</sub></div>
+    </div>
+  </div>
+
+  <!-- 3A: Report Preparation -->
+  <div class="cell lane-linda-row">
+    <div class="stack">
+      <div class="box box-linda-key">Report 1: Financial Performance</div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Dashboard view — ratios vs benchmarks<sub>Visual · RAG status · trend indicators</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Written commentary<sub>Key observations · risks · opportunities</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda-key">Report 2: Systems Health Score</div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Scorecard by dimension<sub>Current state · gap · priority action</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Written commentary &amp; recommendations</div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Develop remediation pricing offer<sub>Based on Systems Health gaps identified — Linda's scope &amp; pricing</sub>
+        <span class="note">Pricing TBD — Linda to determine</span>
+      </div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda-key">Deliver final reports &amp; remediation offer to HIVE ✓</div>
+    </div>
+  </div>
+
+  <!-- 4A: Member Debrief -->
+  <div class="cell lane-linda-row section-div">
+    <div class="stack">
+      <div class="box box-linda">Facilitate debrief session with member<sub>Linda presents solo unless membership is at-risk</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Walk through both reports · explain findings clearly</div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Present prioritised recommendations<sub>Financial: 3 actions · Systems: 3 actions</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Present remediation offer where relevant
+        <span class="note">Open item: financial advice legal framing — ASIC boundary</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5A: Action & Follow-Up -->
+  <div class="cell lane-linda-row">
+    <div class="stack">
+      <div class="box box-linda">Deliver final reports to member<sub>PDF · shared folder · or Fin software hosted</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Report outcome to HIVE<sub>Member disposition · remediation offer accepted or declined</sub></div>
+      <div class="arrow-dn arrow-dn-green">↓</div>
+      <div class="box box-linda">Follow-up health check available as paid service<sub>Pricing TBD — Linda's scope to determine</sub></div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════ MEMBER LANE ══════════════ -->
+  <div class="lane-label ln-member lane-member-row">
+    <span class="lane-name">Member</span>
+    <span class="lane-sub">Trade business owner</span>
+  </div>
+
+  <!-- 1A -->
+  <div class="cell lane-member-row section-div">
+    <div class="stack">
+      <div class="box box-member">Receive health check invitation from HIVE<sub>Email · value-add · complimentary</sub></div>
+      <div class="arrow-dn arrow-dn-teal">↓</div>
+      <div class="box box-member">Decision: opt in or decline</div>
+      <div class="arrow-dn arrow-dn-teal">↓</div>
+      <div class="box box-member">Sign consent &amp; data access authority<sub>Authorise Beyond Bookkeeping as Fin software advisor</sub></div>
+    </div>
+  </div>
+
+  <!-- 2A: Diagnostic Setup -->
+  <div class="cell lane-member-row">
+    <div class="stack">
+      <div class="box box-member">Confirm Fin software in use<sub>Xero · MYOB · or QuickBooks</sub></div>
+      <div class="arrow-dn arrow-dn-teal">↓</div>
+      <div class="box box-member">Grant Fin software advisor access to Linda<sub>Via software settings · advisor or read-only</sub></div>
+      <div class="arrow-dn arrow-dn-teal">↓</div>
+      <div class="box box-member">Provide copy of last accountant-prepared tax return financials<sub>To Linda directly</sub></div>
+      <div class="arrow-dn arrow-dn-teal">↓</div>
+      <div class="box box-member">Available for clarification if needed<sub>Chart of accounts · job types · software in use</sub></div>
+    </div>
+  </div>
+
+  <!-- 2B: Financial Performance — member not actively involved -->
+  <div class="cell lane-member-row cell-empty">
+  </div>
+
+  <!-- 2C: Systems Health — member not actively involved -->
+  <div class="cell lane-member-row cell-empty">
+  </div>
+
+  <!-- 3A: Report Preparation — member not involved -->
+  <div class="cell lane-member-row cell-empty">
+  </div>
+
+  <!-- 4A: Member Debrief -->
+  <div class="cell lane-member-row section-div">
+    <div class="stack">
+      <div class="box box-member">Attend debrief session with Linda<sub>60–90 minutes · review both reports</sub></div>
+      <div class="arrow-dn arrow-dn-teal">↓</div>
+      <div class="box box-member">Ask questions · validate findings</div>
+      <div class="arrow-dn arrow-dn-teal">↓</div>
+      <div class="box box-member">Receive prioritised action list</div>
+      <div class="arrow-dn arrow-dn-teal">↓</div>
+      <div class="box box-member">Consider remediation offer from Linda</div>
+    </div>
+  </div>
+
+  <!-- 5A: Action & Follow-Up -->
+  <div class="cell lane-member-row">
+    <div class="stack">
+      <div class="box box-member">Receive final reports<sub>Financial Performance · Systems Health Score</sub></div>
+      <div class="arrow-dn arrow-dn-teal">↓</div>
+      <div class="box box-member">Decision: engage Linda for remediation or ongoing support?</div>
+      <div class="arrow-dn arrow-dn-teal">↓</div>
+      <div class="box box-member">Implement recommended actions<sub>With or without Linda</sub></div>
+    </div>
+  </div>
+
+</div><!-- end swimlane-grid -->
+
+<!-- OPEN ITEMS NOTE -->
+<div style="margin: 14px 0 8px; padding: 10px 14px; background: #fff8e1; border-left: 4px solid #e6a817; border-radius: 3px; font-size: 9px; font-family: 'Work Sans', sans-serif; color: #5a3c00; line-height: 1.6;">
+  <strong>Open Items (as at v0.2):</strong>&nbsp;
+  (1) IBISWorld licence — HIVE obligation to maintain access confirmed in process; commercial terms and ongoing cost to be locked before programme launch. &nbsp;|&nbsp;
+  (2) Linda's capacity — volume of concurrent member health checks Linda can absorb to be validated before programme launch. &nbsp;|&nbsp;
+  (3) Financial advice legal framing — debrief language and remediation offer wording to be reviewed against ASIC boundary (general information vs financial advice). &nbsp;|&nbsp;
+  (4) Remediation pricing — Linda to determine pricing for remediation offer and follow-up health checks; structure to be agreed with HIVE before launch. &nbsp;|&nbsp;
+  (5) Systems scorecard template — weighting methodology and minimum standards criteria to be co-designed with Linda.
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#0B4550;"></div>
+    <span>HIVE Trade Network</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#d6f0de;border:1px solid #8ec9a0;"></div>
+    <span>Beyond Bookkeeping (Linda)</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#2a6b3c;"></div>
+    <span>Beyond Bookkeeping — Key Step</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#ceeaf0;border:1px solid #9acfda;"></div>
+    <span>Member (Trade Business)</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#fff;border:2.5px dashed #0B4550;border-radius:50%;"></div>
+    <span>Decision Gate (HIVE)</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#E6FF2B;border:2px solid #0B4550;"></div>
+    <span>Key Milestone / Approval</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background: repeating-linear-gradient(135deg, #e4f3f6, #e4f3f6 8px, #d2e8ec 8px, #d2e8ec 9px); border: 1px solid #c8dde1;"></div>
+    <span>No role in this phase</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#fff8e1;border-left:3px solid #e6a817;border-radius:2px;"></div>
+    <span>Open Item (requires resolution)</span>
+  </div>
+  <div class="footer-note">
+    HIVE Trade Network Pty Ltd &nbsp;|&nbsp; ABN 21 683 196 018 &nbsp;|&nbsp; Confidential &nbsp;|&nbsp; v0.2 Draft &nbsp;|&nbsp; For internal use only &nbsp;|&nbsp; Delivery partner: Beyond Bookkeeping
+  </div>
+</div>
+
+</body>
+</html>

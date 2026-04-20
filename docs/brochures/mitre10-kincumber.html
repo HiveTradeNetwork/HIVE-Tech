@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mitre 10 Kincumber - HIVE Trade Network Supply Partner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   HIVE TRADE NETWORK — SUPPLY PARTNER BROCHURE TEMPLATE
+   Partner: Mitre 10 Kincumber
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* ── HIVE Template Colours (consistent across all brochures) ── */
+  --hive-green: #0b4550;
+  --hive-yellow: #e6ff2b;
+  --hive-off-white: #f9f7f2;
+
+  /* ── Supply Partner Colours (swap per partner) ── */
+  --sp-primary: #0060AF;
+  --sp-secondary: #6DCFF6;
+  --sp-dark: #425563;
+  --sp-accent-1: #FFC425;
+  --sp-accent-2: #F47920;
+  --sp-accent-3: #69BE28;
+
+  /* ── Neutrals ── */
+  --white: #FFFFFF;
+  --off-white: #F4F6F8;
+  --light-grey: #E8ECF0;
+  --mid-grey: #8A95A0;
+  --dark-text: #1A2A36;
+
+  /* ── Typography ── */
+  --font-headline: 'Raleway', sans-serif;
+  --font-body: 'Work Sans', sans-serif;
+
+  /* ── Density ── */
+  --section-pad: 24px 32px;
+  --card-gap: 10px;
+}
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--dark-text);
+  background: #e2e5e8;
+}
+
+.brochure {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--white);
+  box-shadow: 0 0 60px rgba(0,0,0,0.1);
+}
+
+/* ── Utility ── */
+.headline {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+}
+.body-text { line-height: 1.5; }
+.tbc { color: var(--sp-accent-2); font-weight: 600; font-style: italic; font-size: 11px; }
+
+/* ── Screw Device ── */
+.screw {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, var(--sp-secondary), var(--sp-primary));
+  position: absolute;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.4), 0 1px 2px rgba(0,0,0,0.25);
+}
+.screw::after, .screw::before {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  width: 6px; height: 1.2px; background: rgba(0,0,0,0.2); border-radius: 1px;
+}
+.screw::after { transform: translate(-50%, -50%) rotate(45deg); }
+.screw::before { transform: translate(-50%, -50%) rotate(-45deg); }
+
+/* ── Hex Watermark (HIVE template element) ── */
+.hex-bg {
+  position: relative;
+}
+.hex-bg::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cpath d='M14 0 L28 8.5 L28 25.5 L14 34 L0 25.5 L0 8.5 Z' fill='none' stroke='%230b4550' stroke-width='1'/%3E%3Cpath d='M14 15 L28 23.5 L28 40.5 L14 49 L0 40.5 L0 23.5 Z' fill='none' stroke='%230b4550' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 28px 49px;
+  pointer-events: none;
+}
+
+/* ============================================================
+   HIVE FRAME: TOP BAR
+   ============================================================ */
+.hive-topbar {
+  background: var(--hive-green);
+  padding: 8px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hive-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hive-topbar-logo {
+  height: 22px;
+  width: 22px;
+  object-fit: contain;
+}
+.hive-topbar-text {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--hive-yellow);
+}
+.hive-topbar-tagline {
+  font-family: var(--font-body);
+  font-size: 9px;
+  color: rgba(230, 255, 43, 0.5);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   HIVE FRAME: SECTION DIVIDERS
+   ============================================================ */
+.hive-divider {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+}
+.hive-divider-line {
+  flex: 1;
+  height: 2px;
+  background: var(--hive-green);
+  opacity: 0.15;
+}
+.hive-divider-hex {
+  width: 18px; height: 18px;
+  background: var(--hive-green);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  opacity: 0.12;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   HIVE FRAME: POWERED BY BADGE
+   ============================================================ */
+.hive-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--hive-green);
+  color: var(--hive-yellow);
+  padding: 4px 12px 4px 8px;
+  border-radius: 20px;
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.hive-badge-hex {
+  width: 14px; height: 14px;
+  background: var(--hive-yellow);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   HIVE FRAME: FOOTER
+   ============================================================ */
+.hive-footer {
+  background: var(--hive-green);
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hive-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hive-footer-logo {
+  height: 20px;
+  object-fit: contain;
+}
+.hive-footer-text {
+  font-size: 10px;
+  color: rgba(230, 255, 43, 0.7);
+}
+.hive-footer-text strong {
+  color: var(--hive-yellow);
+  font-weight: 700;
+}
+.hive-footer-right {
+  font-size: 9px;
+  color: rgba(230, 255, 43, 0.35);
+}
+
+/* ============================================================
+   PAGE 1: HERO + CAPABILITY + CONVENIENCE + VALUE
+   ============================================================ */
+
+/* ── Hero ── */
+.hero {
+  background: var(--sp-primary);
+  color: var(--white);
+  padding: 32px 32px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(109,207,246,0.12), transparent 70%);
+  pointer-events: none;
+}
+.hero .screw { top: 14px; right: 14px; }
+.hero-content { position: relative; z-index: 2; }
+.hero .headline {
+  font-size: clamp(24px, 4vw, 34px);
+  margin-bottom: 10px;
+}
+.hero .subheadline {
+  color: var(--sp-secondary);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.hero .body-text {
+  color: rgba(255,255,255,0.8);
+  font-size: 13px;
+  max-width: 600px;
+}
+
+/* ── Trade Stripe ── */
+.trade-stripe {
+  height: 4px;
+  background: linear-gradient(90deg, var(--sp-accent-2), var(--sp-accent-1), var(--sp-accent-2));
+}
+
+/* ── Infographic Placeholder ── */
+.infographic-zone {
+  background: var(--off-white);
+  padding: 24px 32px;
+}
+.infographic-placeholder {
+  border: 2px dashed var(--sp-primary);
+  border-radius: 6px;
+  padding: 36px 24px;
+  text-align: center;
+  background: var(--white);
+}
+.infographic-placeholder .placeholder-icon {
+  font-size: 40px; color: var(--sp-primary); opacity: 0.15; display: block; margin-bottom: 12px;
+}
+.infographic-placeholder .placeholder-title {
+  font-family: var(--font-headline); font-weight: 800; text-transform: uppercase;
+  font-size: 14px; color: var(--sp-primary); margin-bottom: 6px;
+}
+.infographic-placeholder .placeholder-desc {
+  font-size: 12px; color: var(--sp-dark); max-width: 450px; margin: 0 auto 12px;
+}
+.tbc-badge {
+  display: inline-block; background: var(--sp-accent-1); color: var(--dark-text);
+  font-weight: 700; font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 3px 10px; border-radius: 3px;
+}
+
+/* ── Callout Labels ── */
+.callout-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 14px;
+}
+.callout-label {
+  font-weight: 600; font-size: 10px; text-transform: uppercase; letter-spacing: 0.03em;
+  color: var(--sp-primary); padding: 3px 8px;
+  background: rgba(0,96,175,0.06);
+  border-left: 2px solid var(--sp-primary);
+  border-radius: 0 3px 3px 0;
+  white-space: nowrap;
+}
+.callout-label.zone-top { border-left-color: var(--sp-secondary); }
+.callout-label.zone-frame { border-left-color: var(--sp-accent-2); }
+.callout-label.zone-interior { border-left-color: var(--sp-accent-3); }
+.callout-label.zone-lower { border-left-color: var(--sp-dark); }
+.callout-label.zone-foundation { border-left-color: var(--sp-dark); }
+.callout-label.zone-exterior { border-left-color: var(--sp-accent-3); }
+
+/* ── Convenience ── */
+.convenience {
+  padding: 22px 32px;
+  background: var(--white);
+}
+.convenience .headline {
+  color: var(--sp-primary); font-size: 20px; margin-bottom: 10px;
+}
+.convenience .body-text {
+  color: var(--sp-dark); font-size: 13px; max-width: 680px;
+}
+.convenience .body-text + .body-text { margin-top: 8px; }
+
+/* ── Delivery Panels ── */
+.delivery-zone { background: var(--off-white); padding: 20px 32px; }
+.delivery-panels {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+}
+@media (max-width: 640px) { .delivery-panels { grid-template-columns: 1fr; } }
+
+.delivery-panel {
+  background: var(--white); border-radius: 6px; padding: 18px 14px;
+  text-align: center; border: 1.5px dashed var(--sp-primary);
+}
+.delivery-panel .panel-icon {
+  font-size: 28px; color: var(--sp-primary); opacity: 0.2; display: block; margin-bottom: 8px;
+}
+.delivery-panel .panel-title {
+  font-family: var(--font-headline); font-weight: 800; text-transform: uppercase;
+  font-size: 12px; color: var(--sp-primary); margin-bottom: 4px;
+}
+.delivery-panel .panel-subtitle { font-size: 11px; color: var(--sp-dark); margin-bottom: 10px; }
+.delivery-panel .panel-price {
+  display: inline-block; background: var(--sp-accent-1); color: var(--dark-text);
+  font-weight: 700; font-size: 9px; text-transform: uppercase; letter-spacing: 0.05em;
+  padding: 2px 8px; border-radius: 3px;
+}
+
+/* ── HIVE Value Section ── */
+.hive-value {
+  background: var(--sp-primary); color: var(--white);
+  padding: 24px 32px; position: relative; overflow: hidden;
+}
+.hive-value::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cpath d='M14 0 L28 8.5 L28 25.5 L14 34 L0 25.5 L0 8.5 Z' fill='none' stroke='%23e6ff2b' stroke-width='0.8'/%3E%3C/svg%3E");
+  background-size: 28px 34px;
+  pointer-events: none;
+}
+.hive-value .section-header {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+}
+.hive-value .headline {
+  font-size: 19px; position: relative; z-index: 2;
+}
+.hive-value .body-text {
+  color: rgba(255,255,255,0.85); font-size: 13px; max-width: 680px; position: relative; z-index: 2;
+}
+.hive-value .body-text + .body-text { margin-top: 8px; }
+
+.free-callout {
+  background: var(--sp-secondary); color: var(--sp-primary);
+  padding: 16px 22px; border-radius: 5px; margin: 16px 0; position: relative; z-index: 2;
+}
+.free-callout .headline { font-size: 18px; margin-bottom: 4px; }
+.free-callout .body-text { color: var(--sp-primary); font-size: 12px; opacity: 0.8; }
+
+/* ── Sign-off Bar ── */
+.signoff-bar {
+  background: var(--sp-primary); padding: 14px 32px; position: relative;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.signoff-bar .headline {
+  font-size: 14px; color: var(--white); flex: 1;
+}
+.signoff-bar .screw { top: 8px; right: 8px; }
+
+.signoff-logos {
+  display: flex; align-items: center; gap: 16px;
+}
+.signoff-logos img { height: 32px; object-fit: contain; }
+.signoff-logos .hive-logo { height: 26px; opacity: 0.8; }
+
+/* ============================================================
+   PAGE 2: CAPABILITY MATRIX
+   ============================================================ */
+
+.full-bar {
+  background: var(--sp-primary); color: var(--white);
+  padding: 16px 32px; position: relative;
+}
+.full-bar .headline { font-size: clamp(18px, 3vw, 26px); }
+
+.matrix-intro {
+  padding: 12px 32px 8px; background: var(--white);
+}
+.matrix-intro .subheadline {
+  color: var(--sp-primary); font-size: 14px; font-weight: 500;
+}
+
+.matrix-grid {
+  columns: 2; column-gap: 10px;
+  padding: 8px 32px 20px; background: var(--white);
+}
+@media (max-width: 700px) {
+  .matrix-grid { columns: 1; padding: 8px 20px 16px; }
+}
+
+.stage-card {
+  border-radius: 5px; overflow: hidden;
+  border: 1px solid var(--light-grey);
+  break-inside: avoid; margin-bottom: 10px;
+}
+.stage-header {
+  padding: 8px 14px; color: var(--white);
+  display: flex; align-items: center; gap: 10px;
+}
+.stage-header .stage-number {
+  font-family: var(--font-headline); font-weight: 800; font-size: 20px;
+  opacity: 0.3; line-height: 1;
+}
+.stage-header .stage-title {
+  font-family: var(--font-headline); font-weight: 800; text-transform: uppercase;
+  font-size: 12px; letter-spacing: 0.06em;
+}
+.stage-header.charcoal { background: var(--sp-dark); }
+.stage-header.dark-blue { background: var(--sp-primary); }
+.stage-header.orange { background: var(--sp-accent-2); }
+.stage-header.light-blue { background: var(--sp-secondary); color: var(--sp-primary); }
+.stage-header.green { background: var(--sp-accent-3); }
+
+.stage-body { padding: 6px 14px; }
+.stage-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 4px 0; border-bottom: 1px solid var(--light-grey); gap: 8px;
+}
+.stage-row:last-child { border-bottom: none; }
+.stage-category {
+  font-weight: 600; font-size: 11px; color: var(--dark-text); flex-shrink: 0; max-width: 44%;
+}
+.stage-brands {
+  font-size: 10px; color: var(--mid-grey); text-align: right; line-height: 1.4;
+}
+
+/* ── Build Value ── */
+.build-value {
+  background: var(--sp-primary); color: var(--white);
+  padding: 18px 32px; text-align: center;
+}
+.build-value .headline { font-size: 20px; margin-bottom: 2px; }
+.build-value .body-text { font-size: 10px; opacity: 0.5; }
+
+/* ============================================================
+   PAGE 3: STORE-SPECIFIC CAPABILITIES
+   ============================================================ */
+
+.services-intro {
+  padding: 12px 32px 6px; background: var(--white);
+}
+.services-intro .subheadline {
+  color: var(--sp-dark); font-size: 14px; font-weight: 500;
+}
+
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: var(--card-gap); padding: 8px 32px 20px; background: var(--white);
+}
+@media (max-width: 800px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .services-grid { grid-template-columns: 1fr; padding: 8px 20px 16px; }
+}
+
+.service-card {
+  border: 1px solid var(--light-grey); border-radius: 5px; overflow: hidden;
+}
+.service-card-header {
+  background: var(--sp-primary); color: var(--white);
+  padding: 8px 12px; display: flex; align-items: center; gap: 8px;
+}
+.service-card-header .card-icon { font-size: 16px; opacity: 0.6; flex-shrink: 0; }
+.service-card-header .card-title {
+  font-family: var(--font-headline); font-weight: 800; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 0.04em;
+}
+
+.service-card-body { padding: 10px 12px; }
+.service-card-body ul { list-style: none; }
+.service-card-body li {
+  font-size: 11px; color: var(--sp-dark); padding: 2px 0 2px 14px;
+  position: relative; line-height: 1.45;
+}
+.service-card-body li::before {
+  content: ''; position: absolute; left: 0; top: 8px;
+  width: 6px; height: 1.5px; background: var(--sp-accent-2); border-radius: 1px;
+}
+.service-card-body li .aside {
+  color: var(--mid-grey); font-size: 10px; font-style: italic;
+}
+
+/* ── Pool Spending ── */
+.pool-spending {
+  padding: 18px 32px; background: var(--white);
+}
+.pool-spending .headline {
+  color: var(--sp-primary); font-size: 17px; margin-bottom: 6px;
+}
+.pool-spending .body-text {
+  color: var(--sp-dark); font-size: 13px; max-width: 680px;
+}
+
+/* ── Store Sign-off ── */
+.store-signoff {
+  background: var(--sp-primary); color: var(--white);
+  padding: 14px 32px; text-align: center;
+}
+.store-signoff .headline { font-size: 16px; margin-bottom: 4px; }
+.store-signoff .body-text { font-size: 12px; opacity: 0.6; }
+
+/* ============================================================
+   PAGE 4: CTA
+   ============================================================ */
+
+.cta-page {
+  background: var(--sp-primary); color: var(--white);
+  padding: 40px 32px 32px; text-align: center; position: relative; overflow: hidden;
+}
+.cta-page .screw { z-index: 3; }
+.cta-page .headline {
+  font-size: clamp(22px, 3.5vw, 32px); margin-bottom: 12px; position: relative; z-index: 2;
+}
+.cta-page .body-text {
+  font-size: 14px; color: rgba(255,255,255,0.8); max-width: 480px;
+  margin: 0 auto 28px; position: relative; z-index: 2;
+}
+
+.cta-buttons {
+  display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 28px; position: relative; z-index: 2;
+}
+.cta-btn {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.2);
+  color: var(--white); padding: 12px 20px; border-radius: 5px; text-decoration: none;
+  font-family: var(--font-headline); font-weight: 800; text-transform: uppercase;
+  font-size: 12px; letter-spacing: 0.05em; transition: all 0.15s ease; cursor: pointer;
+}
+.cta-btn:hover {
+  background: rgba(255,255,255,0.15); border-color: var(--sp-secondary);
+  transform: translateY(-1px);
+}
+.cta-btn .btn-icon { font-size: 16px; opacity: 0.6; }
+.cta-btn .btn-detail {
+  font-family: var(--font-body); font-weight: 400; font-size: 10px;
+  text-transform: none; letter-spacing: 0; opacity: 0.6; display: block; margin-top: 1px;
+}
+
+/* ── Partnership Badge (CSS) ── */
+.partnership-badge {
+  display: flex; justify-content: center; align-items: center; gap: 12px;
+  margin: 20px auto; max-width: 220px; position: relative; z-index: 2;
+}
+.badge-hex {
+  width: 28px; height: 28px; background: var(--sp-accent-1);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.badge-connector {
+  flex: 1; height: 1.5px; background: rgba(255,255,255,0.25); position: relative;
+}
+.badge-connector::after {
+  content: ''; position: absolute; right: -3px; top: -3px;
+  width: 6px; height: 6px; border-top: 1.5px solid rgba(255,255,255,0.25);
+  border-right: 1.5px solid rgba(255,255,255,0.25); transform: rotate(45deg);
+}
+.badge-screw {
+  width: 28px; height: 28px; background: var(--sp-primary);
+  border: 2px solid var(--sp-secondary); border-radius: 50%; position: relative;
+}
+.badge-screw::after {
+  content: '+'; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%); color: var(--sp-secondary); font-size: 14px; font-weight: 700;
+}
+
+.cta-logos {
+  display: flex; justify-content: center; align-items: center; gap: 32px;
+  position: relative; z-index: 2; padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.cta-logos img { object-fit: contain; }
+.cta-logos .m10-logo { height: 36px; filter: brightness(0) invert(1); }
+.cta-logos .hive-logo { height: 28px; opacity: 0.7; }
+
+/* ── Print ── */
+@media print {
+  body { background: white; }
+  .brochure { box-shadow: none; max-width: 100%; }
+  .hive-divider { break-before: page; }
+}
+</style>
+</head>
+<body>
+
+<div class="brochure">
+
+  <!-- ══════════════════════════════════════════════════════════
+       HIVE FRAME: TOP BAR (consistent across all brochures)
+       ══════════════════════════════════════════════════════════ -->
+  <div class="hive-topbar">
+    <div class="hive-topbar-left">
+      <img src="../../Resources/Mitre10 Kincumber Brochure/GHEXYH.png" alt="HIVE" class="hive-topbar-logo">
+      <span class="hive-topbar-text">HIVE Trade Network</span>
+    </div>
+    <span class="hive-topbar-tagline">Supply Partner Brochure</span>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE 1: CAPABILITY + CONVENIENCE + VALUE
+       ══════════════════════════════════════════════════════════ -->
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="screw" style="top:14px;right:14px;"></div>
+    <div class="hero-content">
+      <h1 class="headline">Everything you need.<br>Under one roof.</h1>
+      <p class="subheadline">Whole-of-house buying made simple - at the prices the big guys get.</p>
+      <p class="body-text">Mitre 10 Kincumber can support every stage of a build and every trade involved - whether you're running the full job or just your scope.</p>
+    </div>
+  </section>
+
+  <div class="trade-stripe"></div>
+
+  <!-- Whole-of-House Infographic -->
+  <section class="infographic-zone hex-bg">
+    <div class="infographic-placeholder">
+      <span class="placeholder-icon">&#9963;</span>
+      <div class="placeholder-title">Whole-of-House Capability Infographic</div>
+      <p class="placeholder-desc">Isometric cutaway showing every stage of a residential build - foundations to roofline.</p>
+      <span class="tbc-badge">Image pending - Gemini API</span>
+    </div>
+    <div class="callout-labels">
+      <div class="callout-label zone-top">Skylights &amp; Ventilation</div>
+      <div class="callout-label zone-top">Roofing</div>
+      <div class="callout-label zone-top">Metal Fascia &amp; Gutter</div>
+      <div class="callout-label zone-top">Cladding (External)</div>
+      <div class="callout-label zone-top">Windows</div>
+      <div class="callout-label">Wall Wrap</div>
+      <div class="callout-label">Insulation</div>
+      <div class="callout-label">PLY/OSB Bracing</div>
+      <div class="callout-label">External Doors</div>
+      <div class="callout-label">Door Furniture</div>
+      <div class="callout-label zone-frame">Frame &amp; Truss</div>
+      <div class="callout-label zone-frame">Structural Timber</div>
+      <div class="callout-label zone-frame">EWP</div>
+      <div class="callout-label zone-interior">Plaster</div>
+      <div class="callout-label zone-interior">Cement Sheet</div>
+      <div class="callout-label zone-interior">Internal Doors</div>
+      <div class="callout-label zone-interior">Kitchens &amp; Laundry</div>
+      <div class="callout-label zone-interior">Bathrooms</div>
+      <div class="callout-label zone-interior">Benchtops</div>
+      <div class="callout-label zone-interior">Wardrobes</div>
+      <div class="callout-label zone-lower">Particle Board Flooring</div>
+      <div class="callout-label zone-lower">Decorative Flooring</div>
+      <div class="callout-label zone-lower">Waterproofing</div>
+      <div class="callout-label zone-foundation">Mesh</div>
+      <div class="callout-label zone-foundation">Waffle Pods</div>
+      <div class="callout-label zone-foundation">Timber Floor Systems</div>
+      <div class="callout-label zone-foundation">Dampcourse</div>
+      <div class="callout-label zone-foundation">Brick Ties</div>
+      <div class="callout-label zone-foundation">Flashing</div>
+      <div class="callout-label zone-exterior">Decking</div>
+      <div class="callout-label zone-exterior">Fencing</div>
+      <div class="callout-label zone-exterior">Landscaping</div>
+      <div class="callout-label zone-exterior">Concrete</div>
+      <div class="callout-label zone-exterior">Retaining Posts</div>
+    </div>
+  </section>
+
+  <!-- Convenience -->
+  <section class="convenience hex-bg">
+    <h2 class="headline">Built around how tradies actually work</h2>
+    <p class="body-text">Experience the service difference at Mitre 10 Kincumber. No walking aisle after aisle looking for someone to help. No bottleneck at the trade drive-through.</p>
+    <p class="body-text">The team adapts to how you like to shop - personally select your order, pre-order for Click &amp; Collect, or have it delivered straight to site.</p>
+  </section>
+
+  <!-- Delivery Panels -->
+  <section class="delivery-zone">
+    <div class="delivery-panels">
+      <div class="delivery-panel">
+        <span class="panel-icon">&#128230;</span>
+        <div class="panel-title">Click &amp; Collect or Delivery</div>
+        <div class="panel-subtitle">Parcels to pallets</div>
+        <span class="panel-price">Price TBC - Matt</span>
+      </div>
+      <div class="delivery-panel">
+        <span class="panel-icon">&#128666;</span>
+        <div class="panel-title">Local Job Site Delivery</div>
+        <div class="panel-subtitle">Tray-back ute + roof racks for long lengths</div>
+        <span class="panel-price">Price TBC - Matt</span>
+      </div>
+      <div class="delivery-panel">
+        <span class="panel-icon">&#128667;</span>
+        <div class="panel-title">Bulk &amp; Long-Length</div>
+        <div class="panel-subtitle">Flatbed + Hiab available</div>
+        <span class="panel-price">Price TBC - Matt</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIVE Value Proposition -->
+  <section class="hive-value">
+    <div class="section-header">
+      <h2 class="headline">Save time and money by buying smarter through HIVE</h2>
+      <span class="hive-badge"><span class="hive-badge-hex"></span> Powered by HIVE</span>
+    </div>
+    <p class="body-text">Through HIVE, tradies gain access to benefits normally reserved for the big guys.</p>
+    <p class="body-text">At Mitre 10 Kincumber, this includes over 5,000 products on the HIVE contract. Once you're a member, the pricing is loaded onto your account. You get it automatically - every time you buy.</p>
+    <p class="body-text">No awkward conversations at the trade desk. No wondering if someone else is getting a better deal.</p>
+    <p class="body-text">HIVE works with you to identify opportunities to consolidate your spend where it makes sense. By optimising where you buy, you can save both time and money, reduce unbillable admin, and simplify day-to-day purchasing.</p>
+    <p class="body-text">This isn't about forcing loyalty - it's about making it a no-brainer.</p>
+    <div class="free-callout">
+      <h3 class="headline">The best part? It's free.</h3>
+      <p class="body-text">No cost to join. No exclusivity. No minimum spend. Cancel anytime.</p>
+    </div>
+    <p class="body-text">All we ask is that you adhere to the HIVE Code of Conduct, pay your account on time, and talk about us loudly and often.</p>
+  </section>
+
+  <!-- Page 1 Sign-off -->
+  <div class="signoff-bar">
+    <div class="screw" style="top:8px;right:8px;"></div>
+    <h3 class="headline">Same in-store experience. Better prices. Backed by HIVE.</h3>
+    <div class="signoff-logos">
+      <img src="../Logo.png" alt="HIVE Trade Network" class="hive-logo">
+      <img src="../../Resources/Mitre10 Kincumber Brochure/Mitre10 TRADE.jpg" alt="Mitre 10 Trade" style="height:32px;">
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       HIVE DIVIDER (page break)
+       ══════════════════════════════════════════════════════════ -->
+  <div class="hive-divider">
+    <div class="hive-divider-line"></div>
+    <div class="hive-divider-hex"></div>
+    <div class="hive-divider-line"></div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE 2: CAPABILITY MATRIX
+       ══════════════════════════════════════════════════════════ -->
+
+  <div class="full-bar" style="position:relative;">
+    <div class="screw" style="top:10px;right:10px;"></div>
+    <div class="screw" style="top:10px;left:10px;"></div>
+    <h2 class="headline">Mitre 10 Kincumber<br>Capability Matrix</h2>
+  </div>
+
+  <div class="matrix-intro">
+    <p class="subheadline">Every stage of the build. One supplier relationship.</p>
+  </div>
+
+  <div class="matrix-grid">
+
+    <!-- STAGE 1: FOUNDATION -->
+    <div class="stage-card">
+      <div class="stage-header charcoal">
+        <span class="stage-number">01</span>
+        <span class="stage-title">Foundation</span>
+      </div>
+      <div class="stage-body">
+        <div class="stage-row"><span class="stage-category">Mesh</span><span class="stage-brands">Ausreo, ARC</span></div>
+        <div class="stage-row"><span class="stage-category">Mesh Access</span><span class="stage-brands">Ariston (Polythene)</span></div>
+        <div class="stage-row"><span class="stage-category">Waffle Pods</span><span class="stage-brands">Reo360 (Ausreo)</span></div>
+        <div class="stage-row"><span class="stage-category">Timber Floor Systems</span><span class="stage-brands">ITI, Wesbeam, Meyer, Tilling</span></div>
+        <div class="stage-row"><span class="stage-category">Dampcourse</span><span class="stage-brands">Vespol</span></div>
+        <div class="stage-row"><span class="stage-category">Brick Ties</span><span class="stage-brands">Abey</span></div>
+        <div class="stage-row"><span class="stage-category">Flashing</span><span class="stage-brands">Evo Building Products</span></div>
+        <div class="stage-row"><span class="stage-category">Foam Joint</span><span class="stage-brands">Vespol</span></div>
+      </div>
+    </div>
+
+    <!-- STAGE 2: FRAME & TRUSS -->
+    <div class="stage-card">
+      <div class="stage-header dark-blue">
+        <span class="stage-number">02</span>
+        <span class="stage-title">Frame &amp; Truss</span>
+      </div>
+      <div class="stage-body">
+        <div class="stage-row"><span class="stage-category">Structural Timber</span><span class="stage-brands">ITI, Wesbeam, Tillings, Hyne</span></div>
+        <div class="stage-row"><span class="stage-category">EWP</span><span class="stage-brands">ITI, Wesbeam, Tillings, Dindas, Hyne</span></div>
+        <div class="stage-row"><span class="stage-category">Frame &amp; Truss</span><span class="stage-brands">Mitre Truss, National F&amp;T, Heydan F&amp;T</span></div>
+      </div>
+    </div>
+
+    <!-- STAGE 3: LOCK UP -->
+    <div class="stage-card">
+      <div class="stage-header orange">
+        <span class="stage-number">03</span>
+        <span class="stage-title">Lock Up</span>
+      </div>
+      <div class="stage-body">
+        <div class="stage-row"><span class="stage-category">Waterproofing</span><span class="stage-brands">Ardex, Bondall, Wedi, Multipanel</span></div>
+        <div class="stage-row"><span class="stage-category">External Doors</span><span class="stage-brands">Hume Doors, Corinthian</span></div>
+        <div class="stage-row"><span class="stage-category">Door Furniture</span><span class="stage-brands">Allegion, Assa Abloy, Superior Brass, Dormakaba</span></div>
+        <div class="stage-row"><span class="stage-category">Windows / Skylights</span><span class="stage-brands">Trend Windows, No.1 Roofing, Velux</span></div>
+        <div class="stage-row"><span class="stage-category">Insulation</span><span class="stage-brands">CSR Bradford, Fletcher Insulation</span></div>
+        <div class="stage-row"><span class="stage-category">Wall Wrap</span><span class="stage-brands">Proclima, CSR Bradford, Fletcher</span></div>
+        <div class="stage-row"><span class="stage-category">Particle Board Flooring</span><span class="stage-brands">Laminex (Green Tongue), Aust. Panels (BORG)</span></div>
+        <div class="stage-row"><span class="stage-category">Mag Oxide</span><span class="stage-brands">ITI, McCormacks AUS</span></div>
+        <div class="stage-row"><span class="stage-category">Cladding (External)</span><span class="stage-brands">James Hardie, Weathertex, Etex, ITI, CSR Cemintel</span></div>
+        <div class="stage-row"><span class="stage-category">Cladding (Timber)</span><span class="stage-brands">ITI, Australian Wood Industries</span></div>
+        <div class="stage-row"><span class="stage-category">Cladding (Composite)</span><span class="stage-brands">ITI, New Tech Wood (Urban Direct)</span></div>
+        <div class="stage-row"><span class="stage-category">Roofing</span><span class="stage-brands">No.1 Roofing Somersby, Bluescope Lysaght</span></div>
+        <div class="stage-row"><span class="stage-category">Polycarbonate Roofing</span><span class="stage-brands">Laserlite, Ampelite</span></div>
+        <div class="stage-row"><span class="stage-category">Metal Fascia &amp; Gutter</span><span class="stage-brands">No.1 Roofing, Bondor, Bluescope Lysaght</span></div>
+        <div class="stage-row"><span class="stage-category">Timber Fascia</span><span class="stage-brands">ITI, Meyer Timber</span></div>
+        <div class="stage-row"><span class="stage-category">PLY/OSB Bracing</span><span class="stage-brands">ITI, Forest One, Laminex</span></div>
+      </div>
+    </div>
+
+    <!-- STAGE 5: FIT OUT (placed here for column balancing) -->
+    <div class="stage-card">
+      <div class="stage-header green">
+        <span class="stage-number">05</span>
+        <span class="stage-title">Fit Out</span>
+      </div>
+      <div class="stage-body">
+        <div class="stage-row"><span class="stage-category">Wardrobes</span><span class="stage-brands">Principal by Hafele, Ventora - Regency</span></div>
+        <div class="stage-row"><span class="stage-category">Decorative Panelling &amp; Lining</span><span class="stage-brands">ITI, Laminex, Forest One, Aust. Panels, Porta</span></div>
+        <div class="stage-row"><span class="stage-category">Decorative Flooring</span><span class="stage-brands">Treadcore, ITI, Hurford, Pentarch, Parkside</span></div>
+        <div class="stage-row"><span class="stage-category">Vents</span><span class="stage-brands">Ampelite, CSR, DC Tech, JPM Intl, Partner Pacific</span></div>
+        <div class="stage-row"><span class="stage-category">Skirts &amp; Arcs</span><span class="stage-brands">ITI, Hume, Porta, Intrim, Simmonds, Forest One, Period Timber</span></div>
+      </div>
+    </div>
+
+    <!-- STAGE 4: FIX -->
+    <div class="stage-card">
+      <div class="stage-header light-blue">
+        <span class="stage-number">04</span>
+        <span class="stage-title">Fix</span>
+      </div>
+      <div class="stage-body">
+        <div class="stage-row"><span class="stage-category">Cement Sheet</span><span class="stage-brands">James Hardie, Etex, CSR Cemintel, Knauf, ITI</span></div>
+        <div class="stage-row"><span class="stage-category">Plaster</span><span class="stage-brands">Knauf, CSR Gyprock</span></div>
+        <div class="stage-row"><span class="stage-category">Plywood</span><span class="stage-brands">ITI, Laminex, Australian Panels (Borg)</span></div>
+        <div class="stage-row"><span class="stage-category">Kitchens &amp; Laundry</span><span class="stage-brands">Principal Kitchens by Hafele</span></div>
+        <div class="stage-row"><span class="stage-category">Benchtops</span><span class="stage-brands">Principal by Hafele, CASF</span></div>
+        <div class="stage-row"><span class="stage-category">Internal Doors</span><span class="stage-brands">Hume Doors, Corinthian Doors</span></div>
+        <div class="stage-row"><span class="stage-category">Security Doors</span><span class="stage-brands">Cowdroy</span></div>
+        <div class="stage-row"><span class="stage-category">Garage Doors</span><span class="stage-brands">Steeline, Eco Garage</span></div>
+        <div class="stage-row"><span class="stage-category">Bathroom (Front of Wall)</span><span class="stage-brands">Principal by Hafele, Nero, ADP, IHG</span></div>
+        <div class="stage-row"><span class="stage-category">Back of Wall Plumbing</span><span class="stage-brands">Fix-A-Tap, Fluidmaster, Holman, Norma Pacific, Brasshards</span></div>
+        <div class="stage-row"><span class="stage-category">Appliances</span><span class="stage-brands">Design 10, Principal by Hafele, Euro, GAF, Insinkerator, Puretec, Stefani</span></div>
+        <div class="stage-row"><span class="stage-category">Hot Water</span><span class="stage-brands">Rinnai, Rheem</span></div>
+        <div class="stage-row"><span class="stage-category">Heating &amp; Cooling</span><span class="stage-brands">Design 10, Rinnai, Bonaire</span></div>
+        <div class="stage-row"><span class="stage-category">Shower Screens</span><span class="stage-brands tbc">[TBC - Matt]</span></div>
+        <div class="stage-row"><span class="stage-category">Splashbacks</span><span class="stage-brands">Principal Kitchens by Hafele, Ventora - Regency</span></div>
+      </div>
+    </div>
+
+    <!-- STAGE 6: LANDSCAPE & OTHER -->
+    <div class="stage-card">
+      <div class="stage-header charcoal">
+        <span class="stage-number">06</span>
+        <span class="stage-title">Landscape &amp; Other</span>
+      </div>
+      <div class="stage-body">
+        <div class="stage-row"><span class="stage-category">Decking (Merbau)</span><span class="stage-brands">ITI, Harpers Timber, Simmonds, Tasman KB</span></div>
+        <div class="stage-row"><span class="stage-category">Decking (Aus Hardwood)</span><span class="stage-brands">ITI, Aust. Wood Industries, Hurfords, Simmonds</span></div>
+        <div class="stage-row"><span class="stage-category">Decking (Composite)</span><span class="stage-brands">ITI, New Tech Wood (Urban Direct), Hurfords</span></div>
+        <div class="stage-row"><span class="stage-category">Primed Pine H3</span><span class="stage-brands">ITI, Hume, Meyer, Simmonds, Tasman KB</span></div>
+        <div class="stage-row"><span class="stage-category">Cypress</span><span class="stage-brands">ITI, Forest One</span></div>
+        <div class="stage-row"><span class="stage-category">Fencing</span><span class="stage-brands">Bluescope Lysaght, ITI, Paslode, Pinewood, Tasman KB</span></div>
+        <div class="stage-row"><span class="stage-category">Sleepers</span><span class="stage-brands">ITI, Pinewood Products, Tasman KB</span></div>
+        <div class="stage-row"><span class="stage-category">Cement</span><span class="stage-brands">Cement Australia</span></div>
+        <div class="stage-row"><span class="stage-category">H3/H4 Treated Pine</span><span class="stage-brands">ITI, Pinewood Products, Simmonds</span></div>
+        <div class="stage-row"><span class="stage-category">Outdoor Kitchens</span><span class="stage-brands">Design 10, Glen Dimplex, Euro Appliances</span></div>
+        <div class="stage-row"><span class="stage-category">Letterbox &amp; Parcelbox</span><span class="stage-brands">G&amp;L Wholesale (Sandleford)</span></div>
+        <div class="stage-row"><span class="stage-category">Fasteners</span><span class="stage-brands">Bremick, Simpson Strong Tie, Paslode, ITW</span></div>
+        <div class="stage-row"><span class="stage-category">Timber Connectors</span><span class="stage-brands">Bremick, ITW (Pryda), Wilmaplex</span></div>
+        <div class="stage-row"><span class="stage-category">Retaining Posts</span><span class="stage-brands">Galintel</span></div>
+        <div class="stage-row"><span class="stage-category">Temp Fence &amp; Access</span><span class="stage-brands">Rapid Hardware, All States</span></div>
+        <div class="stage-row"><span class="stage-category">Clotheslines</span><span class="stage-brands">Hills - AMES</span></div>
+        <div class="stage-row"><span class="stage-category">Lighting &amp; Electrical</span><span class="stage-brands">HPM - Legrand, Mirabella, Signify (Philips)</span></div>
+        <div class="stage-row"><span class="stage-category">Sheds / Carports</span><span class="stage-brands">Absco, Bluescope Lysaght</span></div>
+        <div class="stage-row"><span class="stage-category">Silicones &amp; Sealants</span><span class="stage-brands">Selleys, Sika, Soudal, Bostik</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="build-value">
+    <h3 class="headline">Average residential build value: $150,000*</h3>
+    <p class="body-text">*Source: HIA data</p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       HIVE DIVIDER
+       ══════════════════════════════════════════════════════════ -->
+  <div class="hive-divider">
+    <div class="hive-divider-line"></div>
+    <div class="hive-divider-hex"></div>
+    <div class="hive-divider-line"></div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE 3: STORE-SPECIFIC CAPABILITIES
+       ══════════════════════════════════════════════════════════ -->
+
+  <div class="full-bar" style="position:relative;">
+    <div class="screw" style="top:10px;right:10px;"></div>
+    <div class="screw" style="top:10px;left:10px;"></div>
+    <h2 class="headline">Kincumber. More than you think.</h2>
+  </div>
+
+  <div class="services-intro">
+    <p class="subheadline">Services and capabilities you might not know about - until now.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-card-header">
+        <span class="card-icon">&#128666;</span>
+        <span class="card-title">Delivery Services</span>
+      </div>
+      <div class="service-card-body">
+        <ul>
+          <li>Local delivery radius: <span class="tbc">[TBC - Matt N/S/E/W]</span></li>
+          <li>Tray-back ute: long lengths &amp; standard loads</li>
+          <li>Flatbed truck + Hiab: bulk &amp; heavy</li>
+          <li>2-man delivery team available</li>
+          <li>Sydney / Newcastle runs available</li>
+          <li>Direct-from-supplier delivery coordination</li>
+          <li>Uber Eats delivers boot-size goods <span class="aside">(yes, really)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card-header">
+        <span class="card-icon">&#9881;</span>
+        <span class="card-title">Kitchens &amp; Joinery</span>
+      </div>
+      <div class="service-card-body">
+        <ul>
+          <li>Partner: Principal Kitchens (Cost Plus 20%)</li>
+          <li>In-house kitchen designer (lite to premium)</li>
+          <li>Small to large-scale projects</li>
+          <li>Prefab or fully custom / modular cabinetry</li>
+          <li>Internal hardware &amp; fitout selections (Cost Plus 20%)</li>
+          <li>Fixed-price installs via TradePro partners</li>
+          <li>Free onsite measure &amp; quote with our installers</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card-header">
+        <span class="card-icon">&#128202;</span>
+        <span class="card-title">Estimating &amp; Support</span>
+      </div>
+      <div class="service-card-body">
+        <ul>
+          <li>BuildXact custom recipes: <strong>KM10TC</strong></li>
+          <li style="padding-left:22px;font-size:10px;">Doors &amp; windows through to full new home builds</li>
+          <li>2 in-house estimators + supplier estimating</li>
+          <li>Compatible: Buildxact / Buildertrend / Wunderbuild / BuildGrid</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card-header">
+        <span class="card-icon">&#128268;</span>
+        <span class="card-title">Digital Integrations</span>
+      </div>
+      <div class="service-card-body">
+        <ul>
+          <li>Xero Connect compatible</li>
+          <li>Trade Online portal (Mitre 10)</li>
+          <li>Compatible: Buildxact / TradeOnline / Wunderbuild</li>
+          <li>Amex: <strong>Zero merchant fees</strong> on Trade Debtor Accounts</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card-header">
+        <span class="card-icon">&#129309;</span>
+        <span class="card-title">Major Supply Partners</span>
+      </div>
+      <div class="service-card-body">
+        <ul>
+          <li><strong>Dulux</strong> Trade Paint Depot (onsite)</li>
+          <li><strong>James Hardie</strong> - Full Distributor &amp; Stockist</li>
+          <li><strong>Weathertex</strong> - Full Stockist</li>
+          <li><strong>My Tile Co</strong> - Tile Selection &amp; Supply</li>
+          <li><strong>No.1 Roofing</strong> Somersby</li>
+          <li><strong>Solar Systems / Smart Solar</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card-header">
+        <span class="card-icon">&#128295;</span>
+        <span class="card-title">Specialist Services</span>
+      </div>
+      <div class="service-card-body">
+        <ul>
+          <li><strong>STIHL</strong> - Full Sales &amp; Service Dealer</li>
+          <li><strong>Tool Doctor</strong> - Onsite repair (Trade Yard, 7 Kerta Rd)</li>
+          <li><strong>Weber</strong> - Specialist Dealer (Full Range)</li>
+          <li><strong>Yeti</strong> - Full Range Stockist</li>
+          <li>Pool water testing &amp; pool chemicals</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Pool Spending -->
+  <section class="pool-spending hex-bg">
+    <h2 class="headline">From timber to toys - we've got it sorted</h2>
+    <p class="body-text">The more you consolidate here, the less time you spend managing multiple supplier relationships. HIVE members who buy across categories - not just their primary trade - consistently save more time and more money.</p>
+  </section>
+
+  <!-- Store Sign-off -->
+  <div class="store-signoff">
+    <h3 class="headline">Proudly local. Supporting locals.</h3>
+    <p class="body-text">Kincumber Mitre 10 - <span class="tbc">[Store Address TBC]</span> - <span class="tbc">[Phone TBC]</span> - mitre10.com.au</p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       HIVE DIVIDER
+       ══════════════════════════════════════════════════════════ -->
+  <div class="hive-divider">
+    <div class="hive-divider-line"></div>
+    <div class="hive-divider-hex"></div>
+    <div class="hive-divider-line"></div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE 4: CTA
+       ══════════════════════════════════════════════════════════ -->
+
+  <section class="cta-page">
+    <div class="screw" style="top:14px;right:14px;"></div>
+    <div class="screw" style="top:14px;left:14px;"></div>
+
+    <h2 class="headline">Ready to start<br>buying smarter?</h2>
+    <p class="body-text">Talk to the Mitre 10 Kincumber trade team about setting up your HIVE account today. Pricing is loaded. Access is immediate. And there's no catch.</p>
+
+    <div class="cta-buttons">
+      <a class="cta-btn" href="#">
+        <span class="btn-icon">&#127978;</span>
+        <div>In Store<span class="btn-detail">7 Kerta Road, Kincumber</span></div>
+      </a>
+      <a class="cta-btn" href="https://mitre10.com.au" target="_blank" rel="noopener">
+        <span class="btn-icon">&#127760;</span>
+        <div>Online<span class="btn-detail">mitre10.com.au</span></div>
+      </a>
+      <a class="cta-btn" href="#">
+        <span class="btn-icon">&#11042;</span>
+        <div>Join HIVE<span class="btn-detail">[Sign-up URL TBC]</span></div>
+      </a>
+    </div>
+
+    <div class="partnership-badge">
+      <div class="badge-hex"></div>
+      <div class="badge-connector"></div>
+      <div class="badge-screw"></div>
+    </div>
+
+    <div class="cta-logos">
+      <img src="../../Resources/Mitre10 Kincumber Brochure/Mitre10 TRADE.jpg" alt="Mitre 10 Trade" class="m10-logo">
+      <span class="hive-badge"><span class="hive-badge-hex"></span> Powered by HIVE</span>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       HIVE FRAME: FOOTER (consistent across all brochures)
+       ══════════════════════════════════════════════════════════ -->
+  <div class="hive-footer">
+    <div class="hive-footer-left">
+      <img src="../../Resources/Mitre10 Kincumber Brochure/GHEXYH.png" alt="HIVE" class="hive-footer-logo">
+      <span class="hive-footer-text"><strong>Stick with the Hive. Save like the big guys.</strong></span>
+    </div>
+    <span class="hive-footer-right">HIVE Trade Network Pty Ltd &middot; ABN 21 683 196 018</span>
+  </div>
+
+</div>
+
+</body>
+</html>
