@@ -158,6 +158,15 @@
     .reveal-delay-1{transition-delay:100ms;}.reveal-delay-2{transition-delay:200ms;}.reveal-delay-3{transition-delay:300ms;}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;}.reveal{opacity:1;transform:none;}}
+    .statement-strip{padding:26px var(--space-7);display:flex;align-items:center;justify-content:center;text-align:center;}
+    .statement-strip__text{font-family:var(--font-heading);font-weight:800;font-size:clamp(1rem,2.5vw,1.55rem);text-transform:uppercase;letter-spacing:-0.01em;line-height:1.15;}
+    .statement-strip--yellow{background:var(--fluro-yellow);color:var(--deep-green-dark);}
+    .statement-strip--teal{background:var(--deep-green);color:var(--fluro-yellow);}
+    .statement-strip--light{background:var(--off-white);color:var(--deep-green);border-top:1px solid rgba(11,69,80,0.08);border-bottom:1px solid rgba(11,69,80,0.08);}
+    .back-office-section{background:var(--deep-green-dark);}
+    .back-office-section__headline{color:var(--white);margin-bottom:var(--space-6);}
+    .back-office-section__body{max-width:760px;}
+    .back-office-section__body p{color:rgba(255,255,255,0.72);font-size:1.05rem;line-height:1.75;}
   </style>
 </head>
 <body>
@@ -231,6 +240,26 @@
         </div>
       </div>
     </section>
+
+    <div class="statement-strip statement-strip--teal">
+      <p class="statement-strip__text">Built for the trade. Run by people who know it.</p>
+    </div>
+
+    <!-- BACK OFFICE PROBLEM -->
+    <section class="back-office-section section-pad" aria-label="The back-office problem">
+      <div class="container">
+        <span class="section-label section-label--light reveal">The other half</span>
+        <h2 class="back-office-section__headline reveal">Most tradies are running two businesses.<br>Nobody signed up for the second one.</h2>
+        <div class="back-office-section__body">
+          <p class="reveal">The pricing problem gets all the attention. But quietly bleeding just as much is everything that happens after the job &mdash; the bookkeeping, the BAS, the payroll, the invoicing, the chasing, the reconciling. Somebody's doing it. More often than not, it's the tradie's partner. The backbone of the back-office. Fitting it around their own day, waiting on answers from site, working with software they were never trained on, and trying to hold the whole thing together &mdash; on top of everything else they're already carrying.</p>
+          <p class="reveal" style="margin-top:var(--space-5);">Through our partnership with Beyond Bookkeeping, every member gets a free Financial Health Assessment and Systems Health Score &mdash; a full audit of your numbers, your software, and your processes. Then we get everything set up properly: accounting software connected, Buildxact integrated, payroll automated. So whoever's been carrying that load can finally put it down and get back to the work that actually pays.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="statement-strip statement-strip--light">
+      <p class="statement-strip__text">Your craft built the business. HIVE helps you run it smarter.</p>
+    </div>
 
     <!-- WHO WE ARE -->
     <section class="who-section honeycomb-bg section-pad" aria-label="Who we are">
@@ -349,6 +378,10 @@
         </div>
       </div>
     </section>
+
+    <div class="statement-strip statement-strip--yellow">
+      <p class="statement-strip__text">This is what a well-run trade business looks like.</p>
+    </div>
 
     <!-- CTA BAR -->
     <section class="cta-bar honeycomb-light honeycomb-bg" aria-label="Join HIVE">

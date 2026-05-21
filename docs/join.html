@@ -214,6 +214,16 @@
     .reveal-delay-1{transition-delay:100ms;} .reveal-delay-2{transition-delay:200ms;} .reveal-delay-3{transition-delay:300ms;}
     .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;} .reveal{opacity:1;transform:none;}}
+    .statement-strip{padding:26px var(--space-7);display:flex;align-items:center;justify-content:center;text-align:center;}
+    .statement-strip__text{font-family:var(--font-heading);font-weight:800;font-size:clamp(1rem,2.5vw,1.55rem);text-transform:uppercase;letter-spacing:-0.01em;line-height:1.15;}
+    .statement-strip--yellow{background:var(--fluro-yellow);color:var(--deep-green-dark);}
+    .statement-strip--teal{background:var(--deep-green);color:var(--fluro-yellow);}
+    .statement-strip--light{background:var(--off-white);color:var(--deep-green);border-top:1px solid rgba(11,69,80,0.08);border-bottom:1px solid rgba(11,69,80,0.08);}
+    .prereq-block{background:rgba(230,255,43,0.08);border:1.5px solid rgba(230,255,43,0.25);border-radius:var(--radius-lg);padding:var(--space-5) var(--space-6);margin-bottom:var(--space-7);}
+    .prereq-block__label{font-family:var(--font-heading);font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:var(--fluro-yellow);margin-bottom:var(--space-3);}
+    .prereq-block__items{display:flex;flex-wrap:wrap;gap:var(--space-3);}
+    .prereq-item{display:flex;align-items:center;gap:var(--space-2);font-size:0.9rem;font-weight:500;color:var(--fluro-yellow);background:rgba(255,255,255,0.06);border:1px solid rgba(230,255,43,0.2);border-radius:var(--radius-md);padding:8px 14px;}
+    .prereq-block__note{margin-top:var(--space-3);font-size:0.85rem;color:rgba(255,255,255,0.55);font-style:italic;}
   </style>
 </head>
 <body>
@@ -277,10 +287,19 @@
             </div>
             <div>
               <div class="benefit-card__title">Exclusive trade discounts</div>
-              <div class="benefit-card__desc">Top-tier pricing with vetted suppliers — the kind usually reserved for the big end of town.</div>
+              <div class="benefit-card__desc">Top-tier pricing with vetted suppliers &mdash; the kind usually reserved for the big end of town.</div>
             </div>
           </div>
           <div class="benefit-card reveal reveal-delay-2">
+            <div class="benefit-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><line x1="12" y1="8" x2="5" y2="16"/><line x1="12" y1="8" x2="19" y2="16"/></svg>
+            </div>
+            <div>
+              <div class="benefit-card__title">Access to the full supplier network</div>
+              <div class="benefit-card__desc">Hardware, plumbing, electrical, equipment hire, waste removal, and more &mdash; one membership, every door open.</div>
+            </div>
+          </div>
+          <div class="benefit-card reveal reveal-delay-1">
             <div class="benefit-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             </div>
@@ -289,34 +308,34 @@
               <div class="benefit-card__desc">Every supplier is vetted before they join. We hold the line on quality, terms, and fairness so you don't have to.</div>
             </div>
           </div>
-          <div class="benefit-card reveal reveal-delay-1">
+          <div class="benefit-card reveal reveal-delay-2">
             <div class="benefit-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             </div>
             <div>
               <div class="benefit-card__title">Better margins, same prices</div>
-              <div class="benefit-card__desc">Your buy price drops — your client price stays the same. That gap is pure margin.</div>
-            </div>
-          </div>
-          <div class="benefit-card reveal reveal-delay-2">
-            <div class="benefit-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <div>
-              <div class="benefit-card__title">Less time quoting</div>
-              <div class="benefit-card__desc">Stop spending smoko chasing quotes. Deals are locked in — you just place the order.</div>
+              <div class="benefit-card__desc">Your buy price drops &mdash; your client price stays the same. That gap is pure margin.</div>
             </div>
           </div>
           <div class="benefit-card reveal reveal-delay-1">
             <div class="benefit-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
             </div>
             <div>
-              <div class="benefit-card__title">Keep your own suppliers</div>
-              <div class="benefit-card__desc">We won't force you to change a thing. But when you see the deals on offer, you'll want to.</div>
+              <div class="benefit-card__title">A free financial health check</div>
+              <div class="benefit-card__desc">Beyond Bookkeeping audits your numbers and systems. You get a full Financial Performance Report and Systems Health Score &mdash; free for every member.</div>
             </div>
           </div>
           <div class="benefit-card reveal reveal-delay-2">
+            <div class="benefit-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <div>
+              <div class="benefit-card__title">Integrated from day one</div>
+              <div class="benefit-card__desc">Accounting software, Buildxact, payroll &mdash; all connected, all running in sync. A back-office that runs itself so you can spend less time behind a desk and more time on the tools doing what you love &mdash; or building the business you've always wanted.</div>
+            </div>
+          </div>
+          <div class="benefit-card reveal reveal-delay-1">
             <div class="benefit-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
@@ -333,33 +352,75 @@
     </section>
 
     <!-- HOW IT WORKS -->
+    <div class="statement-strip statement-strip--teal">
+      <p class="statement-strip__text">Founding crew. First in, first served.</p>
+    </div>
+
     <section class="steps-section honeycomb-bg section-pad" aria-label="How joining works">
       <div class="container">
-        <span class="section-label section-label--light reveal">The process</span>
-        <h2 class="steps-section__headline reveal">How it works in 3 steps</h2>
-        <p class="steps-section__sub reveal">No paperwork nightmares. No switching suppliers if you don't want to.</p>
+        <span class="section-label section-label--light reveal">How it works</span>
+        <h2 class="steps-section__headline reveal">How joining HIVE works</h2>
+        <p class="steps-section__sub reveal">No shortcuts. No fluff. Here's exactly what happens from the moment you sign up.</p>
+        <div class="prereq-block reveal">
+          <div class="prereq-block__label">Before you start &mdash; what you'll need</div>
+          <div class="prereq-block__items">
+            <div class="prereq-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Accounting software &mdash; Xero, QuickBooks, or MYOB
+            </div>
+            <div class="prereq-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Job management &mdash; Buildxact or equivalent
+            </div>
+          </div>
+          <p class="prereq-block__note">Not set up yet? That's fine &mdash; we'll help you get sorted as part of the process.</p>
+        </div>
         <div class="steps-list">
           <div class="step-row reveal">
             <div class="step-row__num" aria-hidden="true">1</div>
             <div class="step-row__content">
-              <div class="step-row__title">Join the Hive</div>
-              <p class="step-row__desc">Free, fast, obligation-free. Tell us about your business and what materials you buy. We capture what you're paying today - so you can see exactly what HIVE saves you over time.</p>
+              <div class="step-row__title">Deep dive questionnaire</div>
+              <p class="step-row__desc">No shortcuts. We go through your business in detail &mdash; your trade, your team, your current suppliers, what you're spending and where, how your books are sitting, what your goals are. This is how we find every move to put money back on the table. The more you give us, the better your plan.</p>
             </div>
           </div>
           <div class="step-connector" aria-hidden="true"></div>
           <div class="step-row reveal reveal-delay-1">
             <div class="step-row__num" aria-hidden="true">2</div>
             <div class="step-row__content">
-              <div class="step-row__title">Access better deals</div>
-              <p class="step-row__desc">Based on your trade, material needs, and spend, we match you with the right suppliers and introduce you directly to your supply partner reps. No middleman. No runaround.</p>
+              <div class="step-row__title">Your HIVE plan gets built</div>
+              <p class="step-row__desc">Beyond Bookkeeping takes your questionnaire data and gets to work &mdash; running a full Financial Health Assessment across your balance sheet, cash flow, margins, super obligations, and BAS status, benchmarked against your trade sector. Your systems get scored across six dimensions. You receive a Financial Performance Report and Systems Health Score. Parts 1 and 2 are free to every HIVE member.</p>
             </div>
           </div>
           <div class="step-connector" aria-hidden="true"></div>
           <div class="step-row reveal reveal-delay-2">
             <div class="step-row__num" aria-hidden="true">3</div>
             <div class="step-row__content">
-              <div class="step-row__title">Get back on the tools</div>
-              <p class="step-row__desc">Save money, win more work, spend less time shopping around. No paperwork nightmares. No switching suppliers if you don't want to.</p>
+              <div class="step-row__title">Connect your accounting software</div>
+              <p class="step-row__desc">Whether you're on Xero, QuickBooks, or MYOB, we get it connected and clean. Purchases, invoices, reconciliation &mdash; all flowing automatically. Automatic super payments, BAS tracking, ATO compliance indicators. No manual entry. No end-of-month scramble.</p>
+            </div>
+          </div>
+          <div class="step-connector" aria-hidden="true"></div>
+          <div class="step-row reveal">
+            <div class="step-row__num" aria-hidden="true">4</div>
+            <div class="step-row__content">
+              <div class="step-row__title">Get Buildxact integrated and loaded</div>
+              <p class="step-row__desc">We load your HIVE supplier price lists directly into Buildxact. From there, Buildxact handles the full workflow: running your takeoffs from plans, auto-generating your bill of materials, converting estimates to customer-ready quotes, and firing off purchase orders ready for your suppliers.</p>
+            </div>
+          </div>
+          <div class="step-connector" aria-hidden="true"></div>
+          <div class="step-row reveal reveal-delay-1">
+            <div class="step-row__num" aria-hidden="true">5</div>
+            <div class="step-row__content">
+              <div class="step-row__title">Full access to the HIVE supplier network</div>
+              <p class="step-row__desc">As a HIVE member, you're granted access to every supply partner in the network. Not a curated shortlist. Not a limited selection based on your trade. Every vetted HIVE supplier, every category, every deal &mdash; your membership is your key in.</p>
+            </div>
+          </div>
+          <div class="step-connector" aria-hidden="true"></div>
+          <div class="step-row reveal reveal-delay-2">
+            <div class="step-row__num" aria-hidden="true">6</div>
+            <div class="step-row__content">
+              <div class="step-row__title">From here, the game changes.</div>
+              <p class="step-row__desc">Every part of the system is firing. HIVE pricing at the counter, books automated, super sorted. Buildxact handling your quoting, bill of materials, and purchase orders. Beyond Bookkeeping has your back-office built the right way &mdash; automated, integrated, systemised. You know your margins. You know exactly what you're saving. You're quoting sharper, buying smarter, and running leaner than the bloke next to you who's still doing it the old way.<br><br>You've been leaving money on the table long enough. The system's set. The pricing's live. Now let's go get it back.</p>
             </div>
           </div>
         </div>
@@ -367,6 +428,10 @@
     </section>
 
     <!-- ELIGIBILITY + REGISTER -->
+    <div class="statement-strip statement-strip--light">
+      <p class="statement-strip__text">Five minutes to fill in. A lifetime of better buying.</p>
+    </div>
+
     <section class="eligibility-section section-pad" id="register" aria-label="Eligibility and registration">
       <div class="container">
         <div class="eligibility-section__grid">

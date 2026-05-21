@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="HIVE Trade Network — collective buying power for independent Australian tradies. No cost, no catch. Just better deals.">
-  <title>HIVE Trade Network — Stick with the Hive. Save like the big guys.</title>
+  <title>HIVE Trade Network — Big builders get big discounts. Now so do you.</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1253,6 +1253,11 @@
         transition-duration: 0.01ms !important;
       }
     }
+    .statement-strip{padding:26px var(--space-7);display:flex;align-items:center;justify-content:center;text-align:center;}
+    .statement-strip__text{font-family:var(--font-heading);font-weight:800;font-size:clamp(1rem,2.5vw,1.55rem);text-transform:uppercase;letter-spacing:-0.01em;line-height:1.15;}
+    .statement-strip--yellow{background:var(--fluro-yellow);color:var(--deep-green-dark);}
+    .statement-strip--teal{background:var(--deep-green);color:var(--fluro-yellow);}
+    .statement-strip--light{background:var(--off-white);color:var(--deep-green);border-top:1px solid rgba(11,69,80,0.08);border-bottom:1px solid rgba(11,69,80,0.08);}
   </style>
 </head>
 <body>
@@ -1329,15 +1334,15 @@
 
             <h1 class="hero__title" id="heroTitle">
               <span class="hero__line" id="heroLine1">
-                <span class="word">Stick</span> <span class="word">with</span> <span class="word">the</span> <span class="word">Hive.</span>
+                <span class="word">Big</span> <span class="word">builders</span> <span class="word">get</span> <span class="word">big</span> <span class="word">discounts.</span>
               </span>
               <span class="hero__line hero__line--accent" id="heroLine2">
-                <span class="word">Save</span> <span class="word">like</span> <span class="word">the</span> <span class="word">big</span> <span class="word">guys.</span>
+                <span class="word">Now</span> <span class="word">so</span> <span class="word">do</span> <span class="word">you.</span>
               </span>
             </h1>
 
             <p class="hero__subtitle" id="heroSubtitle">
-              We bring the buying power of the big end of town to small trade businesses. No cost, no catch, no fluff.
+              Most trade businesses are leaving money on the table twice &mdash; once at the supplier, once in the back-office. HIVE closes both gaps. Better prices through collective buying power. Better margins through cleaner systems, sharper bookkeeping, and less time buried in admin.<br><em style="opacity:0.5;font-size:0.88em;">Founding crew intake open.</em>
             </p>
 
             <span class="hero__fork-label" id="heroForkLabel">Who are you?</span>
@@ -1406,6 +1411,10 @@
       </div>
     </section>
 
+    <div class="statement-strip statement-strip--yellow">
+      <p class="statement-strip__text">You're a small business. Your prices don't have to be.</p>
+    </div>
+
     <!-- ============================================================
          WHY HIVE
     ============================================================ -->
@@ -1419,7 +1428,7 @@
           You're flat out.<br>Materials are up.<br>Margins are down.
         </h2>
         <p class="why-hive__body gsap-hidden">
-          HIVE was built to fix that. We combine the spend of good operators like you to unlock exclusive trade discounts, fairer supplier terms, and real savings &mdash; without you having to do a thing.
+          HIVE was built to fix both halves. We pool the spend of good operators like you to unlock the pricing, deals, and supplier terms that the big end of town takes for granted. Then we help you get the right systems in place &mdash; bookkeeping, job management, accounts &mdash; so the back-office stops eating what you just saved. Most tradies leave money on the table twice. HIVE closes both gaps.
         </p>
         <div class="fast-facts">
           <div class="fast-fact gsap-hidden">
@@ -1452,6 +1461,10 @@
         </div>
       </div>
     </section>
+
+    <div class="statement-strip statement-strip--teal">
+      <p class="statement-strip__text">Better buying. Better bookkeeping. Better business.</p>
+    </div>
 
     <!-- ============================================================
          HOW IT WORKS
@@ -1495,6 +1508,10 @@
         </div>
       </div>
     </section>
+
+    <div class="statement-strip statement-strip--light">
+      <p class="statement-strip__text">Collective buying power. Individual results.</p>
+    </div>
 
     <!-- ============================================================
          MEMBER BENEFITS
@@ -1600,6 +1617,10 @@
         </div>
       </div>
     </section>
+
+    <div class="statement-strip statement-strip--yellow">
+      <p class="statement-strip__text">Every dollar you save on materials goes straight to your margin. Keep it.</p>
+    </div>
 
     <!-- ============================================================
          MAIN CTA

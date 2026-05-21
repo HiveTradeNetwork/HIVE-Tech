@@ -175,6 +175,11 @@
     .reveal-delay-1{transition-delay:100ms;}.reveal-delay-2{transition-delay:200ms;}.reveal-delay-3{transition-delay:300ms;}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;}.reveal{opacity:1;transform:none;}}
+    .statement-strip{padding:26px var(--space-7);display:flex;align-items:center;justify-content:center;text-align:center;}
+    .statement-strip__text{font-family:var(--font-heading);font-weight:800;font-size:clamp(1rem,2.5vw,1.55rem);text-transform:uppercase;letter-spacing:-0.01em;line-height:1.15;}
+    .statement-strip--yellow{background:var(--fluro-yellow);color:var(--deep-green-dark);}
+    .statement-strip--teal{background:var(--deep-green);color:var(--fluro-yellow);}
+    .statement-strip--light{background:var(--off-white);color:var(--deep-green);border-top:1px solid rgba(11,69,80,0.08);border-bottom:1px solid rgba(11,69,80,0.08);}
   </style>
 </head>
 <body>
@@ -298,6 +303,10 @@
     </section>
 
     <!-- WHAT WE LOOK FOR -->
+    <div class="statement-strip statement-strip--yellow">
+      <p class="statement-strip__text">Quality buyers. Long-term loyalty. None of the chasing.</p>
+    </div>
+
     <section class="looking-section honeycomb-bg section-pad" aria-label="What we look for in a supplier">
       <div class="container">
         <div class="looking-section__grid">
